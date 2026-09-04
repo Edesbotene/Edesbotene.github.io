@@ -1,1 +1,2036 @@
-Em construção.
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfólio comercial de Edes Botene: soluções digitais, dashboards, sistemas internos e automações para gestão empresarial." />
+  <meta name="author" content="Edes Botene" />
+  <title>Edes Botene | Soluções digitais, dashboards e automações</title>
+  <style>
+    :root {
+      --bg: #08111f;
+      --bg-2: #0d1728;
+      --surface: rgba(255, 255, 255, 0.07);
+      --surface-strong: rgba(255, 255, 255, 0.12);
+      --text: #edf5ff;
+      --muted: #a9b7c9;
+      --soft: #d7e2ef;
+      --line: rgba(255, 255, 255, 0.14);
+      --brand: #37d7b2;
+      --brand-2: #59a8ff;
+      --accent: #ffcf70;
+      --danger: #ff7676;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+      --radius: 8px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(55, 215, 178, 0.18), transparent 28rem),
+        radial-gradient(circle at 82% 2%, rgba(89, 168, 255, 0.2), transparent 27rem),
+        linear-gradient(180deg, var(--bg), #0a1322 48%, #070d18);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(100% - 40px, var(--max));
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 12px;
+      z-index: 20;
+      padding: 10px 14px;
+      background: var(--brand);
+      color: #03120f;
+      border-radius: var(--radius);
+      font-weight: 800;
+    }
+
+    .skip-link:focus {
+      left: 12px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(8, 17, 31, 0.78);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 850;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid rgba(55, 215, 178, 0.45);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(55, 215, 178, 0.2), rgba(89, 168, 255, 0.16));
+      color: var(--brand);
+      box-shadow: 0 0 0 6px rgba(55, 215, 178, 0.06);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 650;
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: var(--radius);
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      margin: 5px auto;
+      background: currentColor;
+      transition: 0.2s ease;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 86px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.94fr);
+      align-items: center;
+      gap: 54px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      padding: 8px 12px;
+      border: 1px solid rgba(55, 215, 178, 0.35);
+      border-radius: 999px;
+      background: rgba(55, 215, 178, 0.08);
+      color: #baf8e8;
+      font-size: 0.87rem;
+      font-weight: 750;
+    }
+
+    .pulse {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--brand);
+      box-shadow: 0 0 0 7px rgba(55, 215, 178, 0.13);
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: clamp(2.55rem, 6vw, 5.8rem);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .gradient-text {
+      color: transparent;
+      background: linear-gradient(92deg, var(--brand), var(--brand-2) 52%, #f8df9c);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      margin-top: 24px;
+      color: var(--soft);
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+    }
+
+    .hero-actions,
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      font-weight: 800;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: #021522;
+      box-shadow: 0 16px 35px rgba(55, 215, 178, 0.2);
+    }
+
+    .btn-secondary {
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255, 255, 255, 0.32);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-whatsapp {
+      border-color: rgba(55, 215, 178, 0.5);
+      background: rgba(55, 215, 178, 0.12);
+      color: #cbfff2;
+    }
+
+    .btn svg,
+    .contact-link svg {
+      flex: 0 0 auto;
+      display: block;
+      width: 20px;
+      height: 20px;
+    }
+
+    .hero-panel {
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05)),
+        rgba(9, 20, 36, 0.78);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 750;
+    }
+
+    .dots {
+      display: flex;
+      gap: 7px;
+    }
+
+    .dots i {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--brand);
+      opacity: 0.9;
+    }
+
+    .dots i:nth-child(2) {
+      background: var(--accent);
+    }
+
+    .dots i:nth-child(3) {
+      background: var(--danger);
+    }
+
+    .dashboard-preview {
+      padding: 22px;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .metric {
+      min-height: 102px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .metric small {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .metric span {
+      color: var(--brand);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .chart-shell {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .bar-chart,
+    .status-list {
+      min-height: 230px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      background: rgba(5, 12, 24, 0.42);
+      padding: 16px;
+    }
+
+    .bars {
+      display: flex;
+      align-items: end;
+      gap: 12px;
+      height: 172px;
+      margin-top: 12px;
+    }
+
+    .bar {
+      flex: 1;
+      min-width: 18px;
+      border-radius: 6px 6px 0 0;
+      background: linear-gradient(180deg, var(--brand-2), var(--brand));
+      opacity: 0.88;
+      animation: rise 0.9s ease both;
+    }
+
+    .bar:nth-child(2) { animation-delay: 0.08s; }
+    .bar:nth-child(3) { animation-delay: 0.16s; }
+    .bar:nth-child(4) { animation-delay: 0.24s; }
+    .bar:nth-child(5) { animation-delay: 0.32s; }
+    .bar:nth-child(6) { animation-delay: 0.4s; }
+
+    @keyframes rise {
+      from { height: 0; opacity: 0.2; }
+    }
+
+    .status-list h3,
+    .bar-chart h3 {
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .status-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--soft);
+      font-size: 0.92rem;
+    }
+
+    .status-item:last-child {
+      border-bottom: 0;
+    }
+
+    .status-pill {
+      flex: 0 0 auto;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(55, 215, 178, 0.12);
+      color: #baf8e8;
+      font-size: 0.72rem;
+      font-weight: 850;
+    }
+
+    .hero-showcase {
+      position: relative;
+      min-height: 590px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(145deg, rgba(55, 215, 178, 0.16), rgba(89, 168, 255, 0.09) 42%, rgba(255, 207, 112, 0.08));
+      background-size: 34px 34px, 34px 34px, auto;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      isolation: isolate;
+      transform-style: preserve-3d;
+    }
+
+    .hero-showcase::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, transparent 0 38%, rgba(255, 255, 255, 0.16) 48%, transparent 58% 100%);
+      animation: scan 4.6s ease-in-out infinite;
+      opacity: 0.65;
+      z-index: -1;
+    }
+
+    .hero-showcase::after {
+      content: "";
+      position: absolute;
+      inset: auto 24px 24px 24px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(55, 215, 178, 0.85), rgba(89, 168, 255, 0.78), transparent);
+      box-shadow: 0 0 24px rgba(55, 215, 178, 0.55);
+    }
+
+    @keyframes scan {
+      0%, 100% { transform: translateX(-62%); }
+      50% { transform: translateX(62%); }
+    }
+
+    .showcase-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(8, 17, 31, 0.58);
+      backdrop-filter: blur(10px);
+    }
+
+    .showcase-header strong {
+      display: block;
+      font-size: 0.98rem;
+      line-height: 1.2;
+    }
+
+    .showcase-header > div > span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .live-badge {
+      display: inline-flex;
+      flex: 0 0 auto;
+      white-space: nowrap;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border: 1px solid rgba(55, 215, 178, 0.32);
+      border-radius: 999px;
+      background: rgba(55, 215, 178, 0.1);
+      color: #baf8e8;
+      font-size: 0.76rem;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .showcase-body {
+      position: relative;
+      min-height: 516px;
+      padding: 22px;
+    }
+
+    .flow-card {
+      position: absolute;
+      width: 166px;
+      min-height: 142px;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      background: rgba(8, 17, 31, 0.78);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.24);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .flow-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(55, 215, 178, 0.45);
+    }
+
+    .flow-card small {
+      color: var(--brand);
+      font-size: 0.68rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .flow-card strong {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.94rem;
+      line-height: 1.16;
+    }
+
+    .flow-card p {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.3;
+    }
+
+    .flow-card.one { top: 26px; left: 22px; }
+    .flow-card.two { top: 42px; right: 22px; }
+    .flow-card.three { bottom: 128px; left: 24px; }
+    .flow-card.four { bottom: 112px; right: 26px; }
+
+    .engine-core {
+      position: absolute;
+      inset: 50%;
+      display: grid;
+      width: 214px;
+      height: 214px;
+      place-items: center;
+      transform: translate(-50%, -50%);
+    }
+
+    .engine-ring {
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(55, 215, 178, 0.42);
+      border-radius: 50%;
+      animation: spin 14s linear infinite;
+    }
+
+    .engine-ring:nth-child(2) {
+      inset: 24px;
+      border-color: rgba(89, 168, 255, 0.38);
+      animation-duration: 10s;
+      animation-direction: reverse;
+    }
+
+    .engine-ring:nth-child(3) {
+      inset: 48px;
+      border-color: rgba(255, 207, 112, 0.34);
+      animation-duration: 7s;
+    }
+
+    .engine-ring::before,
+    .engine-ring::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      background: var(--brand);
+      box-shadow: 0 0 20px rgba(55, 215, 178, 0.76);
+    }
+
+    .engine-ring::before {
+      top: -5px;
+      left: 50%;
+    }
+
+    .engine-ring::after {
+      bottom: 18px;
+      right: 22px;
+      background: var(--brand-2);
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .engine-center {
+      position: relative;
+      display: grid;
+      width: 108px;
+      height: 108px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      background: linear-gradient(145deg, rgba(55, 215, 178, 0.24), rgba(89, 168, 255, 0.16));
+      color: var(--text);
+      text-align: center;
+      box-shadow: 0 0 48px rgba(55, 215, 178, 0.22);
+    }
+
+    .engine-center strong {
+      font-size: 1.65rem;
+      line-height: 1;
+    }
+
+    .engine-center span {
+      margin-top: 7px;
+      color: #cbfff2;
+      font-size: 0.68rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .signal-line {
+      position: absolute;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(55, 215, 178, 0.85), transparent);
+      transform-origin: left center;
+      opacity: 0.68;
+    }
+
+    .signal-line.a { width: 168px; left: 128px; top: 120px; transform: rotate(18deg); }
+    .signal-line.b { width: 158px; right: 126px; top: 148px; transform: rotate(156deg); }
+    .signal-line.c { width: 166px; left: 124px; bottom: 206px; transform: rotate(-22deg); }
+    .signal-line.d { width: 146px; right: 126px; bottom: 192px; transform: rotate(202deg); }
+
+    .showcase-footer {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .mini-kpi {
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      background: rgba(3, 10, 20, 0.46);
+    }
+
+    .mini-kpi small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 750;
+    }
+
+    .mini-kpi strong {
+      display: block;
+      margin-top: 5px;
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1;
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 30px;
+    }
+
+    .section-kicker {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--brand);
+      font-size: 0.82rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    h2 {
+      max-width: 760px;
+      font-size: clamp(1.9rem, 3.2vw, 3.1rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .section-text {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .profile-card,
+    .text-panel,
+    .card,
+    .solution-card,
+    .project-card,
+    .contact-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.045));
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.18);
+    }
+
+    .profile-card {
+      padding: 26px;
+    }
+
+    .profile-name {
+      margin-top: 18px;
+      font-size: 1.75rem;
+      line-height: 1.1;
+    }
+
+    .profile-role {
+      margin-top: 8px;
+      color: var(--muted);
+    }
+
+    .profile-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .profile-stat {
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .profile-stat strong {
+      display: block;
+      color: var(--accent);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .profile-stat span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .text-panel {
+      display: grid;
+      gap: 16px;
+      padding: 30px;
+      color: var(--soft);
+      font-size: 1.02rem;
+    }
+
+    .highlight-line {
+      padding-left: 18px;
+      border-left: 3px solid var(--brand);
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      min-height: 168px;
+      padding: 18px;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .card:hover,
+    .solution-card:hover,
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(55, 215, 178, 0.36);
+      background: linear-gradient(180deg, rgba(55, 215, 178, 0.1), rgba(255, 255, 255, 0.045));
+    }
+
+    .icon {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      margin-bottom: 14px;
+      border: 1px solid rgba(55, 215, 178, 0.28);
+      border-radius: var(--radius);
+      background: rgba(55, 215, 178, 0.09);
+      color: var(--brand);
+    }
+
+    .card h3,
+    .solution-card h3 {
+      margin-bottom: 8px;
+      font-size: 1rem;
+      line-height: 1.25;
+    }
+
+    .card p,
+    .solution-card p,
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .solution-card {
+      padding: 20px;
+    }
+
+    .solution-card .label {
+      display: inline-flex;
+      margin-bottom: 14px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(89, 168, 255, 0.12);
+      color: #c7ddff;
+      font-size: 0.74rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .project-card {
+      overflow: hidden;
+    }
+
+    .project-media {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(55, 215, 178, 0.18), rgba(89, 168, 255, 0.12)),
+        #0d1828;
+      cursor: zoom-in;
+    }
+
+    .project-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 10px;
+      transition: transform 0.35s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .project-placeholder {
+      display: none;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .project-placeholder.is-visible {
+      display: flex;
+    }
+
+    .placeholder-box {
+      width: min(82%, 300px);
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius);
+      background: rgba(7, 15, 28, 0.62);
+    }
+
+    .placeholder-box strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .placeholder-box span {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .project-content {
+      padding: 18px;
+    }
+
+    .project-content h3 {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+      line-height: 1.28;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag,
+    .skill-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.055);
+      color: var(--soft);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .workflow-timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .timeline-step::before {
+      content: "";
+      position: absolute;
+      left: 52px;
+      width: calc(100% - 16px);
+      top: 33px;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(55, 215, 178, 0.9), rgba(89, 168, 255, 0.85), rgba(255, 207, 112, 0.7));
+      opacity: 0.7;
+    }
+
+    .timeline-step:nth-child(4n)::before {
+      display: none;
+    }
+
+    .timeline-step {
+      position: relative;
+      padding: 66px 18px 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.04));
+      min-height: 196px;
+    }
+
+    .timeline-index {
+      position: absolute;
+      left: 18px;
+      top: 17px;
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid rgba(55, 215, 178, 0.44);
+      border-radius: 8px;
+      background: #0b1728;
+      color: var(--brand);
+      font-weight: 900;
+      z-index: 1;
+    }
+
+    .timeline-step h3 {
+      margin-bottom: 8px;
+      font-size: 1rem;
+      line-height: 1.24;
+    }
+
+    .timeline-step p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      background: rgba(3, 8, 16, 0.86);
+      backdrop-filter: blur(16px);
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      width: min(1120px, 100%);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      background: #08111f;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .lightbox-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .lightbox-top strong {
+      font-size: 0.98rem;
+    }
+
+    .lightbox-close {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    .lightbox img {
+      width: 100%;
+      max-height: 78vh;
+      object-fit: contain;
+      background: #050b14;
+    }
+
+    .skills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-tag {
+      min-height: 38px;
+      padding: 8px 12px;
+    }
+
+    .differential {
+      position: relative;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(90deg, rgba(55, 215, 178, 0.12), transparent 35%, rgba(89, 168, 255, 0.1)),
+        rgba(255, 255, 255, 0.025);
+    }
+
+    .differential-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .process-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .process-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .process-number {
+      display: grid;
+      flex: 0 0 auto;
+      width: 32px;
+      height: 32px;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(55, 215, 178, 0.15);
+      color: var(--brand);
+      font-weight: 900;
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+      padding: 34px;
+      background:
+        linear-gradient(135deg, rgba(55, 215, 178, 0.13), rgba(89, 168, 255, 0.08)),
+        rgba(255, 255, 255, 0.055);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: var(--radius);
+      background: rgba(3, 10, 20, 0.34);
+      color: var(--soft);
+      font-weight: 750;
+      transition: 0.2s ease;
+    }
+
+    .contact-link span:first-child {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-link:hover {
+      border-color: rgba(55, 215, 178, 0.38);
+      color: var(--text);
+      transform: translateX(3px);
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 30;
+      display: grid;
+      width: 56px;
+      height: 56px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 50%;
+      background: #128c52;
+      color: #ffffff;
+      box-shadow: 0 18px 45px rgba(55, 215, 178, 0.28);
+      transition: transform 0.2s ease;
+    }
+
+    .floating-whatsapp:hover {
+      transform: translateY(-4px);
+      background: #0f7846;
+    }
+
+    .floating-whatsapp svg {
+      display: block;
+      width: 28px;
+      height: 28px;
+    }
+
+    .site-footer {
+      padding: 26px 0 34px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1060px) {
+      .timeline-step:nth-child(2n)::before {
+        display: none;
+      }
+      .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .projects-grid,
+      .solutions-grid,
+      .workflow-timeline {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-grid,
+      .about-grid,
+      .differential-grid,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-panel {
+        max-width: 760px;
+      }
+
+      .hero-showcase {
+        max-width: 760px;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .container {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        inset: 72px 14px auto;
+        display: grid;
+        gap: 4px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(8, 17, 31, 0.98);
+        box-shadow: var(--shadow);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: 0.2s ease;
+      }
+
+      .nav-links.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .hero {
+        padding-top: 58px;
+      }
+
+      .metric-row,
+      .chart-shell,
+      .benefits-grid,
+      .projects-grid,
+      .solutions-grid,
+      .workflow-timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-step::before {
+        left: 35px;
+        right: auto;
+        top: 51px;
+        width: 2px;
+        height: calc(100% - 16px);
+      }
+
+      .timeline-step:nth-child(n)::before {
+        display: block;
+      }
+
+      .timeline-step:last-child::before {
+        display: none;
+      }
+
+      .timeline-step {
+        padding: 20px 18px 20px 70px;
+        min-height: 140px;
+      }
+
+      .showcase-header {
+        flex-wrap: wrap;
+      }
+
+      .section-head {
+        display: grid;
+      }
+
+      section {
+        padding: 56px 0;
+      }
+
+      .hero-showcase {
+        min-height: auto;
+      }
+
+      .showcase-body {
+        display: grid;
+        min-height: auto;
+        gap: 12px;
+        padding-bottom: 112px;
+      }
+
+      .flow-card,
+      .flow-card.one,
+      .flow-card.two,
+      .flow-card.three,
+      .flow-card.four {
+        position: static;
+        width: 100%;
+      }
+
+      .engine-core,
+      .signal-line {
+        display: none;
+      }
+    }
+
+    @media (max-width: 540px) {
+      h1 {
+        font-size: 2.65rem;
+      }
+
+      .hero-actions,
+      .contact-actions {
+        display: grid;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .profile-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .dashboard-preview,
+      .profile-card,
+      .text-panel,
+      .contact-panel {
+        padding: 20px;
+      }
+
+      .showcase-body {
+        padding-bottom: 20px;
+      }
+
+      .showcase-footer {
+        position: static;
+        grid-template-columns: 1fr;
+        margin-top: 12px;
+      }
+
+      .contact-link {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="Ir para o início">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M4 18V6m0 12h16M8 15V9m4 6V5m4 10v-4m4 4V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </span>
+        Edes Botene
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#solucoes">Soluções</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#como-trabalho">Como trabalho</a>
+        <a href="#competencias">Competências</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <span class="eyebrow"><span class="pulse"></span> Consultoria técnica + desenvolvimento digital</span>
+          <h1>Edes Botene <span class="gradient-text">soluções digitais para gestão eficiente.</span></h1>
+          <p class="hero-copy">Soluções digitais, dashboards e automações para transformar dados e processos em gestão eficiente.</p>
+          <div class="hero-actions" aria-label="Ações principais">
+            <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/5551998294585" target="_blank" rel="noopener" aria-label="Chamar Edes Botene no WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path fill="currentColor" d="M20.52 3.48A11.91 11.91 0 0 0 12.04 0C5.46 0 .1 5.35.1 11.93c0 2.1.55 4.15 1.6 5.96L0 24l6.25-1.64a11.94 11.94 0 0 0 5.79 1.47h.01c6.58 0 11.94-5.35 11.95-11.93a11.85 11.85 0 0 0-3.48-8.42ZM12.05 21.8a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.71.97.99-3.62-.23-.37a9.87 9.87 0 0 1-1.52-5.26c0-5.47 4.45-9.92 9.92-9.92a9.85 9.85 0 0 1 7.02 2.91 9.85 9.85 0 0 1 2.9 7.02c0 5.47-4.45 9.86-9.96 9.86Zm5.44-7.42c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.48.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z" />
+              </svg>
+              WhatsApp
+            </a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/edes-botene-64679b1aa" target="_blank" rel="noopener">Falar comigo no LinkedIn</a>
+            <a class="btn btn-secondary" href="https://github.com/Edesbotene" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+
+        <div class="hero-showcase reveal" aria-label="Centro de soluções digitais interativo">
+          <div class="showcase-header">
+            <div>
+              <strong>Centro de soluções digitais</strong>
+              <span>operação, dados, automação e gestão</span>
+            </div>
+            <span class="live-badge"><span class="pulse"></span> Em movimento</span>
+          </div>
+          <div class="showcase-body">
+            <span class="signal-line a" aria-hidden="true"></span>
+            <span class="signal-line b" aria-hidden="true"></span>
+            <span class="signal-line c" aria-hidden="true"></span>
+            <span class="signal-line d" aria-hidden="true"></span>
+
+            <article class="flow-card one">
+              <small>Diagnóstico</small>
+              <strong>Problemas reais da operação</strong>
+              <p>Rotinas manuais, dados soltos e decisões sem clareza.</p>
+            </article>
+
+            <article class="flow-card two">
+              <small>Mapeamento</small>
+              <strong>Processos e indicadores</strong>
+              <p>Fluxos, regras, custos, prazos e prioridades.</p>
+            </article>
+
+            <div class="engine-core" aria-hidden="true">
+              <span class="engine-ring"></span>
+              <span class="engine-ring"></span>
+              <span class="engine-ring"></span>
+              <div class="engine-center">
+                <div>
+                  <strong>BI</strong>
+                  <span>+ sistemas</span>
+                </div>
+              </div>
+            </div>
+
+            <article class="flow-card three">
+              <small>Construção</small>
+              <strong>Ferramentas sob medida</strong>
+              <p>Dashboards, sistemas, portais e automações.</p>
+            </article>
+
+            <article class="flow-card four">
+              <small>Entrega</small>
+              <strong>Gestão mais eficiente</strong>
+              <p>Informação organizada para decidir melhor.</p>
+            </article>
+
+            <div class="showcase-footer">
+              <div class="mini-kpi"><small>Áreas atendidas</small><strong>gestão + operação</strong></div>
+              <div class="mini-kpi"><small>Foco</small><strong>clareza nos dados</strong></div>
+              <div class="mini-kpi"><small>Resultado</small><strong>menos retrabalho</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-kicker">Sobre mim</span>
+            <h2>Experiência prática de operação conectada com tecnologia, dados e automação.</h2>
+          </div>
+          <p class="section-text">Meu trabalho parte de problemas reais: processos manuais, controles dispersos, números pouco visíveis e decisões que precisam de mais clareza.</p>
+        </div>
+
+        <div class="about-grid">
+          <aside class="profile-card reveal">
+            <span class="brand-mark" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" stroke="currentColor" stroke-width="2" />
+                <path d="M12 12l8-4.5M12 12v9M12 12L4 7.5" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </span>
+            <h3 class="profile-name">Edes Botene</h3>
+            <p class="profile-role">Soluções digitais, dashboards, sistemas internos e automações para empresas.</p>
+            <div class="profile-stats">
+              <div class="profile-stat">
+                <strong>14+</strong>
+                <span>anos em manutenção, operação e rotina técnica</span>
+              </div>
+              <div class="profile-stat">
+                <strong>360°</strong>
+                <span>visão de gestão, custos, estoque e indicadores</span>
+              </div>
+            </div>
+          </aside>
+
+          <div class="text-panel reveal">
+            <p>Tenho 14 anos de experiência em manutenção de equipamentos, operações técnicas, análise de problemas, melhoria de processos e rotina operacional. Essa vivência me deu uma leitura prática sobre custos, produtividade, financeiro, manutenção, estoque e tomada de decisão baseada em dados.</p>
+            <p>Hoje crio aplicações web, dashboards, relatórios, sistemas internos, portais de indicadores e automações para ajudar empresas a organizar processos, enxergar melhor seus números e ganhar eficiência.</p>
+            <p class="highlight-line">O foco não é apenas criar telas bonitas. É construir ferramentas úteis, claras e aplicáveis ao dia a dia das empresas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ajuda">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-kicker">Como posso ajudar empresas</span>
+            <h2>Controles melhores, indicadores mais claros e menos retrabalho na operação.</h2>
+          </div>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="card reveal">
+            <span class="icon" aria-hidden="true">01</span>
+            <h3>Organizar processos</h3>
+            <p>Transformo rotinas soltas em fluxos digitais mais fáceis de acompanhar.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon" aria-hidden="true">02</span>
+            <h3>Criar indicadores de gestão</h3>
+            <p>Estruturo KPIs para acompanhar resultado, custo, prazo e desempenho.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon" aria-hidden="true">03</span>
+            <h3>Automatizar controles manuais</h3>
+            <p>Reduzo planilhas repetitivas e tarefas operacionais que consomem tempo.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon" aria-hidden="true">04</span>
+            <h3>Desenvolver sistemas internos</h3>
+            <p>Crio ferramentas sob medida para áreas administrativas e operacionais.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon" aria-hidden="true">05</span>
+            <h3>Criar dashboards financeiros e operacionais</h3>
+            <p>Conecto informações importantes em painéis objetivos para gestão.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon" aria-hidden="true">06</span>
+            <h3>Melhorar tomada de decisão com dados</h3>
+            <p>Organizo dados para dar mais segurança às escolhas do dia a dia.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon" aria-hidden="true">07</span>
+            <h3>Reduzir retrabalho e ganhar eficiência</h3>
+            <p>Centralizo informação e simplifico processos que hoje dependem de conferência manual.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="solucoes">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-kicker">Soluções que desenvolvo</span>
+            <h2>Ferramentas digitais criadas para resolver problemas práticos de gestão.</h2>
+          </div>
+          <p class="section-text">Cada solução pode ser adaptada à rotina, aos indicadores e ao nível de maturidade digital da empresa.</p>
+        </div>
+
+        <div class="solutions-grid">
+          <article class="solution-card reveal"><span class="label">Web</span><h3>Aplicações web para gestão empresarial</h3><p>Sistemas acessíveis pelo navegador para centralizar processos, registros e análises.</p></article>
+          <article class="solution-card reveal"><span class="label">ERP</span><h3>Mini ERPs e sistemas internos</h3><p>Controle de financeiro, estoque, clientes, vendas, orçamento e operação em uma estrutura clara.</p></article>
+          <article class="solution-card reveal"><span class="label">BI</span><h3>Dashboards em Power BI</h3><p>Painéis para acompanhar indicadores financeiros, operacionais, comerciais e de manutenção.</p></article>
+          <article class="solution-card reveal"><span class="label">Indicadores</span><h3>Portais de indicadores</h3><p>Ambientes centralizados para reunir dashboards, áreas, documentos e visões executivas.</p></article>
+          <article class="solution-card reveal"><span class="label">Comercial</span><h3>Ferramentas de orçamento e proposta comercial</h3><p>Geração de propostas, cálculo de preço, impressão e organização de condições comerciais.</p></article>
+          <article class="solution-card reveal"><span class="label">Vendas</span><h3>CRM e funil de vendas</h3><p>Kanban de oportunidades, etapas comerciais, responsáveis, valores e próximos contatos.</p></article>
+          <article class="solution-card reveal"><span class="label">Estoque</span><h3>Controle de estoque</h3><p>Produtos, custos, preços, status, reposição, movimentações e exportação de dados.</p></article>
+          <article class="solution-card reveal"><span class="label">Financeiro</span><h3>Gestão financeira</h3><p>Receitas, despesas, fluxo, categorias, custos e indicadores para visão gerencial.</p></article>
+          <article class="solution-card reveal"><span class="label">Manutenção</span><h3>Gestão de manutenção</h3><p>Ordens, preventivas, corretivas, apontamentos, disponibilidade, MTBF, MTTR e ativos.</p></article>
+          <article class="solution-card reveal"><span class="label">Clínicas</span><h3>Agenda e gestão de clínicas</h3><p>Agenda semanal, clientes, procedimentos, follow-ups, estoque e controle financeiro.</p></article>
+          <article class="solution-card reveal"><span class="label">Automação</span><h3>Automações e relatórios</h3><p>Rotinas automatizadas para alimentar relatórios, reduzir digitação e acelerar fechamentos.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-kicker">Projetos e trabalhos realizados</span>
+            <h2>Exemplos de soluções reais criadas para gestão, operação e tomada de decisão.</h2>
+          </div>
+          <p class="section-text">Telas anonimizadas de aplicações, portais e dashboards desenvolvidos para tornar processos mais claros e eficientes.</p>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <section id="como-trabalho">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-kicker">Como trabalho</span>
+            <h2>Um processo direto para sair do problema real até uma ferramenta validada.</h2>
+          </div>
+          <p class="section-text">A construção é feita com entendimento da rotina, alinhamento com a empresa e validações objetivas antes da entrega final.</p>
+        </div>
+
+        <div class="workflow-timeline">
+          <article class="timeline-step reveal">
+            <span class="timeline-index">1</span>
+            <h3>Primeiro contato</h3>
+            <p>Entendo o cenário, os objetivos da empresa e quais dores precisam ser resolvidas.</p>
+          </article>
+          <article class="timeline-step reveal">
+            <span class="timeline-index">2</span>
+            <h3>Avaliação e proposta</h3>
+            <p>Analiso viabilidade, escopo, prioridades e apresento uma proposta clara de solução.</p>
+          </article>
+          <article class="timeline-step reveal">
+            <span class="timeline-index">3</span>
+            <h3>Mapeamento</h3>
+            <p>Levanto processos, regras, indicadores, fontes de dados e fluxos de trabalho.</p>
+          </article>
+          <article class="timeline-step reveal">
+            <span class="timeline-index">4</span>
+            <h3>Protótipo e validação</h3>
+            <p>Crio a estrutura inicial da solução e valido telas, cálculos, relatórios e uso prático.</p>
+          </article>
+          <article class="timeline-step reveal">
+            <span class="timeline-index">5</span>
+            <h3>Desenvolvimento</h3>
+            <p>Construo dashboards, sistemas, automações e ajustes conforme o fluxo validado.</p>
+          </article>
+          <article class="timeline-step reveal">
+            <span class="timeline-index">6</span>
+            <h3>Testes</h3>
+            <p>Confiro informações, comportamento das telas, regras de negócio e pontos críticos.</p>
+          </article>
+          <article class="timeline-step reveal">
+            <span class="timeline-index">7</span>
+            <h3>Entrega</h3>
+            <p>Disponibilizo a solução pronta para uso, com orientação para a rotina da empresa.</p>
+          </article>
+          <article class="timeline-step reveal">
+            <span class="timeline-index">8</span>
+            <h3>Ajustes e evolução</h3>
+            <p>Acompanho melhorias necessárias conforme a ferramenta começa a gerar valor no dia a dia.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="competencias">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-kicker">Competências</span>
+            <h2>Tecnologia, dados e conhecimento de gestão aplicados no mesmo projeto.</h2>
+          </div>
+        </div>
+        <div class="skills-wrap reveal" id="skillsWrap"></div>
+      </div>
+    </section>
+
+    <section class="differential" id="diferencial">
+      <div class="container differential-grid">
+        <div class="reveal">
+          <span class="section-kicker">Diferencial</span>
+          <h2>Ferramentas mais próximas da realidade de quem opera, controla e decide.</h2>
+          <p class="section-text">Meu diferencial é unir experiência prática de chão de fábrica, operação e manutenção com visão de dados, gestão e criação de sistemas. Isso permite construir soluções sob medida que conversam com a rotina real das empresas, não apenas com uma ideia genérica de software.</p>
+        </div>
+        <div class="process-list reveal">
+          <div class="process-item"><span class="process-number">1</span><p>Entendo o problema operacional, os controles atuais e os pontos de retrabalho.</p></div>
+          <div class="process-item"><span class="process-number">2</span><p>Transformo a rotina em fluxos, dados, indicadores e telas simples de usar.</p></div>
+          <div class="process-item"><span class="process-number">3</span><p>Entrego ferramentas aplicáveis para gestão, acompanhamento e melhoria contínua.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div>
+            <span class="section-kicker">Contato</span>
+            <h2>Vamos transformar seus controles em uma solução digital mais clara?</h2>
+            <p class="section-text">Se sua empresa precisa organizar processos, enxergar indicadores ou automatizar tarefas manuais, posso ajudar a desenhar e desenvolver uma solução prática.</p>
+            <div class="contact-actions">
+              <a class="btn btn-whatsapp" href="https://wa.me/5551998294585" target="_blank" rel="noopener">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path fill="currentColor" d="M20.52 3.48A11.91 11.91 0 0 0 12.04 0C5.46 0 .1 5.35.1 11.93c0 2.1.55 4.15 1.6 5.96L0 24l6.25-1.64a11.94 11.94 0 0 0 5.79 1.47h.01c6.58 0 11.94-5.35 11.95-11.93a11.85 11.85 0 0 0-3.48-8.42ZM12.05 21.8a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.71.97.99-3.62-.23-.37a9.87 9.87 0 0 1-1.52-5.26c0-5.47 4.45-9.92 9.92-9.92a9.85 9.85 0 0 1 7.02 2.91 9.85 9.85 0 0 1 2.9 7.02c0 5.47-4.45 9.86-9.96 9.86Zm5.44-7.42c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.48.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z" />
+                </svg>
+                Chamar no WhatsApp
+              </a>
+              <a class="btn btn-primary" href="https://www.linkedin.com/in/edes-botene-64679b1aa" target="_blank" rel="noopener">Falar no LinkedIn</a>
+              <a class="btn btn-secondary" href="https://github.com/Edesbotene" target="_blank" rel="noopener">Ver GitHub</a>
+            </div>
+          </div>
+          <div class="contact-list" aria-label="Links de contato">
+            <a class="contact-link" href="https://wa.me/5551998294585" target="_blank" rel="noopener">
+              <span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path fill="currentColor" d="M20.52 3.48A11.91 11.91 0 0 0 12.04 0C5.46 0 .1 5.35.1 11.93c0 2.1.55 4.15 1.6 5.96L0 24l6.25-1.64a11.94 11.94 0 0 0 5.79 1.47h.01c6.58 0 11.94-5.35 11.95-11.93a11.85 11.85 0 0 0-3.48-8.42ZM12.05 21.8a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.71.97.99-3.62-.23-.37a9.87 9.87 0 0 1-1.52-5.26c0-5.47 4.45-9.92 9.92-9.92a9.85 9.85 0 0 1 7.02 2.91 9.85 9.85 0 0 1 2.9 7.02c0 5.47-4.45 9.86-9.96 9.86Zm5.44-7.42c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.48.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z" />
+                </svg>
+                WhatsApp
+              </span>
+              <span>(51) 99829-4585</span>
+            </a>
+            <a class="contact-link" href="https://www.linkedin.com/in/edes-botene-64679b1aa" target="_blank" rel="noopener">
+              <span>LinkedIn</span><span>linkedin.com/in/edes-botene-64679b1aa</span>
+            </a>
+            <a class="contact-link" href="https://github.com/Edesbotene" target="_blank" rel="noopener">
+              <span>GitHub</span><span>github.com/Edesbotene</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="floating-whatsapp" href="https://wa.me/5551998294585" target="_blank" rel="noopener" aria-label="Chamar Edes Botene no WhatsApp">
+    <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path fill="currentColor" d="M20.52 3.48A11.91 11.91 0 0 0 12.04 0C5.46 0 .1 5.35.1 11.93c0 2.1.55 4.15 1.6 5.96L0 24l6.25-1.64a11.94 11.94 0 0 0 5.79 1.47h.01c6.58 0 11.94-5.35 11.95-11.93a11.85 11.85 0 0 0-3.48-8.42ZM12.05 21.8a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.71.97.99-3.62-.23-.37a9.87 9.87 0 0 1-1.52-5.26c0-5.47 4.45-9.92 9.92-9.92a9.85 9.85 0 0 1 7.02 2.91 9.85 9.85 0 0 1 2.9 7.02c0 5.47-4.45 9.86-9.96 9.86Zm5.44-7.42c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.48.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z" />
+    </svg>
+  </a>
+
+  <div class="lightbox" id="projectLightbox" aria-hidden="true" role="dialog" aria-label="Visualização ampliada do projeto">
+    <div class="lightbox-inner">
+      <div class="lightbox-top">
+        <strong id="lightboxTitle">Projeto</strong>
+        <button class="lightbox-close" type="button" aria-label="Fechar visualização">×</button>
+      </div>
+      <img id="lightboxImage" src="" alt="">
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Edes Botene. Soluções digitais para gestão empresarial.</p>
+      <p>HTML, CSS e JavaScript puro. Pronto para GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <script>
+    const projects = [
+      {
+        title: "Mini ERP Financeiro",
+        image: "assets/mini-erp-financeiro.png",
+        description: "Dashboard para acompanhamento financeiro e operacional, com visão de receitas, despesas, estoque, orçamentos, vendas e indicadores de desempenho.",
+        tags: ["Financeiro", "Operação", "KPIs"]
+      },
+      {
+        title: "Mini ERP - Gestão de Estoque",
+        image: "assets/mini-erp-estoque.png",
+        description: "Tela para controle de produtos, níveis de estoque, valores de custo e venda, status dos itens, reposição e exportação de dados.",
+        tags: ["Estoque", "Custos", "Exportação"]
+      },
+      {
+        title: "Mini ERP - Impressão de Orçamentos",
+        image: "assets/mini-erp-orcamentos.png",
+        description: "Tela para geração, impressão e salvamento de orçamentos em PDF, com dados do cliente, itens, condições comerciais e valor total.",
+        tags: ["Orçamentos", "PDF", "Comercial"]
+      },
+      {
+        title: "Mini ERP - CRM Comercial",
+        image: "assets/mini-erp-crm.png",
+        description: "Kanban comercial para acompanhamento de oportunidades, funil de vendas, etapas de negociação, responsáveis e valores por fase.",
+        tags: ["CRM", "Kanban", "Vendas"]
+      },
+      {
+        title: "ERP Industrial - Calculadora de Preço",
+        image: "assets/erp-industrial-calculadora-preco.png",
+        description: "Ferramenta para formação de preço final de produtos mecânicos, considerando matéria-prima, usinagem, componentes, impostos, custos, margem e lucro.",
+        tags: ["Preço", "Custos", "Margem"]
+      },
+      {
+        title: "App para Clínica Estética",
+        image: "assets/app-clinica-dashboard.png",
+        description: "Dashboard para gestão de clínica estética, com agenda, clientes, follow-ups, aniversariantes, financeiro, estoque e ações rápidas.",
+        tags: ["Clínica", "Agenda", "Financeiro"]
+      },
+      {
+        title: "Agenda Semanal - Clínica Estética",
+        image: "assets/app-clinica-agenda.png",
+        description: "Tela de agendamento semanal para organização de atendimentos, procedimentos, horários e clientes da clínica.",
+        tags: ["Agenda", "Clientes", "Atendimentos"]
+      },
+      {
+        title: "Portal de Indicadores Power BI",
+        image: "assets/portal-indicadores-powerbi.png",
+        description: "Portal centralizado para acesso a dashboards e indicadores operacionais, reunindo visões de frota, disponibilidade, custos, estoque, preventivas e apontamentos.",
+        tags: ["Power BI", "Portal", "Indicadores"]
+      },
+      {
+        title: "Power BI - Indicadores de Manutenção",
+        image: "assets/powerbi-manutencao-mtbf-mttr.png",
+        description: "Dashboard para análise de manutenção com MTBF, MTTR, disponibilidade, ordens, corretivas, preventivas, inspeções e desempenho por equipamento.",
+        tags: ["MTBF", "MTTR", "Disponibilidade"]
+      },
+      {
+        title: "Power BI - Máquinas Paradas em Tempo Real",
+        image: "assets/powerbi-maquinas-paradas.png",
+        description: "Painel operacional para monitoramento em tempo real de máquinas paradas, com ranking por cliente, supervisor, ordens de serviço, status e horas paradas.",
+        tags: ["Tempo real", "Paradas", "Operação"]
+      },
+      {
+        title: "Power BI - Manutenções Preventivas em Tempo Real",
+        image: "assets/powerbi-preventivas.png",
+        description: "Dashboard para acompanhamento de preventivas por horímetro, status em dia ou atrasado, ativos, vencimentos, horas a vencer e planos de manutenção.",
+        tags: ["Preventivas", "Horímetro", "Ativos"]
+      },
+      {
+        title: "Power BI - Apontamentos Técnicos em Tempo Real",
+        image: "assets/powerbi-apontamentos-tecnicos.png",
+        description: "Painel para controle de apontamentos técnicos de manutenção, com matriz diária de horas, aderência, técnicos filtrados e total de horas apontadas.",
+        tags: ["Apontamentos", "Técnicos", "Horas"]
+      }
+    ];
+
+    const skills = [
+      "Power BI avançado",
+      "Excel avançado",
+      "SQL",
+      "Indicadores e KPIs",
+      "Análise de dados",
+      "Gestão financeira",
+      "Gestão operacional",
+      "Gestão de manutenção",
+      "Controle de estoque",
+      "Formação de preço",
+      "Desenvolvimento web",
+      "Next.js",
+      "TypeScript",
+      "Firebase",
+      "Tailwind CSS",
+      "GitHub",
+      "Automação de processos"
+    ];
+
+    const projectGrid = document.querySelector("#projectsGrid");
+    const skillsWrap = document.querySelector("#skillsWrap");
+    const navLinks = document.querySelector(".nav-links");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const heroShowcase = document.querySelector(".hero-showcase");
+    const lightbox = document.querySelector("#projectLightbox");
+    const lightboxImage = document.querySelector("#lightboxImage");
+    const lightboxTitle = document.querySelector("#lightboxTitle");
+    const lightboxClose = document.querySelector(".lightbox-close");
+
+    function createProjectCard(project) {
+      const card = document.createElement("article");
+      card.className = "project-card reveal";
+
+      const tags = project.tags.map((tag) => `<span class="tag">${tag}</span>`).join("");
+
+      card.innerHTML = `
+        <div class="project-media">
+          <img src="${project.image}" alt="Imagem do projeto ${project.title}" loading="lazy">
+          <div class="project-placeholder" aria-hidden="true">
+            <div class="placeholder-box">
+              <strong>${project.title}</strong>
+              <span>Coloque a imagem em ${project.image}</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>${project.title}</h3>
+          <p>${project.description}</p>
+          <div class="tag-row">${tags}</div>
+        </div>
+      `;
+
+      const image = card.querySelector("img");
+      const placeholder = card.querySelector(".project-placeholder");
+
+      image.addEventListener("error", () => {
+        image.remove();
+        placeholder.classList.add("is-visible");
+      });
+
+      image.addEventListener("click", () => {
+        lightboxImage.src = project.image;
+        lightboxImage.alt = `Imagem ampliada do projeto ${project.title}`;
+        lightboxTitle.textContent = project.title;
+        lightbox.classList.add("open");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.classList.add("menu-open");
+      });
+
+      return card;
+    }
+
+    projects.forEach((project) => projectGrid.appendChild(createProjectCard(project)));
+    skills.forEach((skill) => {
+      const tag = document.createElement("span");
+      tag.className = "skill-tag";
+      tag.textContent = skill;
+      skillsWrap.appendChild(tag);
+    });
+
+    document.querySelector("#year").textContent = new Date().getFullYear();
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      document.body.classList.toggle("menu-open", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
+    });
+
+    navLinks.addEventListener("click", (event) => {
+      if (event.target.matches("a")) {
+        navLinks.classList.remove("open");
+        document.body.classList.remove("menu-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Abrir menu");
+      }
+    });
+
+    if (heroShowcase && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      heroShowcase.addEventListener("pointermove", (event) => {
+        const rect = heroShowcase.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        heroShowcase.style.transform = `perspective(1100px) rotateX(${y * -6}deg) rotateY(${x * 7}deg)`;
+      });
+
+      heroShowcase.addEventListener("pointerleave", () => {
+        heroShowcase.style.transform = "";
+      });
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.src = "";
+      document.body.classList.remove("menu-open");
+    }
+
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox.classList.contains("open")) closeLightbox();
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+
+    const sections = [...document.querySelectorAll("main section[id]")];
+    const menuItems = [...document.querySelectorAll(".nav-links a")];
+
+    const activeObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        menuItems.forEach((link) => {
+          link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+        });
+      });
+    }, { rootMargin: "-38% 0px -58% 0px" });
+
+    sections.forEach((section) => activeObserver.observe(section));
+  </script>
+</body>
+</html>
