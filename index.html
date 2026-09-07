@@ -119,6 +119,60 @@
       box-shadow: 0 0 0 6px rgba(55, 215, 178, 0.06);
     }
 
+    .data-mark {
+      position: relative;
+      flex: 0 0 42px;
+      perspective: 180px;
+      isolation: isolate;
+      background: linear-gradient(145deg, #183735, #0c182b 75%);
+      border-color: rgba(103, 239, 214, .4);
+      border-radius: 12px;
+      box-shadow: inset 0 1px 0 #b9ffed22, 0 4px 12px #0005, 0 0 0 5px #37d7b208;
+    }
+
+    .data-mark::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(115deg, transparent 30%, #c8fff22b 48%, transparent 66%);
+      background-size: 260% 100%;
+      animation: cube-reflection 7s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .data-cube {
+      overflow: visible;
+      transform: rotateX(var(--cube-x, 0deg)) rotateY(var(--cube-y, 0deg));
+      filter: drop-shadow(0 4px 3px #0009);
+      transition: transform .2s ease-out;
+      animation: cube-float 5s ease-in-out infinite;
+    }
+
+    .cube-bar {
+      transform-box: fill-box;
+      transform-origin: center bottom;
+      animation: cube-indicator 3.6s ease-in-out infinite;
+    }
+    .cube-bar-two { animation-delay: -1.4s; }
+    .cube-bar-three { animation-delay: -.7s; }
+    .cube-signal { stroke-dasharray: 2 98; animation: cube-data 5s linear infinite; }
+    .data-mark.is-activated .data-cube { animation: cube-tap .65s ease-in-out; }
+    .data-mark.is-activated .cube-bar { animation-duration: .65s; }
+
+    @keyframes cube-float { 0%, 100% { translate: 0 1px; } 50% { translate: 0 -1.5px; } }
+    @keyframes cube-indicator { 0%, 100% { scale: 1 .58; } 50% { scale: 1 1; } }
+    @keyframes cube-data { to { stroke-dashoffset: -100; } }
+    @keyframes cube-reflection { 0%, 25% { background-position: 140% 0; } 75%, 100% { background-position: -40% 0; } }
+    @keyframes cube-tap { 0%, 100% { rotate: 0deg; scale: 1; } 40% { rotate: -9deg; scale: .9; } 70% { rotate: 7deg; scale: 1.08; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .data-cube, .cube-bar, .cube-signal, .data-mark::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
@@ -679,6 +733,161 @@
       line-height: 1;
     }
 
+    .mobile-hero-lead {
+      display: none;
+    }
+
+    .mobile-orbit-widget {
+      position: relative;
+      min-width: 128px;
+      min-height: 180px;
+      padding: 14px 10px 11px;
+      border: 1px solid rgba(55, 215, 178, 0.3);
+      border-radius: 14px;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(155deg, rgba(55, 215, 178, 0.14), rgba(89, 168, 255, 0.08));
+      background-size: 18px 18px, 18px 18px, auto;
+      color: var(--text);
+      overflow: hidden;
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+      cursor: pointer;
+      touch-action: manipulation;
+      isolation: isolate;
+    }
+
+    .mobile-orbit-widget::before {
+      content: "";
+      position: absolute;
+      inset: -30% 40% -30% -80%;
+      background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+      animation: mobileScan 4s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    .mobile-widget-hint {
+      position: absolute;
+      top: 8px;
+      right: 9px;
+      color: rgba(215, 226, 239, 0.68);
+      font-size: 0.54rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .mobile-engine {
+      position: relative;
+      display: grid;
+      width: 108px;
+      height: 108px;
+      margin: 12px auto 8px;
+      place-items: center;
+    }
+
+    .mobile-ring {
+      position: absolute;
+      inset: 2px;
+      border: 1px solid rgba(55, 215, 178, 0.5);
+      border-radius: 50%;
+      animation: spin 10s linear infinite;
+    }
+
+    .mobile-ring:nth-child(2) {
+      inset: 15px;
+      border-color: rgba(89, 168, 255, 0.55);
+      animation-duration: 7s;
+      animation-direction: reverse;
+    }
+
+    .mobile-ring:nth-child(3) {
+      inset: 28px;
+      border-color: rgba(255, 207, 112, 0.5);
+      animation-duration: 5s;
+    }
+
+    .mobile-ring::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: calc(50% - 4px);
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--brand);
+      box-shadow: 0 0 14px rgba(55, 215, 178, 0.8);
+    }
+
+    .mobile-ring:nth-child(2)::before {
+      background: var(--brand-2);
+    }
+
+    .mobile-ring:nth-child(3)::before {
+      background: var(--accent);
+    }
+
+    .mobile-engine-center {
+      position: relative;
+      display: grid;
+      width: 61px;
+      height: 61px;
+      place-items: center;
+      align-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      background: rgba(8, 17, 31, 0.82);
+      box-shadow: 0 0 28px rgba(55, 215, 178, 0.24);
+    }
+
+    .mobile-engine-center strong {
+      font-size: 1.15rem;
+      line-height: 1;
+    }
+
+    .mobile-engine-center small {
+      margin-top: 3px;
+      color: #c8fff1;
+      font-size: 0.46rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .mobile-widget-status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 5px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.11);
+      text-align: left;
+    }
+
+    .mobile-widget-status strong {
+      font-size: 0.68rem;
+      line-height: 1.15;
+    }
+
+    .mobile-widget-status small {
+      flex: 0 0 auto;
+      color: var(--brand);
+      font-size: 0.52rem;
+      font-weight: 900;
+    }
+
+    .mobile-orbit-widget.is-changing .mobile-engine-center {
+      animation: mobileCore 0.46s ease;
+    }
+
+    @keyframes mobileScan {
+      0%, 100% { transform: translateX(-25%); }
+      50% { transform: translateX(230%); }
+    }
+
+    @keyframes mobileCore {
+      50% { transform: scale(0.82) rotate(6deg); opacity: 0.58; }
+    }
+
     section {
       padding: 72px 0;
     }
@@ -843,6 +1052,35 @@
       gap: 16px;
     }
 
+    .solution-areas {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 18px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .solution-areas strong {
+      margin-right: 8px;
+      color: var(--muted);
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .solution-areas span {
+      padding: 5px 9px;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 999px;
+      color: var(--soft);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
     .solution-card {
       padding: 20px;
     }
@@ -960,7 +1198,7 @@
     .workflow-timeline {
       position: relative;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 16px;
       margin-top: 32px;
     }
@@ -976,7 +1214,7 @@
       opacity: 0.7;
     }
 
-    .timeline-step:nth-child(4n)::before {
+    .timeline-step:nth-child(5n)::before {
       display: none;
     }
 
@@ -1080,6 +1318,18 @@
       gap: 10px;
     }
 
+    .capabilities-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .capabilities-title {
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+
     .skill-tag {
       min-height: 38px;
       padding: 8px 12px;
@@ -1130,7 +1380,7 @@
 
     .contact-panel {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: minmax(0, 820px);
       gap: 28px;
       align-items: center;
       padding: 34px;
@@ -1240,6 +1490,7 @@
       .hero-grid,
       .about-grid,
       .differential-grid,
+      .capabilities-grid,
       .contact-panel {
         grid-template-columns: 1fr;
       }
@@ -1285,7 +1536,63 @@
       }
 
       .hero {
-        padding-top: 58px;
+        padding: 30px 0 38px;
+      }
+
+      .hero-grid {
+        display: block;
+      }
+
+      .desktop-hero-title {
+        display: none;
+      }
+
+      .mobile-hero-lead {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 132px;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .mobile-name {
+        display: block;
+        margin-bottom: 9px;
+        color: var(--text);
+        font-size: 0.9rem;
+        font-weight: 850;
+      }
+
+      .mobile-title-block h1 {
+        max-width: 360px;
+        font-size: clamp(2.18rem, 8.8vw, 3.6rem);
+        line-height: 0.96;
+      }
+
+      .hero .eyebrow {
+        margin-bottom: 16px;
+        padding: 6px 9px;
+        font-size: 0.72rem;
+      }
+
+      .hero-copy {
+        max-width: 620px;
+        margin-top: 17px;
+        font-size: 0.98rem;
+        line-height: 1.55;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 20px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .hero-actions .btn-secondary {
+        display: none;
       }
 
       .metric-row,
@@ -1331,6 +1638,7 @@
       }
 
       .hero-showcase {
+        display: none;
         min-height: auto;
       }
 
@@ -1364,6 +1672,14 @@
       .hero-actions,
       .contact-actions {
         display: grid;
+      }
+
+      .hero-actions {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-actions {
+        grid-template-columns: 1fr;
       }
 
       .btn {
@@ -1414,9 +1730,23 @@
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="#inicio" aria-label="Ir para o início">
-        <span class="brand-mark" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-            <path d="M4 18V6m0 12h16M8 15V9m4 6V5m4 10v-4m4 4V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        <span class="brand-mark data-mark" aria-hidden="true">
+          <svg class="data-cube" width="38" height="38" viewBox="0 0 48 48" fill="none">
+            <defs>
+              <linearGradient id="cubeFront" x1="9" y1="17" x2="30" y2="41" gradientUnits="userSpaceOnUse"><stop stop-color="#37d7b2" stop-opacity=".36"/><stop offset="1" stop-color="#103b54" stop-opacity=".85"/></linearGradient>
+              <linearGradient id="cubeTop" x1="11" y1="8" x2="37" y2="19" gradientUnits="userSpaceOnUse"><stop stop-color="#a0ffe4" stop-opacity=".65"/><stop offset="1" stop-color="#59a8ff" stop-opacity=".2"/></linearGradient>
+              <linearGradient id="cubeSide" x1="29" y1="20" x2="40" y2="35" gradientUnits="userSpaceOnUse"><stop stop-color="#59a8ff" stop-opacity=".5"/><stop offset="1" stop-color="#133251" stop-opacity=".85"/></linearGradient>
+            </defs>
+            <path d="M8 16 20 7 40 14 29 23Z" fill="url(#cubeTop)" stroke="#93efd9" stroke-opacity=".65" stroke-linejoin="round"/>
+            <path d="M29 23 40 14V33L29 42Z" fill="url(#cubeSide)" stroke="#72baff" stroke-opacity=".65" stroke-linejoin="round"/>
+            <path d="M8 16 29 23V42L8 35Z" fill="url(#cubeFront)" stroke="#55e5c5" stroke-opacity=".85" stroke-linejoin="round"/>
+            <g transform="matrix(1 .333 0 1 11 18)">
+              <path d="M0 14H15" stroke="#b9ffeb" stroke-opacity=".45" stroke-linecap="round"/>
+              <rect class="cube-bar cube-bar-one" x="1" y="8" width="3" height="5" rx=".7" fill="#6df5cf"/>
+              <rect class="cube-bar cube-bar-two" x="6" y="5" width="3" height="8" rx=".7" fill="#a1ffdd"/>
+              <rect class="cube-bar cube-bar-three" x="11" y="1" width="3" height="12" rx=".7" fill="#72ccff"/>
+            </g>
+            <path class="cube-signal" d="M8 16 20 7 40 14V33L29 42 8 35V16L29 23 40 14" stroke="#d4fff3" stroke-width="1.8" stroke-linecap="round" pathLength="100"/>
           </svg>
         </span>
         Edes Botene
@@ -1431,10 +1761,9 @@
       <nav class="nav-links" aria-label="Navegação principal">
         <a href="#inicio">Início</a>
         <a href="#sobre">Sobre</a>
-        <a href="#solucoes">Soluções</a>
         <a href="#projetos">Projetos</a>
+        <a href="#solucoes">Soluções</a>
         <a href="#como-trabalho">Como trabalho</a>
-        <a href="#competencias">Competências</a>
         <a href="#contato">Contato</a>
       </nav>
     </div>
@@ -1445,8 +1774,30 @@
       <div class="container hero-grid">
         <div class="reveal">
           <span class="eyebrow"><span class="pulse"></span> Consultoria técnica + desenvolvimento digital</span>
-          <h1>Edes Botene <span class="gradient-text">soluções digitais para gestão eficiente.</span></h1>
-          <p class="hero-copy">Soluções digitais, dashboards e automações para transformar dados e processos em gestão eficiente.</p>
+          <h1 class="desktop-hero-title">Edes Botene <span class="gradient-text">soluções digitais para gestão eficiente.</span></h1>
+          <div class="mobile-hero-lead">
+            <div class="mobile-title-block">
+              <span class="mobile-name">Edes Botene</span>
+              <h1>Soluções digitais para <span class="gradient-text">gestão eficiente.</span></h1>
+            </div>
+            <button class="mobile-orbit-widget" type="button" aria-label="Explorar soluções: dados, sistemas, automação e gestão">
+              <span class="mobile-widget-hint">toque</span>
+              <span class="mobile-engine" aria-hidden="true">
+                <i class="mobile-ring"></i>
+                <i class="mobile-ring"></i>
+                <i class="mobile-ring"></i>
+                <span class="mobile-engine-center">
+                  <strong>BI</strong>
+                  <small>+ sistemas</small>
+                </span>
+              </span>
+              <span class="mobile-widget-status">
+                <strong class="mobile-widget-label" aria-live="polite">Dados claros</strong>
+                <small class="mobile-widget-count">01 / 04</small>
+              </span>
+            </button>
+          </div>
+          <p class="hero-copy">Desenvolvo sistemas internos, dashboards e automações para organizar processos, conectar informações e facilitar a gestão.</p>
           <div class="hero-actions" aria-label="Ações principais">
             <a class="btn btn-primary" href="#projetos">Ver projetos</a>
             <a class="btn btn-whatsapp" href="https://wa.me/5551998294585" target="_blank" rel="noopener" aria-label="Chamar Edes Botene no WhatsApp">
@@ -1526,7 +1877,7 @@
             <span class="section-kicker">Sobre mim</span>
             <h2>Experiência prática de operação conectada com tecnologia, dados e automação.</h2>
           </div>
-          <p class="section-text">Meu trabalho parte de problemas reais: processos manuais, controles dispersos, números pouco visíveis e decisões que precisam de mais clareza.</p>
+          <p class="section-text">Experiência de operação aplicada à criação de ferramentas úteis para a rotina das empresas.</p>
         </div>
 
         <div class="about-grid">
@@ -1538,7 +1889,7 @@
               </svg>
             </span>
             <h3 class="profile-name">Edes Botene</h3>
-            <p class="profile-role">Soluções digitais, dashboards, sistemas internos e automações para empresas.</p>
+            <p class="profile-role">Desenvolvedor de soluções digitais com experiência prática de operação.</p>
             <div class="profile-stats">
               <div class="profile-stat">
                 <strong>14+</strong>
@@ -1552,85 +1903,10 @@
           </aside>
 
           <div class="text-panel reveal">
-            <p>Tenho 14 anos de experiência em manutenção de equipamentos, operações técnicas, análise de problemas, melhoria de processos e rotina operacional. Essa vivência me deu uma leitura prática sobre custos, produtividade, financeiro, manutenção, estoque e tomada de decisão baseada em dados.</p>
-            <p>Hoje crio aplicações web, dashboards, relatórios, sistemas internos, portais de indicadores e automações para ajudar empresas a organizar processos, enxergar melhor seus números e ganhar eficiência.</p>
-            <p class="highlight-line">O foco não é apenas criar telas bonitas. É construir ferramentas úteis, claras e aplicáveis ao dia a dia das empresas.</p>
+            <p>Minha trajetória em manutenção de equipamentos, análise de problemas e melhoria de processos me deu uma leitura prática sobre custos, produtividade, estoque e tomada de decisão.</p>
+            <p>Hoje transformo essa experiência em ferramentas digitais claras, construídas para resolver problemas reais da operação e da gestão.</p>
+            <p class="highlight-line">Tecnologia útil começa pelo entendimento da rotina de quem vai utilizá-la.</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="ajuda">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <span class="section-kicker">Como posso ajudar empresas</span>
-            <h2>Controles melhores, indicadores mais claros e menos retrabalho na operação.</h2>
-          </div>
-        </div>
-
-        <div class="benefits-grid">
-          <article class="card reveal">
-            <span class="icon" aria-hidden="true">01</span>
-            <h3>Organizar processos</h3>
-            <p>Transformo rotinas soltas em fluxos digitais mais fáceis de acompanhar.</p>
-          </article>
-          <article class="card reveal">
-            <span class="icon" aria-hidden="true">02</span>
-            <h3>Criar indicadores de gestão</h3>
-            <p>Estruturo KPIs para acompanhar resultado, custo, prazo e desempenho.</p>
-          </article>
-          <article class="card reveal">
-            <span class="icon" aria-hidden="true">03</span>
-            <h3>Automatizar controles manuais</h3>
-            <p>Reduzo planilhas repetitivas e tarefas operacionais que consomem tempo.</p>
-          </article>
-          <article class="card reveal">
-            <span class="icon" aria-hidden="true">04</span>
-            <h3>Desenvolver sistemas internos</h3>
-            <p>Crio ferramentas sob medida para áreas administrativas e operacionais.</p>
-          </article>
-          <article class="card reveal">
-            <span class="icon" aria-hidden="true">05</span>
-            <h3>Criar dashboards financeiros e operacionais</h3>
-            <p>Conecto informações importantes em painéis objetivos para gestão.</p>
-          </article>
-          <article class="card reveal">
-            <span class="icon" aria-hidden="true">06</span>
-            <h3>Melhorar tomada de decisão com dados</h3>
-            <p>Organizo dados para dar mais segurança às escolhas do dia a dia.</p>
-          </article>
-          <article class="card reveal">
-            <span class="icon" aria-hidden="true">07</span>
-            <h3>Reduzir retrabalho e ganhar eficiência</h3>
-            <p>Centralizo informação e simplifico processos que hoje dependem de conferência manual.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="solucoes">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <span class="section-kicker">Soluções que desenvolvo</span>
-            <h2>Ferramentas digitais criadas para resolver problemas práticos de gestão.</h2>
-          </div>
-          <p class="section-text">Cada solução pode ser adaptada à rotina, aos indicadores e ao nível de maturidade digital da empresa.</p>
-        </div>
-
-        <div class="solutions-grid">
-          <article class="solution-card reveal"><span class="label">Web</span><h3>Aplicações web para gestão empresarial</h3><p>Sistemas acessíveis pelo navegador para centralizar processos, registros e análises.</p></article>
-          <article class="solution-card reveal"><span class="label">ERP</span><h3>Mini ERPs e sistemas internos</h3><p>Controle de financeiro, estoque, clientes, vendas, orçamento e operação em uma estrutura clara.</p></article>
-          <article class="solution-card reveal"><span class="label">BI</span><h3>Dashboards em Power BI</h3><p>Painéis para acompanhar indicadores financeiros, operacionais, comerciais e de manutenção.</p></article>
-          <article class="solution-card reveal"><span class="label">Indicadores</span><h3>Portais de indicadores</h3><p>Ambientes centralizados para reunir dashboards, áreas, documentos e visões executivas.</p></article>
-          <article class="solution-card reveal"><span class="label">Comercial</span><h3>Ferramentas de orçamento e proposta comercial</h3><p>Geração de propostas, cálculo de preço, impressão e organização de condições comerciais.</p></article>
-          <article class="solution-card reveal"><span class="label">Vendas</span><h3>CRM e funil de vendas</h3><p>Kanban de oportunidades, etapas comerciais, responsáveis, valores e próximos contatos.</p></article>
-          <article class="solution-card reveal"><span class="label">Estoque</span><h3>Controle de estoque</h3><p>Produtos, custos, preços, status, reposição, movimentações e exportação de dados.</p></article>
-          <article class="solution-card reveal"><span class="label">Financeiro</span><h3>Gestão financeira</h3><p>Receitas, despesas, fluxo, categorias, custos e indicadores para visão gerencial.</p></article>
-          <article class="solution-card reveal"><span class="label">Manutenção</span><h3>Gestão de manutenção</h3><p>Ordens, preventivas, corretivas, apontamentos, disponibilidade, MTBF, MTTR e ativos.</p></article>
-          <article class="solution-card reveal"><span class="label">Clínicas</span><h3>Agenda e gestão de clínicas</h3><p>Agenda semanal, clientes, procedimentos, follow-ups, estoque e controle financeiro.</p></article>
-          <article class="solution-card reveal"><span class="label">Automação</span><h3>Automações e relatórios</h3><p>Rotinas automatizadas para alimentar relatórios, reduzir digitação e acelerar fechamentos.</p></article>
         </div>
       </div>
     </section>
@@ -1640,12 +1916,34 @@
         <div class="section-head reveal">
           <div>
             <span class="section-kicker">Projetos e trabalhos realizados</span>
-            <h2>Exemplos de soluções reais criadas para gestão, operação e tomada de decisão.</h2>
+            <h2>Soluções reais para gestão, operação e tomada de decisão.</h2>
           </div>
-          <p class="section-text">Telas anonimizadas de aplicações, portais e dashboards desenvolvidos para tornar processos mais claros e eficientes.</p>
+          <p class="section-text">Telas anonimizadas de sistemas, portais e dashboards que desenvolvi para empresas.</p>
         </div>
 
         <div class="projects-grid" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <section id="solucoes">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-kicker">Como posso ajudar</span>
+            <h2>Três frentes para organizar a operação e melhorar decisões.</h2>
+          </div>
+          <p class="section-text">Cada solução é adaptada à rotina, aos dados e às prioridades da empresa.</p>
+        </div>
+
+        <div class="solutions-grid">
+          <article class="solution-card reveal"><span class="label">Sistemas</span><h3>Organizar processos e controles</h3><p>Aplicações web, ERPs e sistemas internos para centralizar financeiro, vendas, estoque, clientes e operação.</p></article>
+          <article class="solution-card reveal"><span class="label">Dados & BI</span><h3>Transformar dados em indicadores</h3><p>Dashboards e portais para acompanhar resultados, custos, disponibilidade e desempenho com clareza.</p></article>
+          <article class="solution-card reveal"><span class="label">Automação</span><h3>Reduzir tarefas manuais</h3><p>Fluxos e relatórios automatizados para diminuir digitação, conferências repetitivas e retrabalho.</p></article>
+        </div>
+        <div class="solution-areas reveal" aria-label="Áreas atendidas">
+          <strong>Aplicações para</strong>
+          <span>Financeiro</span><span>Vendas</span><span>Estoque</span><span>Manutenção</span><span>Operações</span><span>Clínicas</span>
+        </div>
       </div>
     </section>
 
@@ -1654,79 +1952,60 @@
         <div class="section-head reveal">
           <div>
             <span class="section-kicker">Como trabalho</span>
-            <h2>Um processo direto para sair do problema real até uma ferramenta validada.</h2>
+            <h2>Do problema real a uma solução pronta para uso.</h2>
           </div>
-          <p class="section-text">A construção é feita com entendimento da rotina, alinhamento com a empresa e validações objetivas antes da entrega final.</p>
+          <p class="section-text">Um processo próximo, com alinhamento e validação em cada etapa importante.</p>
         </div>
 
         <div class="workflow-timeline">
           <article class="timeline-step reveal">
             <span class="timeline-index">1</span>
-            <h3>Primeiro contato</h3>
-            <p>Entendo o cenário, os objetivos da empresa e quais dores precisam ser resolvidas.</p>
+            <h3>Entender</h3>
+            <p>Conheço o cenário, os objetivos e os problemas que precisam ser resolvidos.</p>
           </article>
           <article class="timeline-step reveal">
             <span class="timeline-index">2</span>
-            <h3>Avaliação e proposta</h3>
-            <p>Analiso viabilidade, escopo, prioridades e apresento uma proposta clara de solução.</p>
+            <h3>Mapear</h3>
+            <p>Organizo processos, regras, indicadores, fontes de dados e prioridades.</p>
           </article>
           <article class="timeline-step reveal">
             <span class="timeline-index">3</span>
-            <h3>Mapeamento</h3>
-            <p>Levanto processos, regras, indicadores, fontes de dados e fluxos de trabalho.</p>
+            <h3>Propor e validar</h3>
+            <p>Apresento o caminho da solução e valido a estrutura antes do desenvolvimento.</p>
           </article>
           <article class="timeline-step reveal">
             <span class="timeline-index">4</span>
-            <h3>Protótipo e validação</h3>
-            <p>Crio a estrutura inicial da solução e valido telas, cálculos, relatórios e uso prático.</p>
+            <h3>Desenvolver e testar</h3>
+            <p>Construo a ferramenta e confiro dados, cálculos, regras e funcionamento.</p>
           </article>
           <article class="timeline-step reveal">
             <span class="timeline-index">5</span>
-            <h3>Desenvolvimento</h3>
-            <p>Construo dashboards, sistemas, automações e ajustes conforme o fluxo validado.</p>
-          </article>
-          <article class="timeline-step reveal">
-            <span class="timeline-index">6</span>
-            <h3>Testes</h3>
-            <p>Confiro informações, comportamento das telas, regras de negócio e pontos críticos.</p>
-          </article>
-          <article class="timeline-step reveal">
-            <span class="timeline-index">7</span>
             <h3>Entrega</h3>
-            <p>Disponibilizo a solução pronta para uso, com orientação para a rotina da empresa.</p>
-          </article>
-          <article class="timeline-step reveal">
-            <span class="timeline-index">8</span>
-            <h3>Ajustes e evolução</h3>
-            <p>Acompanho melhorias necessárias conforme a ferramenta começa a gerar valor no dia a dia.</p>
+            <p>Disponibilizo a solução com orientação de uso e apoio nos ajustes necessários.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="competencias">
+    <section class="differential" id="competencias">
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <span class="section-kicker">Competências</span>
-            <h2>Tecnologia, dados e conhecimento de gestão aplicados no mesmo projeto.</h2>
+            <span class="section-kicker">Competências e diferencial</span>
+            <h2>Tecnologia conectada à realidade de quem opera e decide.</h2>
           </div>
+          <p class="section-text">Uno experiência prática, visão de gestão e desenvolvimento para criar ferramentas aplicáveis ao dia a dia.</p>
         </div>
-        <div class="skills-wrap reveal" id="skillsWrap"></div>
-      </div>
-    </section>
-
-    <section class="differential" id="diferencial">
-      <div class="container differential-grid">
-        <div class="reveal">
-          <span class="section-kicker">Diferencial</span>
-          <h2>Ferramentas mais próximas da realidade de quem opera, controla e decide.</h2>
-          <p class="section-text">Meu diferencial é unir experiência prática de chão de fábrica, operação e manutenção com visão de dados, gestão e criação de sistemas. Isso permite construir soluções sob medida que conversam com a rotina real das empresas, não apenas com uma ideia genérica de software.</p>
-        </div>
-        <div class="process-list reveal">
-          <div class="process-item"><span class="process-number">1</span><p>Entendo o problema operacional, os controles atuais e os pontos de retrabalho.</p></div>
-          <div class="process-item"><span class="process-number">2</span><p>Transformo a rotina em fluxos, dados, indicadores e telas simples de usar.</p></div>
-          <div class="process-item"><span class="process-number">3</span><p>Entrego ferramentas aplicáveis para gestão, acompanhamento e melhoria contínua.</p></div>
+        <div class="capabilities-grid">
+          <div class="reveal">
+            <h3 class="capabilities-title">Tecnologias e conhecimentos</h3>
+            <div class="skills-wrap" id="skillsWrap"></div>
+          </div>
+          <div class="process-list reveal">
+            <div class="process-item"><span class="process-number">1</span><p>Entendo a operação, os controles atuais e os pontos de retrabalho.</p></div>
+            <div class="process-item"><span class="process-number">2</span><p>Transformo a rotina em fluxos, indicadores e telas simples de usar.</p></div>
+            <div class="process-item"><span class="process-number">3</span><p>Entrego ferramentas úteis para acompanhar e melhorar a gestão.</p></div>
+          </div>
         </div>
       </div>
     </section>
@@ -1747,20 +2026,6 @@
               </a>
               <a class="btn btn-primary" href="https://www.linkedin.com/in/edes-botene-64679b1aa" target="_blank" rel="noopener">Falar no LinkedIn</a>
             </div>
-          </div>
-          <div class="contact-list" aria-label="Links de contato">
-            <a class="contact-link" href="https://wa.me/5551998294585" target="_blank" rel="noopener">
-              <span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path fill="currentColor" d="M20.52 3.48A11.91 11.91 0 0 0 12.04 0C5.46 0 .1 5.35.1 11.93c0 2.1.55 4.15 1.6 5.96L0 24l6.25-1.64a11.94 11.94 0 0 0 5.79 1.47h.01c6.58 0 11.94-5.35 11.95-11.93a11.85 11.85 0 0 0-3.48-8.42ZM12.05 21.8a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.71.97.99-3.62-.23-.37a9.87 9.87 0 0 1-1.52-5.26c0-5.47 4.45-9.92 9.92-9.92a9.85 9.85 0 0 1 7.02 2.91 9.85 9.85 0 0 1 2.9 7.02c0 5.47-4.45 9.86-9.96 9.86Zm5.44-7.42c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.48.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z" />
-                </svg>
-                WhatsApp
-              </span>
-              <span>(51) 99829-4585</span>
-            </a>
-            <a class="contact-link" href="https://www.linkedin.com/in/edes-botene-64679b1aa" target="_blank" rel="noopener">
-              <span>LinkedIn</span><span>linkedin.com/in/edes-botene-64679b1aa</span>
-            </a>
           </div>
         </div>
       </div>
@@ -1786,7 +2051,6 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>© <span id="year"></span> Edes Botene. Soluções digitais para gestão empresarial.</p>
-      <p>HTML, CSS e JavaScript puro. Pronto para GitHub Pages.</p>
     </div>
   </footer>
 
@@ -1891,6 +2155,38 @@
     const navLinks = document.querySelector(".nav-links");
     const menuToggle = document.querySelector(".menu-toggle");
     const heroShowcase = document.querySelector(".hero-showcase");
+    const brandLink = document.querySelector(".site-header .brand");
+    const dataMark = brandLink.querySelector(".data-mark");
+    const brandReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let brandAnimationTimer;
+
+    brandLink.addEventListener("pointermove", (event) => {
+      if (brandReducedMotion.matches || event.pointerType !== "mouse") return;
+      const bounds = dataMark.getBoundingClientRect();
+      const x = Math.max(-1, Math.min(1, (event.clientX - bounds.left) / bounds.width * 2 - 1));
+      const y = Math.max(-1, Math.min(1, (event.clientY - bounds.top) / bounds.height * 2 - 1));
+      dataMark.style.setProperty("--cube-x", `${-y * 12}deg`);
+      dataMark.style.setProperty("--cube-y", `${x * 15}deg`);
+    });
+    const resetBrandTilt = () => {
+      dataMark.style.removeProperty("--cube-x");
+      dataMark.style.removeProperty("--cube-y");
+    };
+    brandLink.addEventListener("pointerleave", resetBrandTilt);
+    brandLink.addEventListener("click", () => {
+      if (brandReducedMotion.matches) return;
+      clearTimeout(brandAnimationTimer);
+      dataMark.classList.remove("is-activated");
+      void dataMark.offsetWidth;
+      dataMark.classList.add("is-activated");
+      brandAnimationTimer = setTimeout(() => dataMark.classList.remove("is-activated"), 650);
+    });
+    brandReducedMotion.addEventListener("change", () => {
+      resetBrandTilt();
+      clearTimeout(brandAnimationTimer);
+      dataMark.classList.remove("is-activated");
+    });
+    const mobileOrbitWidget = document.querySelector(".mobile-orbit-widget");
     const lightbox = document.querySelector("#projectLightbox");
     const lightboxImage = document.querySelector("#lightboxImage");
     const lightboxTitle = document.querySelector("#lightboxTitle");
@@ -1964,6 +2260,32 @@
         menuToggle.setAttribute("aria-label", "Abrir menu");
       }
     });
+
+    if (mobileOrbitWidget) {
+      const mobileSolutions = [
+        { primary: "BI", secondary: "+ sistemas", label: "Dados claros" },
+        { primary: "WEB", secondary: "+ processos", label: "Rotinas organizadas" },
+        { primary: "AUTO", secondary: "+ eficiência", label: "Menos retrabalho" },
+        { primary: "KPIs", secondary: "+ gestão", label: "Decisões melhores" }
+      ];
+      const primary = mobileOrbitWidget.querySelector(".mobile-engine-center strong");
+      const secondary = mobileOrbitWidget.querySelector(".mobile-engine-center small");
+      const label = mobileOrbitWidget.querySelector(".mobile-widget-label");
+      const count = mobileOrbitWidget.querySelector(".mobile-widget-count");
+      let activeSolution = 0;
+
+      mobileOrbitWidget.addEventListener("click", () => {
+        activeSolution = (activeSolution + 1) % mobileSolutions.length;
+        const solution = mobileSolutions[activeSolution];
+        primary.textContent = solution.primary;
+        secondary.textContent = solution.secondary;
+        label.textContent = solution.label;
+        count.textContent = `${String(activeSolution + 1).padStart(2, "0")} / 04`;
+        mobileOrbitWidget.classList.remove("is-changing");
+        void mobileOrbitWidget.offsetWidth;
+        mobileOrbitWidget.classList.add("is-changing");
+      });
+    }
 
     if (heroShowcase && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       heroShowcase.addEventListener("pointermove", (event) => {
