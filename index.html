@@ -2567,6 +2567,15 @@
     for (const node of sceneNodes) {
       const [x,y,z] = node.at;
       node.route = lightTrack([[0,0,0],[x*.59,y*.59,z*.59-.18],node.at]);
+      const [ox, oy, oz] = node.origin;
+      const place = ([px, py, pz, color]) => [
+        x + (px - ox) * node.size,
+        y + (py - oy) * node.size,
+        z + (pz - oz) * node.size,
+        color
+      ];
+      node.points = node.points.map(place);
+      if (node.lights) node.lights = node.lights.map(place);
       node.offsets = new Float32Array(node.points.length * 2);
     }
 
@@ -2598,11 +2607,32 @@
         paintDot(...project(x,y,z),color,radius);
       }
 
-      function paintDot(px, py, color, radius = pointSize) {
-        ctx.fillStyle = color;
-        ctx.beginPath();
-        ctx.arc(px,py,radius,0,Math.PI*2);
+      let batchColor = "";
+
+      function flushDots() {
+        if (!batchColor) return;
         ctx.fill();
+        batchColor = "";
+      }
+
+      function paintDot(px, py, color, radius = pointSize) {
+        // Draw translucent points separately so overlapping dots retain their opacity.
+        if (ctx.globalAlpha !== 1 || !color.startsWith("#")) {
+          flushDots();
+          ctx.fillStyle = color;
+          ctx.beginPath();
+          ctx.arc(px, py, radius, 0, Math.PI * 2);
+          ctx.fill();
+          return;
+        }
+        if (batchColor !== color) {
+          flushDots();
+          batchColor = color;
+          ctx.fillStyle = color;
+          ctx.beginPath();
+        }
+        ctx.moveTo(px + radius, py);
+        ctx.arc(px, py, radius, 0, Math.PI * 2);
       }
 
       function paintInteractiveDot(px, py, color, offsets, pointIndex) {
@@ -2628,6 +2658,7 @@
         paintDot(x,y,color);
         const highlight = Math.min(1, Math.hypot(offsetX,offsetY) / 6);
         if (highlight > .025) {
+          flushDots();
           ctx.globalAlpha = highlight;
           paintDot(x,y,"#73ffd0");
           ctx.globalAlpha = 1;
@@ -2648,17 +2679,16 @@
         paintInteractiveDot(...project(x,y,z),color,coreOffsets,pointIndex);
       });
       for (const [index,node] of sceneNodes.entries()) {
-        const [ox,oy,oz] = node.origin;
-        const [nx,ny,nz] = node.at;
-        const place = (x,y,z) => [nx+(x-ox)*node.size,ny+(y-oy)*node.size,nz+(z-oz)*node.size];
         node.points.forEach(([x,y,z,color], pointIndex) => {
-          paintInteractiveDot(...project(...place(x,y,z)),color,node.offsets,pointIndex);
+          paintInteractiveDot(...project(x,y,z),color,node.offsets,pointIndex);
         });
         if (node.lights) {
-          drawTrackLights(ctx,(x,y,z) => project(...place(x,y,z)),node.lights,
+          flushDots();
+          drawTrackLights(ctx,project,node.lights,
             scale * .70,3200 + index * 250,index * .11);
         }
       }
+      flushDots();
     }
 
     function drawFormSpace(ctx) {
@@ -2707,14 +2737,16 @@
     }
 
     function tickForm(now) {
-      const delta = lastFrame ? Math.min(now - lastFrame, 40) : 16;
+      frame = requestAnimationFrame(tickForm);
+      // Limit the canvas redraw rate while preserving time-based motion.
+      if (lastFrame && now - lastFrame < 32) return;
+      const delta = lastFrame ? Math.min(now - lastFrame, 50) : 33;
       lastFrame = now;
       elapsed += delta;
       const blend = 1 - Math.exp(-delta / 125);
       easedX += (pointerX - easedX) * blend;
       easedY += (pointerY - easedY) * blend;
       renderForm(delta);
-      frame = requestAnimationFrame(tickForm);
     }
 
     function syncFormMotion() {
