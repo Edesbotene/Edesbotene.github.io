@@ -5,7 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portfólio comercial de Edes Botene: soluções digitais, dashboards, sistemas internos e automações para gestão empresarial." />
   <meta name="author" content="Edes Botene" />
-  <title>Edes Botene | Soluções digitais, dashboards e automações</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Edes Botene | Software sob medida">
+  <meta property="og:description" content="Sistemas, dashboards e automações para a rotina da sua empresa.">
+  <meta property="og:image" content="https://edesbotene.github.io/assets/capa-compartilhamento.png">
+  <meta property="og:image:alt" content="Edes Botene — Software sob medida">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <title>Edes Botene | Software sob medida</title>
   <style>
     :root {
       --bg: #08111f;
@@ -162,7 +169,7 @@
 
     @keyframes cube-float { 0%, 100% { translate: 0 1px; } 50% { translate: 0 -1.5px; } }
     @keyframes cube-indicator { 0%, 100% { scale: 1 .58; } 50% { scale: 1 1; } }
-    @keyframes cube-data { to { stroke-dashoffset: -100; } }
+    @keyframes cube-data { to { stroke-dashoffset: -100px; } }
     @keyframes cube-reflection { 0%, 25% { background-position: 140% 0; } 75%, 100% { background-position: -40% 0; } }
     @keyframes cube-tap { 0%, 100% { rotate: 0deg; scale: 1; } 40% { rotate: -9deg; scale: .9; } 70% { rotate: 7deg; scale: 1.08; } }
 
@@ -480,417 +487,63 @@
       font-weight: 850;
     }
 
-    .hero-showcase {
+    .hero {
+      background: radial-gradient(ellipse at 84% 38%, #14231e, transparent 58%), #101311;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.65rem, 5.1vw, 5.4rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+
+    .hero .gradient-text {
+      background-image: linear-gradient(104deg, #f0f6f3, #93f3cd 94%);
+    }
+
+    .hero .btn-primary { background: #9df5ce; color: #101b16; }
+    .hero-showcase { position: relative; min-width: 0; }
+    .form-stage {
       position: relative;
-      min-height: 590px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 8px;
-      background:
-        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(145deg, rgba(55, 215, 178, 0.16), rgba(89, 168, 255, 0.09) 42%, rgba(255, 207, 112, 0.08));
-      background-size: 34px 34px, 34px 34px, auto;
-      box-shadow: var(--shadow);
+      height: clamp(260px, 31vw, 425px);
       overflow: hidden;
       isolation: isolate;
-      transform-style: preserve-3d;
-    }
-
-    .hero-showcase::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(115deg, transparent 0 38%, rgba(255, 255, 255, 0.16) 48%, transparent 58% 100%);
-      animation: scan 4.6s ease-in-out infinite;
-      opacity: 0.65;
-      z-index: -1;
-    }
-
-    @keyframes scan {
-      0%, 100% { transform: translateX(-62%); }
-      50% { transform: translateX(62%); }
-    }
-
-    .showcase-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 18px 20px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-      background: rgba(8, 17, 31, 0.58);
-      backdrop-filter: blur(10px);
-    }
-
-    .showcase-header strong {
-      display: block;
-      font-size: 0.98rem;
-      line-height: 1.2;
-    }
-
-    .showcase-header > div > span {
-      display: block;
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 700;
-    }
-
-    .live-badge {
-      display: inline-flex;
-      flex: 0 0 auto;
-      white-space: nowrap;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 10px;
-      border: 1px solid rgba(55, 215, 178, 0.32);
-      border-radius: 999px;
-      background: rgba(55, 215, 178, 0.1);
-      color: #baf8e8;
-      font-size: 0.76rem;
-      font-weight: 850;
-      white-space: nowrap;
-    }
-
-    .showcase-body {
-      position: relative;
-      min-height: 516px;
-      padding: 22px;
-    }
-
-    .flow-card {
-      position: absolute;
-      width: 166px;
-      min-height: 142px;
-      padding: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 8px;
-      background: rgba(8, 17, 31, 0.78);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.24);
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .flow-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(55, 215, 178, 0.45);
-    }
-
-    .flow-card small {
-      color: var(--brand);
-      font-size: 0.68rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .flow-card strong {
-      display: block;
-      margin-top: 6px;
-      font-size: 0.94rem;
-      line-height: 1.16;
-    }
-
-    .flow-card p {
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 0.78rem;
-      line-height: 1.3;
-    }
-
-    .flow-card.one { top: 26px; left: 22px; }
-    .flow-card.two { top: 42px; right: 22px; }
-    .flow-card.three { bottom: 128px; left: 24px; }
-    .flow-card.four { bottom: 112px; right: 26px; }
-
-    .engine-core {
-      position: absolute;
-      inset: 50%;
-      display: grid;
-      width: 214px;
-      height: 214px;
-      place-items: center;
-      transform: translate(-50%, -50%);
-    }
-
-    .engine-ring {
-      position: absolute;
-      inset: 0;
-      border: 1px solid rgba(55, 215, 178, 0.42);
-      border-radius: 50%;
-      animation: spin 14s linear infinite;
-    }
-
-    .engine-ring:nth-child(2) {
-      inset: 24px;
-      border-color: rgba(89, 168, 255, 0.38);
-      animation-duration: 10s;
-      animation-direction: reverse;
-    }
-
-    .engine-ring:nth-child(3) {
-      inset: 48px;
-      border-color: rgba(255, 207, 112, 0.34);
-      animation-duration: 7s;
-    }
-
-    .engine-ring::before,
-    .engine-ring::after {
-      content: "";
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      border-radius: 2px;
-      background: var(--brand);
-      box-shadow: 0 0 20px rgba(55, 215, 178, 0.76);
-    }
-
-    .engine-ring::before {
-      top: -5px;
-      left: 50%;
-    }
-
-    .engine-ring::after {
-      bottom: 18px;
-      right: 22px;
-      background: var(--brand-2);
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    .engine-center {
-      position: relative;
-      display: grid;
-      width: 108px;
-      height: 108px;
-      place-items: center;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 8px;
-      background: linear-gradient(145deg, rgba(55, 215, 178, 0.24), rgba(89, 168, 255, 0.16));
-      color: var(--text);
-      text-align: center;
-      box-shadow: 0 0 48px rgba(55, 215, 178, 0.22);
-    }
-
-    .engine-center strong {
-      font-size: 1.65rem;
-      line-height: 1;
-    }
-
-    .engine-center span {
-      margin-top: 7px;
-      color: #cbfff2;
-      font-size: 0.68rem;
-      font-weight: 850;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .signal-line {
-      position: absolute;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(55, 215, 178, 0.85), transparent);
-      transform-origin: left center;
-      opacity: 0.68;
-    }
-
-    .signal-line.a { width: 168px; left: 128px; top: 120px; transform: rotate(18deg); }
-    .signal-line.b { width: 158px; right: 126px; top: 148px; transform: rotate(156deg); }
-    .signal-line.c { width: 166px; left: 124px; bottom: 206px; transform: rotate(-22deg); }
-    .signal-line.d { width: 146px; right: 126px; bottom: 192px; transform: rotate(202deg); }
-
-    .showcase-footer {
-      position: absolute;
-      left: 22px;
-      right: 22px;
-      bottom: 22px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .mini-kpi {
-      padding: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 8px;
-      background: rgba(3, 10, 20, 0.46);
-    }
-
-    .mini-kpi small {
-      display: block;
-      color: var(--muted);
-      font-size: 0.68rem;
-      font-weight: 750;
-    }
-
-    .mini-kpi strong {
-      display: block;
-      margin-top: 5px;
-      color: var(--text);
-      font-size: 0.95rem;
-      line-height: 1;
-    }
-
-    .mobile-hero-lead {
-      display: none;
-    }
-
-    .mobile-orbit-widget {
-      position: relative;
-      min-width: 128px;
-      min-height: 180px;
-      padding: 14px 10px 11px;
-      border: 1px solid rgba(55, 215, 178, 0.3);
+      border: 1px solid #40574d;
       border-radius: 14px;
       background:
-        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-        linear-gradient(155deg, rgba(55, 215, 178, 0.14), rgba(89, 168, 255, 0.08));
-      background-size: 18px 18px, 18px 18px, auto;
-      color: var(--text);
-      overflow: hidden;
-      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+        radial-gradient(ellipse at 50% 52%, #2743399e, transparent 65%),
+        linear-gradient(#baf6db0d 1px, transparent 1px),
+        linear-gradient(90deg, #baf6db0d 1px, transparent 1px),
+        #131a17;
+      background-size: auto, 28px 28px, 28px 28px, auto;
+    }
+
+    .form-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .form-caption, .form-axis {
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
+      color: #a3c6b7;
+      font: .66rem ui-monospace, monospace;
+      letter-spacing: .09em;
+    }
+    .form-caption { top: 16px; left: 16px; width: fit-content; pointer-events: auto; }
+    .form-axis { bottom: 16px; left: 16px; }
+    .form-pause {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      min-width: 36px;
+      min-height: 36px;
+      border: 1px solid #40574d;
+      border-radius: 7px;
+      background: #18251e;
+      color: #baf6db;
+      font: inherit;
       cursor: pointer;
-      touch-action: manipulation;
-      isolation: isolate;
     }
-
-    .mobile-orbit-widget::before {
-      content: "";
-      position: absolute;
-      inset: -30% 40% -30% -80%;
-      background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.15), transparent);
-      animation: mobileScan 4s ease-in-out infinite;
-      z-index: -1;
-    }
-
-    .mobile-widget-hint {
-      position: absolute;
-      top: 8px;
-      right: 9px;
-      color: rgba(215, 226, 239, 0.68);
-      font-size: 0.54rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .mobile-engine {
-      position: relative;
-      display: grid;
-      width: 108px;
-      height: 108px;
-      margin: 12px auto 8px;
-      place-items: center;
-    }
-
-    .mobile-ring {
-      position: absolute;
-      inset: 2px;
-      border: 1px solid rgba(55, 215, 178, 0.5);
-      border-radius: 50%;
-      animation: spin 10s linear infinite;
-    }
-
-    .mobile-ring:nth-child(2) {
-      inset: 15px;
-      border-color: rgba(89, 168, 255, 0.55);
-      animation-duration: 7s;
-      animation-direction: reverse;
-    }
-
-    .mobile-ring:nth-child(3) {
-      inset: 28px;
-      border-color: rgba(255, 207, 112, 0.5);
-      animation-duration: 5s;
-    }
-
-    .mobile-ring::before {
-      content: "";
-      position: absolute;
-      top: -4px;
-      left: calc(50% - 4px);
-      width: 8px;
-      height: 8px;
-      border-radius: 2px;
-      background: var(--brand);
-      box-shadow: 0 0 14px rgba(55, 215, 178, 0.8);
-    }
-
-    .mobile-ring:nth-child(2)::before {
-      background: var(--brand-2);
-    }
-
-    .mobile-ring:nth-child(3)::before {
-      background: var(--accent);
-    }
-
-    .mobile-engine-center {
-      position: relative;
-      display: grid;
-      width: 61px;
-      height: 61px;
-      place-items: center;
-      align-content: center;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 10px;
-      background: rgba(8, 17, 31, 0.82);
-      box-shadow: 0 0 28px rgba(55, 215, 178, 0.24);
-    }
-
-    .mobile-engine-center strong {
-      font-size: 1.15rem;
-      line-height: 1;
-    }
-
-    .mobile-engine-center small {
-      margin-top: 3px;
-      color: #c8fff1;
-      font-size: 0.46rem;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .mobile-widget-status {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 5px;
-      padding-top: 8px;
-      border-top: 1px solid rgba(255, 255, 255, 0.11);
-      text-align: left;
-    }
-
-    .mobile-widget-status strong {
-      display: flex;
-      flex: 1 1 0;
-      align-items: center;
-      min-width: 0;
-      height: 2.3em;
-      font-size: 0.68rem;
-      line-height: 1.15;
-    }
-
-    .mobile-widget-status small {
-      flex: 0 0 auto;
-      color: var(--brand);
-      font-size: 0.52rem;
-      font-weight: 900;
-    }
-
-    .mobile-orbit-widget.is-changing .mobile-engine-center {
-      animation: mobileCore 0.46s ease;
-    }
-
-    @keyframes mobileScan {
-      0%, 100% { transform: translateX(-25%); }
-      50% { transform: translateX(230%); }
-    }
-
-    @keyframes mobileCore {
-      50% { transform: scale(0.82) rotate(6deg); opacity: 0.58; }
+    @media (max-width: 540px) {
+      .hero h1 { font-size: clamp(2.35rem, 10.5vw, 3.35rem); }
     }
 
     section {
@@ -1057,33 +710,18 @@
       gap: 16px;
     }
 
-    .solution-areas {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 18px;
-      padding: 16px 18px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.035);
-    }
+    @media (min-width: 1061px) {
+      .solutions-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
 
-    .solution-areas strong {
-      margin-right: 8px;
-      color: var(--muted);
-      font-size: 0.76rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
+      .solutions-grid > .solution-card {
+        grid-column: span 2;
+      }
 
-    .solution-areas span {
-      padding: 5px 9px;
-      border: 1px solid rgba(255, 255, 255, 0.11);
-      border-radius: 999px;
-      color: var(--soft);
-      font-size: 0.78rem;
-      font-weight: 700;
+      .solutions-grid > .solution-card:nth-child(n+4) {
+        grid-column: span 3;
+      }
     }
 
     .solution-card {
@@ -1186,8 +824,7 @@
       margin-top: 14px;
     }
 
-    .tag,
-    .skill-tag {
+    .tag {
       display: inline-flex;
       align-items: center;
       min-height: 30px;
@@ -1198,65 +835,6 @@
       color: var(--soft);
       font-size: 0.82rem;
       font-weight: 700;
-    }
-
-    .workflow-timeline {
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
-      margin-top: 32px;
-    }
-
-    .timeline-step::before {
-      content: "";
-      position: absolute;
-      left: 52px;
-      width: calc(100% - 16px);
-      top: 33px;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(55, 215, 178, 0.9), rgba(89, 168, 255, 0.85), rgba(255, 207, 112, 0.7));
-      opacity: 0.7;
-    }
-
-    .timeline-step:nth-child(5n)::before {
-      display: none;
-    }
-
-    .timeline-step {
-      position: relative;
-      padding: 66px 18px 18px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.04));
-      min-height: 196px;
-    }
-
-    .timeline-index {
-      position: absolute;
-      left: 18px;
-      top: 17px;
-      display: grid;
-      width: 34px;
-      height: 34px;
-      place-items: center;
-      border: 1px solid rgba(55, 215, 178, 0.44);
-      border-radius: 8px;
-      background: #0b1728;
-      color: var(--brand);
-      font-weight: 900;
-      z-index: 1;
-    }
-
-    .timeline-step h3 {
-      margin-bottom: 8px;
-      font-size: 1rem;
-      line-height: 1.24;
-    }
-
-    .timeline-step p {
-      color: var(--muted);
-      font-size: 0.92rem;
     }
 
     .lightbox {
@@ -1321,66 +899,6 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-    }
-
-    .capabilities-grid {
-      display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
-      gap: 28px;
-      align-items: start;
-    }
-
-    .capabilities-title {
-      margin-bottom: 16px;
-      font-size: 1rem;
-    }
-
-    .skill-tag {
-      min-height: 38px;
-      padding: 8px 12px;
-    }
-
-    .differential {
-      position: relative;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background:
-        linear-gradient(90deg, rgba(55, 215, 178, 0.12), transparent 35%, rgba(89, 168, 255, 0.1)),
-        rgba(255, 255, 255, 0.025);
-    }
-
-    .differential-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 34px;
-      align-items: center;
-    }
-
-    .process-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .process-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      padding: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.13);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.045);
-    }
-
-    .process-number {
-      display: grid;
-      flex: 0 0 auto;
-      width: 32px;
-      height: 32px;
-      place-items: center;
-      border-radius: 50%;
-      background: rgba(55, 215, 178, 0.15);
-      color: var(--brand);
-      font-weight: 900;
     }
 
     .contact-panel {
@@ -1454,7 +972,7 @@
     }
 
     .site-footer {
-      padding: 26px 0 34px;
+      padding: 20px 0 16px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       color: var(--muted);
       font-size: 0.92rem;
@@ -1479,23 +997,17 @@
     }
 
     @media (max-width: 1060px) {
-      .timeline-step:nth-child(2n)::before {
-        display: none;
-      }
       .benefits-grid {
         grid-template-columns: repeat(3, 1fr);
       }
 
       .projects-grid,
-      .solutions-grid,
-      .workflow-timeline {
+      .solutions-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
       .hero-grid,
       .about-grid,
-      .differential-grid,
-      .capabilities-grid,
       .contact-panel {
         grid-template-columns: 1fr;
       }
@@ -1548,31 +1060,6 @@
         display: block;
       }
 
-      .desktop-hero-title {
-        display: none;
-      }
-
-      .mobile-hero-lead {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) 132px;
-        align-items: center;
-        gap: 14px;
-      }
-
-      .mobile-name {
-        display: block;
-        margin-bottom: 9px;
-        color: var(--text);
-        font-size: 0.9rem;
-        font-weight: 850;
-      }
-
-      .mobile-title-block h1 {
-        max-width: 360px;
-        font-size: clamp(2.18rem, 8.8vw, 3.6rem);
-        line-height: 0.96;
-      }
-
       .hero .eyebrow {
         margin-bottom: 16px;
         padding: 6px 9px;
@@ -1604,34 +1091,8 @@
       .chart-shell,
       .benefits-grid,
       .projects-grid,
-      .solutions-grid,
-      .workflow-timeline {
+      .solutions-grid {
         grid-template-columns: 1fr;
-      }
-
-      .timeline-step::before {
-        left: 35px;
-        right: auto;
-        top: 51px;
-        width: 2px;
-        height: calc(100% - 16px);
-      }
-
-      .timeline-step:nth-child(n)::before {
-        display: block;
-      }
-
-      .timeline-step:last-child::before {
-        display: none;
-      }
-
-      .timeline-step {
-        padding: 20px 18px 20px 70px;
-        min-height: 140px;
-      }
-
-      .showcase-header {
-        flex-wrap: wrap;
       }
 
       .section-head {
@@ -1643,24 +1104,7 @@
       }
 
       .hero-showcase {
-        display: none;
-        min-height: auto;
-      }
-
-      .showcase-body {
-        display: grid;
-        min-height: auto;
-        gap: 12px;
-        padding-bottom: 112px;
-      }
-
-      .flow-card,
-      .flow-card.one,
-      .flow-card.two,
-      .flow-card.three,
-      .flow-card.four {
-        position: static;
-        width: 100%;
+        margin-top: 24px;
       }
 
       .engine-core,
@@ -1702,16 +1146,6 @@
         padding: 20px;
       }
 
-      .showcase-body {
-        padding-bottom: 20px;
-      }
-
-      .showcase-footer {
-        position: static;
-        grid-template-columns: 1fr;
-        margin-top: 12px;
-      }
-
       .contact-link {
         align-items: flex-start;
         flex-direction: column;
@@ -1727,16 +1161,494 @@
         transition-duration: 0.001ms !important;
       }
     }
+    :root {
+      --bg: #05080f;
+      --bg-2: #080f1c;
+      --brand: #8db7fc;
+      --brand-2: #4c7df1;
+      --text: #f1f4fb;
+      --muted: #a8b7ce;
+      --line: #26354a;
+      --max: 1248px;
+    }
+    body { background: var(--bg); font-family: "Segoe UI", Arial, sans-serif; }
+    .site-header { background: #05080ff2; }
+    .nav-links .nav-cta, .hero .btn-primary, .reference-feature .btn-primary {
+      background: linear-gradient(120deg,#4876ed,#315be1);
+      border: 1px solid #638df6;
+      color: #fff;
+    }
+    .hero {
+      padding: clamp(40px, 5vw, 72px) 0;
+      display: grid;
+      align-items: center;
+      background: radial-gradient(ellipse at 81% 39%, #111b30, transparent 61%), #05080f;
+    }
+    .hero-grid { align-items: start; }
+    .hero .eyebrow { padding: 0; background: none; border: 0; color: #a4b7d6; text-transform: uppercase; letter-spacing: .13em; font-size: .68rem; }
+    .hero .pulse { width: 5px; height: 5px; box-shadow: 0 0 12px #8eb8ff; }
+    .hero h1 { font-weight: 500; font-size: clamp(2rem, 4.9vw, 5rem); text-wrap: balance; }
+    @media (max-width: 540px) {
+      .hero { padding-block: 24px 28px; }
+      .hero h1 { font-size: clamp(1.9rem, 9.6vw, 3.15rem); }
+      .hero .eyebrow { margin-bottom: 12px; }
+      .hero .hero-actions { gap: 8px; margin-top: 16px; }
+      .hero .hero-actions .btn { min-height: 44px; padding: 8px 12px; font-size: .84rem; }
+      .hero-whatsapp-prefix { display: none; }
+      .hero-showcase { margin-top: 20px; }
+      .hero-showcase .form-caption {
+        position: static;
+        display: block;
+        margin: 0 0 12px 12px;
+        font-size: .56rem;
+      }
+      .hero-showcase .form-stage { height: clamp(245px, 69vw, 300px); }
+      .hero-visible .floating-whatsapp { visibility: hidden; }
+    }
+    @media (max-width: 540px) and (max-height: 700px) {
+      .hero { padding-top: 18px; }
+      .hero .hero-copy { margin-top: 10px; }
+      .hero-showcase .form-stage { height: clamp(225px, 38svh, 255px); }
+    }
+    .hero .gradient-text, .reference-accent {
+      color: transparent;
+      background: linear-gradient(105deg,#b8d2f7,#5889ed);
+      background-clip: text;
+    }
+    .hero h1, .hero-copy, .hero-eyebrow-text, main section h2, .section-kicker, #contato .section-text { position: relative; }
+    main { overflow-x: clip; }
+    .hero-title-particles { position: absolute; pointer-events: none; z-index: 1; }
+    .hero-title-dispersed { visibility: hidden; }
+    .hero .hero-copy { color: var(--muted); max-width: 48ch; font-size: 1rem; }
+    .hero .hero-project-link { color: #c8d6ed; text-decoration: underline; text-underline-offset: 5px; }
+    .form-stage { border: 0; background: radial-gradient(ellipse at center,#13264665,transparent 69%); }
+    .form-caption,.form-axis { color: #9bb4db; }
+    .form-pause { background: #0a101b; border-color: #253249; color: #c1d0e9; }
+    main > section:not(.hero) { padding-block: clamp(66px, 8vw, 125px); border-top: 1px solid #182439; }
+    #solucoes { background: transparent; }
+    #como-trabalho { background: #090f1a; }
+    #sobre { background: radial-gradient(ellipse at 22% 50%,#142442,#080f1c 56%); }
+    #projetos { background: #0a1323; }
+    #contato { background: radial-gradient(ellipse at 50% 120%,#1b376c,transparent 57%),#060b14; }
+    .section-head h2,#sobre h2,#contato h2 { font-weight: 500; line-height: 1.05; letter-spacing: -.045em; font-size: clamp(2.25rem, 4.6vw, 4.65rem); }
+    .section-kicker { color: #9fbce9; }
+    .reference-feature { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(18px,4vw,52px); align-items: center; padding: clamp(18px,4vw,56px); }
+    .reference-feature h3 { font-weight: 500; font-size: clamp(1.6rem,3vw,3.2rem); line-height: 1.1; letter-spacing: -.04em; }
+    .reference-feature p { color: var(--muted); margin-block: 14px 20px; }
+    .reference-link { color: #b4cff9; text-decoration: underline; text-underline-offset: 4px; }
+    .flow-visual { display: flex; justify-content: center; gap: clamp(5px,1vw,15px); padding: 8px; }
+    .flow-visual span { padding: 7px; border: 1px solid #496fa6; border-radius: 7px; color: #d4e5ff; font-size: .76rem; text-align: center; }
+    .flow-visual b { color: #8db7fc; }
+    #sobre .text-panel { background: transparent; border: 0; }
+    #sobre h2 { margin-bottom: 20px; }
+    .reference-feature { border: 1px solid #26354a; border-radius: 13px; background: #0e1a2e; margin-bottom: 32px; }
+    #contato { position: relative; isolation: isolate; }
+    #contato::before {
+      content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+      background: radial-gradient(ellipse 42% 68% at 52% 78%, rgba(56, 111, 220, .23), transparent),
+                  radial-gradient(ellipse 35% 52% at 26% 86%, rgba(34, 176, 165, .11), transparent);
+    }
+    #contato .contact-panel { display: block; text-align: center; max-width: 800px; margin: auto; border: 0; background: none; box-shadow: none; }
+    #contato .section-text { max-width: 55ch; margin-inline: auto; }
+    #contato .contact-actions { display: flex; justify-content: center; }
+    .contact-shortcuts { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .contact-shortcuts a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border: 1px solid #344961; border-radius: 999px; background: #122034; color: #d6e4f5; font-size: .82rem; }
+    .contact-shortcuts a:hover, .contact-shortcuts a:focus-visible { border-color: #91b9ee; color: #fff; }
+    .site-footer { background: #05080f; }
+    .footer-inner { align-items: center; gap: 14px; }
+    .footer-identity { display: flex; align-items: center; gap: 11px; }
+    .footer-mark {
+      display: grid;
+      place-items: center;
+      flex: 0 0 36px;
+      height: 36px;
+      border: 1px solid #2b5a62;
+      border-radius: 9px;
+      background: linear-gradient(145deg,#183735,#0c182b 75%);
+    }
+    .footer-mark svg { display: block; width: 29px; height: 29px; }
+    .footer-name { color: #edf4ff; font-size: 1.05rem; font-weight: 650; }
+    .footer-identity p { margin: 1px 0 0; }
+    .footer-inner nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+    .footer-top { color: #a6c9ff; white-space: nowrap; }
+    .footer-legal { width: 100%; margin: 0; padding-top: 10px; border-top: 1px solid #26354a; font-size: .78rem; }
+    @media (max-width: 640px) {
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+    @media(max-width: 820px) {
+      .hero .hero-actions { display: flex; }
+      .hero .hero-actions .btn { width: auto; }
+      .reference-feature { grid-template-columns: minmax(0,1fr); }
+    }
+
+    body { isolation: isolate; }
+    .network-background { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
+    .hero { background: radial-gradient(ellipse at 81% 39%, #111b30b8, transparent 65%), #05080f26; }
+    #como-trabalho { background: #090f1ac7; }
+    #sobre { background: radial-gradient(ellipse at 22% 50%,#142442e0,#080f1cc9 56%); }
+    #projetos { background: #0a1323cc; }
+    #contato { background: radial-gradient(ellipse at 50% 120%,#1b376ce0,transparent 57%),#060b14bd; }
+    #como-trabalho .timeline-heading { display: block; }
+    #como-trabalho .timeline-heading h2 { font-size: clamp(2rem,3.6vw,3.5rem); }
+    .work-timeline {
+      position: relative;
+      overflow: clip;
+      padding: clamp(18px,3.3vw,42px);
+      border: 1px solid #2a3f5d;
+      border-radius: 18px;
+      background:
+        radial-gradient(ellipse at 48% 0%, #1d385c6b, transparent 65%),
+        radial-gradient(circle, #8ab8f51c 1px, transparent 1.4px) 0 0 / 20px 20px,
+        #0c1627d9;
+    }
+    .timeline-steps {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(5,minmax(0,1fr));
+      gap: clamp(12px,2vw,26px);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .timeline-step {
+      --phase-accent: #9cbfff;
+      position: relative;
+      padding: 6px 0 0;
+    }
+    .timeline-step:nth-child(2) { --phase-accent: #87c7ff; }
+    .timeline-step:nth-child(3) { --phase-accent: #7cdbff; }
+    .timeline-step:nth-child(4) { --phase-accent: #78e0ec; }
+    .timeline-step:nth-child(5) { --phase-accent: #82efcd; }
+    @media (min-width: 901px) {
+      .timeline-step:nth-child(even) .timeline-marker { transform: translateY(23px); }
+    }
+    .timeline-marker {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 96px;
+      height: 72px;
+      margin: 0 auto 41px;
+      border: 1px solid color-mix(in srgb, var(--phase-accent) 40%, #14243c);
+      border-radius: 15px;
+      background:
+        radial-gradient(ellipse at 72% 15%,color-mix(in srgb,var(--phase-accent) 16%,transparent),transparent 80%),
+        #102038;
+      color: var(--phase-accent);
+      box-shadow: inset 0 1px #c2dcff20, 0 10px 24px #050c1e60;
+    }
+    .timeline-marker svg { width: 72px; height: 49px; }
+    .timeline-marker .phase-surface { fill: #101d32; stroke-opacity: .70; }
+    .timeline-marker .phase-muted { opacity: .45; }
+    .timeline-marker .phase-highlight { fill: currentColor; fill-opacity: .2; }
+    .timeline-marker .phase-dot { fill: currentColor; stroke: none; }
+    .timeline-copy { border-top: 1px solid #6388b638; padding-top: 12px; }
+    .timeline-copy small {
+      color: var(--phase-accent);
+      font: .71rem ui-monospace,monospace;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+    .timeline-copy h3 { margin: 6px 0 7px; font-size: clamp(1rem,1.45vw,1.22rem); line-height: 1.25; }
+    .timeline-copy p { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.55; }
+    .timeline-step:hover .timeline-marker {
+      border-color: var(--phase-accent);
+      box-shadow: inset 0 1px #c2dcff38, 0 0 21px color-mix(in srgb,var(--phase-accent) 25%,transparent);
+    }
+    .timeline-route-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .timeline-route { display: block; width: 100%; height: 100%; }
+    .timeline-route path { fill: none; stroke-linecap: round; }
+    .timeline-route-base { stroke: #5278a6; stroke-width: 2; }
+    .timeline-route-flow {
+      display: none;
+      stroke: url(#timeline-flow-color);
+      stroke-width: 3.5;
+      stroke-dasharray: 21px 79px;
+      filter: drop-shadow(0 0 5px #64b8ff);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .timeline-marker { transition: background-color .25s, box-shadow .25s, border-color .25s; }
+      .work-timeline.is-playing .timeline-route-flow {
+        display: inline;
+        animation: timeline-flow 6s linear infinite;
+      }
+    }
+    @keyframes timeline-flow {
+      to { stroke-dashoffset: -100px; }
+    }
+    @media (max-width: 900px) {
+      .timeline-steps { grid-template-columns: minmax(0,1fr); gap: 20px; }
+      .timeline-step { display: grid; grid-template-columns: 68px minmax(0,1fr); gap: 14px; padding: 0; }
+      .timeline-marker { width: 68px; height: 56px; margin: 0; border-radius: 12px; }
+      .timeline-marker svg { width: 52px; height: 36px; }
+      .timeline-copy { border-top: 0; padding-top: 1px; }
+    }
+    .services-stack {
+      margin-top: clamp(18px,3vw,32px);
+      padding-top: clamp(16px,2vw,24px);
+      border-top: 1px solid #26354a;
+    }
+    .services-stack h3 { margin: 0 0 12px; font-size: 1rem; }
+    .services-stack-row + .services-stack-row { margin-top: 16px; }
+    .services-stack-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .services-stack-list li {
+      padding: 6px 12px;
+      border: 1px solid #35507a;
+      border-radius: 999px;
+      background: #142540;
+      color: #c7ddff;
+      font-size: .85rem;
+      white-space: nowrap;
+    }
+    .services-stack-row + .services-stack-row li {
+      border-color: #2d5365;
+      background: #112a36;
+      color: #c3e7ee;
+    }
+    .services-stack-list[aria-hidden="true"] { display: none; }
+    @media (prefers-reduced-motion: no-preference) {
+      .services-stack.is-animated .services-stack-row {
+        overflow: hidden;
+        mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+      }
+      .services-stack.is-animated .services-stack-track {
+        display: flex;
+        width: max-content;
+        animation: services-scroll 42s linear infinite;
+      }
+      .services-stack.is-animated .services-stack-row + .services-stack-row .services-stack-track {
+        animation-direction: reverse;
+        animation-duration: 48s;
+      }
+      .services-stack:focus .services-stack-track,
+      .services-stack-row:hover .services-stack-track { animation-play-state: paused; }
+      .services-stack.is-animated .services-stack-list {
+        display: flex;
+        flex-wrap: nowrap;
+        flex: none;
+        padding-inline-end: 8px;
+      }
+    }
+    @keyframes services-scroll {
+      to { transform: translateX(-33.333333%); }
+    }
+    #solucoes .services-heading { display: block; }
+    #solucoes .services-heading h2 {
+      max-width: 26ch;
+      font-size: clamp(2rem, 3.6vw, 3.5rem);
+      text-wrap: balance;
+    }
+    @media (min-width: 901px) {
+      #solucoes .services-heading { text-align: right; }
+      #solucoes .services-heading h2 { margin-inline-start: auto; }
+    }
+    .solutions-panel {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: clamp(12px,2vw,20px);
+    }
+    .solutions-panel .service-tile {
+      --service-accent: #8cb7ff;
+      --service-tint: #162e52;
+      display: grid;
+      grid-template-columns: minmax(0,1fr) clamp(76px,7.6vw,108px);
+      align-items: center;
+      gap: clamp(10px,1.4vw,18px);
+      padding: clamp(16px,2.2vw,26px);
+      border: 1px solid #26354a;
+      border-radius: 12px;
+      background: #0e1828d9;
+      transition: border-color .2s ease;
+    }
+    .solutions-panel .service-tile:hover { border-color: var(--service-accent); }
+    @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+      .solutions-panel .service-tile:hover {
+        background-image: radial-gradient(
+          circle at var(--service-x, 50%) var(--service-y, 50%),
+          color-mix(in srgb, var(--service-accent) 17%, transparent),
+          transparent 140px
+        );
+      }
+    }
+    .service-tile[data-tone="cyan"] { --service-accent: #70d6f5; --service-tint: #123443; }
+    .service-tile[data-tone="green"] { --service-accent: #76e3bc; --service-tint: #133a37; }
+    .service-tile-copy h3 { margin: 0 0 8px; font-size: clamp(1rem,1.5vw,1.25rem); line-height: 1.25; }
+    .service-tile p { margin: 0; color: var(--muted); font-size: .92rem; }
+    .service-preview { width: 100%; height: auto; color: var(--service-accent); }
+    .service-preview .preview-surface { fill: var(--service-tint); fill-opacity: .45; stroke-opacity: .48; }
+    .service-preview .preview-muted { opacity: .44; }
+    .service-preview .preview-accent { fill: currentColor; fill-opacity: .18; }
+    .service-preview .preview-signal { fill: currentColor; stroke: none; }
+    @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+      .service-tile:hover .preview-focus { filter: drop-shadow(0 0 4px currentColor); }
+      .service-tile:hover .preview-deal { animation: service-deal-move .65s ease-in-out forwards; }
+      .service-tile:hover .preview-pulse { animation: service-pulse-move .7s ease-out forwards; }
+    }
+    @keyframes service-deal-move {
+      0% { transform: translate(0,0); }
+      45% { transform: translate(14px,-9px); }
+      100% { transform: translate(28px,0); }
+    }
+    @keyframes service-pulse-move {
+      from { transform: translateX(0); }
+      to { transform: translateX(26px); }
+    }
+    @media (max-width: 900px) {
+      .solutions-panel { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width: 560px) {
+      .solutions-panel { grid-template-columns: minmax(0,1fr); }
+    }
+    .project-case { scroll-margin-top: 90px; overflow: hidden; }
+    .project-case figure { margin: 0; padding: 12px 12px 0; min-width: 0; }
+    .project-shot {
+      display: grid;
+      place-items: center;
+      aspect-ratio: 1.95;
+      padding: 7px;
+      border: 1px solid #304563;
+      border-radius: 8px;
+      background: #091426;
+    }
+    .project-case .project-shot img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; }
+    .erp-lane { overflow: hidden; margin-bottom: 10px; }
+    .erp-track { display: flex; width: max-content; animation: erp-slide 42s linear infinite; }
+    .erp-lane:nth-child(2) .erp-track { animation-direction: reverse; animation-duration: 36s; }
+    .erp-strip { display: flex; flex: none; gap: 10px; padding: 0 10px 0 0; margin: 0; list-style: none; }
+    .erp-card {
+      width: clamp(260px, 32vw, 425px);
+      overflow: hidden;
+      border: 1px solid #304563;
+      border-radius: 10px;
+      background: #12243a;
+    }
+    .project-case-featured .project-content { padding: clamp(20px, 3vw, 40px); }
+    .erp-kicker {
+      display: inline-flex; align-items: center; gap: 8px; margin-bottom: 10px;
+      color: #a9caff; font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    }
+    .erp-kicker::before { content: ""; width: 15px; height: 2px; background: currentColor; }
+    .project-case-featured .project-content p { max-width: 34ch; line-height: 1.65; }
+    .erp-card button {
+      position: relative; display: block; width: 100%; padding: 0; border: 0; background: transparent;
+      color: inherit; font: inherit; text-align: left; cursor: zoom-in;
+    }
+    .erp-card button:focus-visible { outline: 2px solid #9fc7ff; outline-offset: -3px; }
+    .erp-card button:hover span { color: #b7d5ff; }
+    .erp-gallery:has(button:focus-visible) .erp-track { animation-play-state: paused; }
+    .erp-lane:has(button:focus-visible) { overflow-x: auto; }
+    .erp-lane:has(button:focus-visible) .erp-track { animation: none; }
+    .erp-lane:has(button:focus-visible) .erp-copy { display: none; }
+    .erp-viewer {
+      position: fixed; inset: 0; margin: auto; height: fit-content;
+      width: min(1160px, calc(100% - 24px)); max-height: calc(100% - 24px);
+      padding: 12px; border: 1px solid #304563; border-radius: 14px; background: #101b2d; color: #eff5ff;
+    }
+    .erp-viewer::backdrop { background: rgba(3, 8, 17, .86); }
+    .erp-viewer-header { position: relative; display: grid; place-items: center; min-height: 50px; padding: 0 48px 10px; text-align: center; }
+    .erp-viewer-header form { position: absolute; top: 0; right: 0; }
+    .erp-viewer-header h2 { margin: 0; font-size: clamp(1rem, 3vw, 1.35rem); }
+    .erp-viewer-close {
+      min-width: 40px; min-height: 40px; border: 1px solid #526780; border-radius: 8px;
+      background: #182a43; color: inherit; font-size: 1.4rem; cursor: pointer;
+    }
+    .erp-viewer img { display: block; width: 100%; max-height: calc(100dvh - 100px); object-fit: contain; }
+    html:has(.erp-viewer[open]) { overflow: hidden; }
+    .erp-card img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: #18181b; }
+    .erp-card span { position: absolute; bottom: 8px; left: 8px; max-width: calc(100% - 16px); padding: 4px 9px; border-radius: 6px; background: rgba(9, 20, 38, .88); color: #f0f6ff; font-size: .78rem; line-height: 1.4; }
+    .erp-gallery:hover .erp-track { animation-play-state: paused; }
+    @keyframes erp-slide { to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) {
+      .erp-lane { overflow-x: auto; }
+      .erp-lane .erp-track { animation: none; }
+      .erp-copy { display: none; }
+    }
+    #projeto-manutencao .project-shot, #projeto-clinica .project-shot { aspect-ratio: auto; padding: 0; overflow: hidden; }
+    #projeto-manutencao .project-shot img, #projeto-clinica .project-shot img { height: auto; }
+    .project-shot:focus-visible { outline: 2px solid #9fc7ff; outline-offset: 3px; }
+    .project-case figcaption { margin-top: 6px; color: var(--muted); font-size: .75rem; }
+    .project-case-featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(0,1fr) minmax(0,2fr);
+      align-items: center;
+    }
+    .project-case-featured figure { padding: 16px; }
+    .project-case-featured h3 { font-size: clamp(1.45rem,3vw,2.5rem); }
+    #sobre .about-heading { display: block; }
+    #sobre .about-heading h2 {
+      max-width: 33ch;
+      margin: 0;
+      font-size: clamp(2rem,3.6vw,3.5rem);
+      text-wrap: balance;
+    }
+    .about-experience {
+      display: grid;
+      grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr);
+      gap: clamp(14px,2vw,24px);
+    }
+    .experience-summary, .experience-story {
+      padding: clamp(20px,3vw,34px);
+      border: 1px solid #2b405e;
+      border-radius: 14px;
+      background: #0e192bd9;
+    }
+    .experience-summary { background: linear-gradient(145deg,#162842de,#0d182ad9 75%); }
+    .experience-identity { display: flex; align-items: center; gap: 13px; }
+    .experience-icon {
+      display: grid;
+      place-items: center;
+      flex: 0 0 58px;
+      width: 58px;
+      height: 58px;
+      border: 1px solid #45678c;
+      border-radius: 14px;
+      background: linear-gradient(145deg,#213c60,#102139);
+      box-shadow: inset 0 1px #a1cbff24;
+    }
+    .experience-icon svg { width: 44px; height: 44px; }
+    .experience-summary h3 { margin: 0; font-size: 1.25rem; }
+    .experience-summary p { margin: 4px 0 0; color: var(--muted); }
+    .experience-metric {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid #39516f;
+    }
+    .experience-metric strong { display: block; font-size: clamp(2.25rem,4vw,3.4rem); line-height: 1; color: #a1cbff; }
+    .experience-story p { margin: 0; color: var(--muted); max-width: 65ch; }
+    .experience-story p + p { margin-top: 12px; }
+    .experience-story .tag-row { margin-top: 18px; }
+    @media (max-width: 820px) {
+      .about-experience { grid-template-columns: minmax(0,1fr); }
+    }
+    @media (max-width: 720px) {
+      .project-case-featured { grid-template-columns: minmax(0,1fr); }
+      .project-case-featured figure { padding: 12px 12px 0; }
+    }
+
   </style>
 </head>
 <body>
+  <canvas class="network-background" aria-hidden="true"></canvas>
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="#inicio" aria-label="Ir para o início">
         <span class="brand-mark data-mark" aria-hidden="true">
-          <svg class="data-cube" width="38" height="38" viewBox="0 0 48 48" fill="none">
+          <svg id="portfolio-brand-cube" class="data-cube" width="38" height="38" viewBox="0 0 48 48" fill="none">
             <defs>
               <linearGradient id="cubeFront" x1="9" y1="17" x2="30" y2="41" gradientUnits="userSpaceOnUse"><stop stop-color="#37d7b2" stop-opacity=".36"/><stop offset="1" stop-color="#103b54" stop-opacity=".85"/></linearGradient>
               <linearGradient id="cubeTop" x1="11" y1="8" x2="37" y2="19" gradientUnits="userSpaceOnUse"><stop stop-color="#a0ffe4" stop-opacity=".65"/><stop offset="1" stop-color="#59a8ff" stop-opacity=".2"/></linearGradient>
@@ -1764,12 +1676,11 @@
       </button>
 
       <nav class="nav-links" aria-label="Navegação principal">
-        <a href="#inicio">Início</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#projetos">Projetos</a>
         <a href="#solucoes">Soluções</a>
+        <a href="#projetos">Projetos</a>
         <a href="#como-trabalho">Como trabalho</a>
-        <a href="#contato">Contato</a>
+        <a href="#sobre">Sobre</a>
+        <a class="nav-cta" href="https://wa.me/5551998294585?text=Ol%C3%A1%2C%20Edes!%20Quero%20conversar%20sobre%20um%20sistema%20para%20minha%20empresa." target="_blank" rel="noopener">Iniciar um projeto ↗</a>
       </nav>
     </div>
   </header>
@@ -1777,140 +1688,133 @@
   <main id="conteudo">
     <section class="hero" id="inicio">
       <div class="container hero-grid">
-        <div class="reveal">
-          <span class="eyebrow"><span class="pulse"></span> Consultoria técnica + desenvolvimento digital</span>
-          <h1 class="desktop-hero-title">Edes Botene <span class="gradient-text">soluções digitais para gestão eficiente.</span></h1>
-          <div class="mobile-hero-lead">
-            <div class="mobile-title-block">
-              <span class="mobile-name">Edes Botene</span>
-              <h1>Soluções digitais para <span class="gradient-text">gestão eficiente.</span></h1>
-            </div>
-            <button class="mobile-orbit-widget" type="button" aria-label="Explorar soluções: dados, sistemas, automação e gestão">
-              <span class="mobile-widget-hint">toque</span>
-              <span class="mobile-engine" aria-hidden="true">
-                <i class="mobile-ring"></i>
-                <i class="mobile-ring"></i>
-                <i class="mobile-ring"></i>
-                <span class="mobile-engine-center">
-                  <strong>BI</strong>
-                  <small>+ sistemas</small>
-                </span>
-              </span>
-              <span class="mobile-widget-status">
-                <strong class="mobile-widget-label" aria-live="polite">Dados claros</strong>
-                <small class="mobile-widget-count">01 / 04</small>
-              </span>
-            </button>
-          </div>
-          <p class="hero-copy">Desenvolvo sistemas internos, dashboards e automações para organizar processos, conectar informações e facilitar a gestão.</p>
+        <div>
+          <span class="eyebrow"><span class="pulse"></span><span class="hero-eyebrow-text">Desenvolvimento de software sob medida</span></span>
+          <h1>Software para o jeito que <span class="gradient-text">sua empresa&nbsp;trabalha.</span></h1>
+          <p class="hero-copy">Aplicativos, SaaS, CRM, ERP, dashboards e automações para simplificar a rotina da sua empresa.</p>
           <div class="hero-actions" aria-label="Ações principais">
-            <a class="btn btn-primary" href="#projetos">Ver projetos</a>
-            <a class="btn btn-whatsapp" href="https://wa.me/5551998294585" target="_blank" rel="noopener" aria-label="Chamar Edes Botene no WhatsApp">
+            <a class="btn btn-primary" href="https://wa.me/5551998294585?text=Ol%C3%A1%2C%20Edes!%20Quero%20conversar%20sobre%20um%20sistema%20para%20minha%20empresa." target="_blank" rel="noopener" aria-label="Chamar Edes Botene no WhatsApp">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path fill="currentColor" d="M20.52 3.48A11.91 11.91 0 0 0 12.04 0C5.46 0 .1 5.35.1 11.93c0 2.1.55 4.15 1.6 5.96L0 24l6.25-1.64a11.94 11.94 0 0 0 5.79 1.47h.01c6.58 0 11.94-5.35 11.95-11.93a11.85 11.85 0 0 0-3.48-8.42ZM12.05 21.8a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.71.97.99-3.62-.23-.37a9.87 9.87 0 0 1-1.52-5.26c0-5.47 4.45-9.92 9.92-9.92a9.85 9.85 0 0 1 7.02 2.91 9.85 9.85 0 0 1 2.9 7.02c0 5.47-4.45 9.86-9.96 9.86Zm5.44-7.42c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.48.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z" />
               </svg>
-              WhatsApp
+              <span><span class="hero-whatsapp-prefix">Conversar pelo </span>WhatsApp</span>
             </a>
-            <a class="btn btn-secondary" href="https://www.linkedin.com/in/edes-botene-64679b1aa" target="_blank" rel="noopener">Falar comigo no LinkedIn</a>
+            <a class="btn hero-project-link" href="#projetos">Ver projetos ↗</a>
           </div>
         </div>
 
-        <div class="hero-showcase reveal" aria-label="Centro de soluções digitais interativo">
-          <div class="showcase-header">
-            <div>
-              <strong>Centro de soluções digitais</strong>
-              <span>operação, dados, automação e gestão</span>
-            </div>
-            <span class="live-badge"><span class="pulse"></span> Em movimento</span>
-          </div>
-          <div class="showcase-body">
-            <span class="signal-line a" aria-hidden="true"></span>
-            <span class="signal-line b" aria-hidden="true"></span>
-            <span class="signal-line c" aria-hidden="true"></span>
-            <span class="signal-line d" aria-hidden="true"></span>
-
-            <article class="flow-card one">
-              <small>Diagnóstico</small>
-              <strong>Problemas reais da operação</strong>
-              <p>Rotinas manuais, dados soltos e decisões sem clareza.</p>
-            </article>
-
-            <article class="flow-card two">
-              <small>Mapeamento</small>
-              <strong>Processos e indicadores</strong>
-              <p>Fluxos, regras, custos, prazos e prioridades.</p>
-            </article>
-
-            <div class="engine-core" aria-hidden="true">
-              <span class="engine-ring"></span>
-              <span class="engine-ring"></span>
-              <span class="engine-ring"></span>
-              <div class="engine-center">
-                <div>
-                  <strong>BI</strong>
-                  <span>+ sistemas</span>
-                </div>
-              </div>
-            </div>
-
-            <article class="flow-card three">
-              <small>Construção</small>
-              <strong>Ferramentas sob medida</strong>
-              <p>Dashboards, sistemas, portais e automações.</p>
-            </article>
-
-            <article class="flow-card four">
-              <small>Entrega</small>
-              <strong>Gestão mais eficiente</strong>
-              <p>Informação organizada para decidir melhor.</p>
-            </article>
-
-            <div class="showcase-footer">
-              <div class="mini-kpi"><small>Áreas atendidas</small><strong>gestão + operação</strong></div>
-              <div class="mini-kpi"><small>Foco</small><strong>clareza nos dados</strong></div>
-              <div class="mini-kpi"><small>Resultado</small><strong>menos retrabalho</strong></div>
-            </div>
+        <div class="hero-showcase" role="region" aria-label="Soluções conectadas: aplicativos, SaaS, CRM, ERP, automações e indicadores">
+          <span class="form-caption">PORTFÓLIO / SOLUÇÕES CONECTADAS</span>
+          <div class="form-stage">
+            <canvas class="form-canvas" aria-hidden="true"></canvas>
+            <span class="form-axis" aria-hidden="true">✛ X / Y</span>
+            <button type="button" class="form-pause" hidden aria-label="Pausar animação">Ⅱ</button>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="sobre">
+    <section id="solucoes">
       <div class="container">
-        <div class="section-head reveal">
+        <div class="section-head services-heading reveal">
           <div>
-            <span class="section-kicker">Sobre mim</span>
-            <h2>Experiência prática de operação conectada com tecnologia, dados e automação.</h2>
+            <span class="section-kicker">01 / Como posso ajudar</span>
+            <h2>Soluções digitais para <span class="reference-accent">a rotina da sua empresa.</span></h2>
           </div>
-          <p class="section-text">Experiência de operação aplicada à criação de ferramentas úteis para a rotina das empresas.</p>
         </div>
 
-        <div class="about-grid">
-          <aside class="profile-card reveal">
-            <span class="brand-mark" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" stroke="currentColor" stroke-width="2" />
-                <path d="M12 12l8-4.5M12 12v9M12 12L4 7.5" stroke="currentColor" stroke-width="2" />
-              </svg>
-            </span>
-            <h3 class="profile-name">Edes Botene</h3>
-            <p class="profile-role">Desenvolvedor de soluções digitais com experiência prática de operação.</p>
-            <div class="profile-stats">
-              <div class="profile-stat">
-                <strong>14+</strong>
-                <span>anos em manutenção, operação e rotina técnica</span>
-              </div>
-              <div class="profile-stat">
-                <strong>360°</strong>
-                <span>visão de gestão, custos, estoque e indicadores</span>
-              </div>
+        <div class="solutions-panel">
+          <article class="service-tile" id="service-01" data-tone="blue">
+            <div class="service-tile-copy">
+              <h3>Aplicativos e sistemas web</h3>
+              <p>Ferramentas sob medida para ordens de serviço, inspeções e rotinas operacionais.</p>
             </div>
-          </aside>
-
-          <div class="text-panel reveal">
-            <p>Minha trajetória em manutenção de equipamentos, análise de problemas e melhoria de processos me deu uma leitura prática sobre custos, produtividade, estoque e tomada de decisão.</p>
-            <p>Hoje transformo essa experiência em ferramentas digitais claras, construídas para resolver problemas reais da operação e da gestão.</p>
-            <p class="highlight-line">Tecnologia útil começa pelo entendimento da rotina de quem vai utilizá-la.</p>
+            <svg class="service-preview" viewBox="0 0 104 72" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect class="preview-surface" x="11" y="18" width="63" height="40" rx="5"/>
+                <path class="preview-muted" d="M12 27h34m-26 9h20m-20 8h20m-20 8h13"/>
+                <rect x="49" y="8" width="35" height="57" rx="6" fill="#101b2f"/>
+                <path class="preview-muted" d="M61 15h11m-11 44h11"/>
+                <rect class="preview-accent preview-focus" x="55" y="24" width="23" height="12" rx="3"/>
+                <path class="preview-focus" d="m58 30 2 2 4-4"/>
+                <path class="preview-muted" d="M67 30h7m-16 13h16m-16 7h16"/>
+            </svg>
+          </article>
+          <article class="service-tile" id="service-03" data-tone="cyan">
+            <div class="service-tile-copy">
+              <h3>CRM comercial</h3>
+              <p>Contatos, propostas e próximos retornos organizados em um funil de vendas.</p>
+            </div>
+            <svg class="service-preview" viewBox="0 0 104 72" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect class="preview-surface" x="7" y="12" width="90" height="48" rx="6"/>
+                <path class="preview-muted" d="M38 13v46m28-46v46M13 21h17m14 0h16m12 0h16"/>
+                <rect class="preview-accent preview-deal preview-focus" x="14" y="30" width="17" height="8" rx="2"/>
+                <path class="preview-muted" d="M14 47h17m11 0h17m11-16h17m-17 16h17"/>
+            </svg>
+          </article>
+          <article class="service-tile" id="service-04" data-tone="green">
+            <div class="service-tile-copy">
+              <h3>ERP e sistemas internos</h3>
+              <p>Vendas, estoque, financeiro e orçamentos em um só sistema.</p>
+            </div>
+            <svg class="service-preview" viewBox="0 0 104 72" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect class="preview-surface" x="8" y="12" width="88" height="48" rx="6"/>
+                <path class="preview-muted" d="M9 25h86M17 19h20m-20 12h28m-28 20h32m14-20h8m-8 20h8"/>
+                <rect class="preview-accent preview-focus" x="13" y="35" width="78" height="10" rx="3"/>
+                <path d="M18 40h24m26 0h6"/>
+                <circle class="preview-signal preview-focus" cx="84" cy="40" r="2"/>
+            </svg>
+          </article>
+          <article class="service-tile" id="service-05" data-tone="blue">
+            <div class="service-tile-copy">
+              <h3>Dashboards e Power BI</h3>
+              <p>Indicadores para acompanhar vendas, custos e manutenção.</p>
+            </div>
+            <svg class="service-preview" viewBox="0 0 104 72" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect class="preview-surface" x="8" y="12" width="88" height="48" rx="6"/>
+                <path class="preview-muted" d="M18 21h12m-12 6v24h66M18 35h66m-66 8h66"/>
+                <path d="m20 46 13-7 11 3 12-12 10 4 15-12"/>
+                <circle class="preview-signal preview-focus" cx="81" cy="22" r="3"/>
+            </svg>
+          </article>
+          <article class="service-tile" id="service-06" data-tone="cyan">
+            <div class="service-tile-copy">
+              <h3>Automações e integrações</h3>
+              <p>Sistemas conectados para reduzir lançamentos manuais e tarefas repetitivas.</p>
+            </div>
+            <svg class="service-preview" viewBox="0 0 104 72" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect class="preview-surface" x="9" y="23" width="26" height="26" rx="5"/>
+                <rect class="preview-surface" x="69" y="23" width="26" height="26" rx="5"/>
+                <path class="preview-muted" d="M35 36h34M16 31h12m-12 5h12m-12 5h8"/>
+                <path d="m78 36 3 3 6-7"/>
+                <circle class="preview-signal preview-pulse preview-focus" cx="39" cy="36" r="3"/>
+            </svg>
+          </article>
+          <article class="service-tile" id="service-07" data-tone="green">
+            <div class="service-tile-copy">
+              <h3>Criação de websites</h3>
+              <p>Sites institucionais, portfólios e landing pages para apresentar serviços e produtos.</p>
+            </div>
+            <svg class="service-preview" viewBox="0 0 104 72" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect class="preview-surface" x="7" y="12" width="68" height="47" rx="5"/>
+                <path class="preview-muted" d="M8 22h66m-60-5h6m4 0h3m-12 30h13m4 0h13"/>
+                <rect class="preview-accent preview-focus" x="15" y="29" width="48" height="12" rx="2"/>
+                <rect x="69" y="24" width="23" height="41" rx="4" fill="#101b2f"/>
+                <path class="preview-muted" d="M76 31h9m-9 23h9m-9 5h6"/>
+                <rect class="preview-accent preview-focus" x="74" y="37" width="13" height="11" rx="2"/>
+            </svg>
+          </article>
+        </div>
+        <div class="services-stack" role="group" aria-labelledby="services-stack-title">
+          <h3 id="services-stack-title">Tecnologias e conhecimentos aplicados</h3>
+          <div class="services-stack-row">
+            <div class="services-stack-track">
+              <ul class="services-stack-list" aria-label="Tecnologias e ferramentas"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>TypeScript</li><li>Next.js</li><li>Tailwind CSS</li><li>Firebase</li><li>GitHub</li><li>Power BI</li><li>SQL</li><li>Excel</li><li>SVG</li><li>Canvas 2D</li></ul>
+            </div>
+          </div>
+          <div class="services-stack-row">
+            <div class="services-stack-track">
+              <ul class="services-stack-list" aria-label="Conhecimentos aplicados"><li>Indicadores e KPIs</li><li>Análise de dados</li><li>Gestão financeira</li><li>Gestão operacional</li><li>Gestão de manutenção</li><li>Controle de estoque</li><li>Formação de preço</li><li>Desenvolvimento web</li><li>Automação de processos</li></ul>
+            </div>
           </div>
         </div>
       </div>
@@ -1920,96 +1824,296 @@
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <span class="section-kicker">Projetos e trabalhos realizados</span>
-            <h2>Soluções reais para gestão, operação e tomada de decisão.</h2>
+            <span class="section-kicker">02 / Projetos desenvolvidos</span>
+            <h2>Software <span class="reference-accent">na prática.</span></h2>
           </div>
-          <p class="section-text">Telas anonimizadas de sistemas, portais e dashboards que desenvolvi para empresas.</p>
         </div>
-
-        <div class="projects-grid" id="projectsGrid"></div>
-      </div>
-    </section>
-
-    <section id="solucoes">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <span class="section-kicker">Como posso ajudar</span>
-            <h2>Três frentes para organizar a operação e melhorar decisões.</h2>
-          </div>
-          <p class="section-text">Cada solução é adaptada à rotina, aos dados e às prioridades da empresa.</p>
-        </div>
-
-        <div class="solutions-grid">
-          <article class="solution-card reveal"><span class="label">Sistemas</span><h3>Organizar processos e controles</h3><p>Aplicações web, ERPs e sistemas internos para centralizar financeiro, vendas, estoque, clientes e operação.</p></article>
-          <article class="solution-card reveal"><span class="label">Dados & BI</span><h3>Transformar dados em indicadores</h3><p>Dashboards e portais para acompanhar resultados, custos, disponibilidade e desempenho com clareza.</p></article>
-          <article class="solution-card reveal"><span class="label">Automação</span><h3>Reduzir tarefas manuais</h3><p>Fluxos e relatórios automatizados para diminuir digitação, conferências repetitivas e retrabalho.</p></article>
-        </div>
-        <div class="solution-areas reveal" aria-label="Áreas atendidas">
-          <strong>Aplicações para</strong>
-          <span>Financeiro</span><span>Vendas</span><span>Estoque</span><span>Manutenção</span><span>Operações</span><span>Clínicas</span>
+        <div class="projects-grid project-cases" id="projectsGrid">
+          <article class="project-card project-case project-case-featured" id="projeto-erp">
+            <div class="project-content">
+              <span class="erp-kicker">Projeto em destaque</span>
+              <h3>Mini ERP <span class="reference-accent">empresarial</span></h3>
+              <p>Do primeiro contato ao lucro de cada venda. O ERP conecta CRM, estoque, financeiro e orçamentos, com tarefas e etiquetas integradas à operação.</p>
+              <div class="tag-row"><span class="tag">Financeiro</span><span class="tag">Estoque</span><span class="tag">CRM</span><span class="tag">Orçamentos</span></div>
+            </div>
+            <figure class="erp-gallery" aria-label="Telas do Mini ERP">
+              <div class="erp-lane">
+                <div class="erp-track">
+                  <ul class="erp-strip">
+                  <li class="erp-card"><button type="button" aria-label="Ampliar: Visão geral" aria-haspopup="dialog"><img src="assets/projetos/erp-capturas/tela-1.png" width="1349" height="767" loading="lazy" alt=""><span>Visão geral</span></button></li>
+                  <li class="erp-card"><button type="button" aria-label="Ampliar: CRM comercial" aria-haspopup="dialog"><img src="assets/projetos/erp-capturas/tela-2.png" width="1348" height="689" loading="lazy" alt=""><span>CRM comercial</span></button></li>
+                  <li class="erp-card"><button type="button" aria-label="Ampliar: Relatório comercial em tempo real" aria-haspopup="dialog"><img src="assets/projetos/erp-capturas/tela-3.png" width="1351" height="693" loading="lazy" alt=""><span>Relatório comercial em tempo real</span></button></li>
+                  <li class="erp-card"><button type="button" aria-label="Ampliar: Controle de estoque" aria-haspopup="dialog"><img src="assets/projetos/erp-capturas/tela-4.png" width="1344" height="695" loading="lazy" alt=""><span>Controle de estoque</span></button></li>
+                  <li class="erp-card"><button type="button" aria-label="Ampliar: Gestão financeira" aria-haspopup="dialog"><img src="assets/projetos/erp-capturas/tela-5.png" width="1340" height="692" loading="lazy" alt=""><span>Gestão financeira</span></button></li>
+                  </ul>
+                  <ul class="erp-strip erp-copy" aria-hidden="true">
+                  <li class="erp-card"><button type="button" aria-label="Ampliar: Visão geral" aria-haspopup="dialog" tabindex="-1"><img src="assets/projetos/erp-capturas/tela-1.png" width="1349" height="767" loading="lazy" alt=""><span>Visão geral</span></button></li>
+                  <li class="erp-card"><button type="button" aria-label="Ampliar: CRM comercial" aria-haspopup="dialog" tabindex="-1"><img src="assets/projetos/erp-capturas/tela-2.png" width="1348" height="689" loading="lazy" alt=""><span>CRM comercial</span></button></li>
+                  <li class="erp-card"><button type="button" aria-label="Ampliar: Relatório comercial em tempo real" aria-haspopup="dialog" tabindex="-1"><img src="assets/projetos/erp-capturas/tela-3.png" width="1351" height="693" loading="lazy" alt=""><span>Relatório comercial em tempo real</span></button></li>
+                  <li class="erp-card"><button type="button" aria-label="Ampliar: Controle de estoque" aria-haspopup="dialog" tabindex="-1"><img src="assets/projetos/erp-capturas/tela-4.png" width="1344" height="695" loading="lazy" alt=""><span>Controle de estoque</span></button></li>
+                  <li class="erp-card"><button type="button" aria-label="Ampliar: Gestão financeira" aria-haspopup="dialog" tabindex="-1"><img src="assets/projetos/erp-capturas/tela-5.png" width="1340" height="692" loading="lazy" alt=""><span>Gestão financeira</span></button></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="erp-lane">
+                <div class="erp-track">
+                  <ul class="erp-strip">
+                  <li class="erp-card"><button type="button" aria-label="Ampliar: Previsão de impostos" aria-haspopup="dialog"><img src="assets/projetos/erp-capturas/tela-6.png" width="1269" height="689" loading="lazy" alt=""><span>Previsão de impostos</span></button></li>
+                  <li class="erp-card"><button type="button" aria-label="Ampliar: Orçamentos e lucro real" aria-haspopup="dialog"><img src="assets/projetos/erp-capturas/tela-7.png" width="1182" height="656" loading="lazy" alt=""><span>Orçamentos e lucro real</span></button></li>
+                  <li class="erp-card"><button type="button" aria-label="Ampliar: Gestão de tarefas" aria-haspopup="dialog"><img src="assets/projetos/erp-capturas/tela-8.png" width="1335" height="692" loading="lazy" alt=""><span>Gestão de tarefas</span></button></li>
+                  <li class="erp-card"><button type="button" aria-label="Ampliar: Gerador de etiquetas" aria-haspopup="dialog"><img src="assets/projetos/erp-capturas/tela-9.png" width="1350" height="688" loading="lazy" alt=""><span>Gerador de etiquetas</span></button></li>
+                  </ul>
+                  <ul class="erp-strip erp-copy" aria-hidden="true">
+                  <li class="erp-card"><button type="button" aria-label="Ampliar: Previsão de impostos" aria-haspopup="dialog" tabindex="-1"><img src="assets/projetos/erp-capturas/tela-6.png" width="1269" height="689" loading="lazy" alt=""><span>Previsão de impostos</span></button></li>
+                  <li class="erp-card"><button type="button" aria-label="Ampliar: Orçamentos e lucro real" aria-haspopup="dialog" tabindex="-1"><img src="assets/projetos/erp-capturas/tela-7.png" width="1182" height="656" loading="lazy" alt=""><span>Orçamentos e lucro real</span></button></li>
+                  <li class="erp-card"><button type="button" aria-label="Ampliar: Gestão de tarefas" aria-haspopup="dialog" tabindex="-1"><img src="assets/projetos/erp-capturas/tela-8.png" width="1335" height="692" loading="lazy" alt=""><span>Gestão de tarefas</span></button></li>
+                  <li class="erp-card"><button type="button" aria-label="Ampliar: Gerador de etiquetas" aria-haspopup="dialog" tabindex="-1"><img src="assets/projetos/erp-capturas/tela-9.png" width="1350" height="688" loading="lazy" alt=""><span>Gerador de etiquetas</span></button></li>
+                  </ul>
+                </div>
+              </div>
+            </figure>
+          </article>
+          <article class="project-card project-case" id="projeto-manutencao">
+            <figure>
+              <a class="project-shot" aria-haspopup="dialog" href="assets/projetos/dashboard-manutencao-fevereiro-2025.svg" target="_blank" rel="noopener" aria-label="Abrir captura ampliada: Indicadores de manutenção">
+                <img src="assets/projetos/dashboard-manutencao-fevereiro-2025.svg" alt="Dashboard de manutenção de frotas de fevereiro de 2025, com dados demonstrativos" loading="lazy">
+              </a>
+            </figure>
+            <div class="project-content">
+              <h3>Indicadores de manutenção</h3>
+              <p>Painel de Power BI com MTBF, MTTR, disponibilidade e paradas por frota.</p>
+              <div class="tag-row"><span class="tag">Power BI</span><span class="tag">Manutenção</span><span class="tag">Indicadores</span></div>
+            </div>
+          </article>
+          <article class="project-card project-case" id="projeto-preco">
+            <figure>
+              <a class="project-shot" aria-haspopup="dialog" href="assets/projetos/erp-industrial-calculadora-preco.webp" target="_blank" rel="noopener" aria-label="Abrir captura ampliada: Formação de preço industrial">
+                <img src="assets/projetos/erp-industrial-calculadora-preco.webp" alt="Tela do projeto Formação de preço industrial" loading="lazy">
+              </a>
+            </figure>
+            <div class="project-content">
+              <h3>Formação de preço industrial</h3>
+              <p>Antes de enviar uma proposta, a equipe precisa saber se o preço cobre os custos e preserva a margem. A calculadora simula o preço de venda com matéria-prima, usinagem, componentes e impostos.</p>
+              <div class="tag-row"><span class="tag">Custos</span><span class="tag">Usinagem</span><span class="tag">Precificação</span></div>
+            </div>
+          </article>
+          <article class="project-card project-case" id="projeto-clinica">
+            <figure>
+              <a class="project-shot" aria-haspopup="dialog" href="assets/projetos/clinica-agenda-e-dashboard.png" target="_blank" rel="noopener" aria-label="Abrir captura ampliada: App para clínica estética">
+                <img src="assets/projetos/clinica-agenda-e-dashboard.png" alt="Agenda semanal e dashboard da clínica estética com dados demonstrativos" loading="lazy">
+              </a>
+            </figure>
+            <div class="project-content">
+              <h3>App para clínica estética</h3>
+              <p>Agenda semanal, atendimentos, retornos e controle financeiro e de estoque em um só app.</p>
+              <div class="tag-row"><span class="tag">Agenda</span><span class="tag">Atendimentos</span><span class="tag">Gestão</span></div>
+            </div>
+          </article>
+          <article class="project-card project-case" id="projeto-maquinas-paradas">
+            <figure>
+              <a class="project-shot" aria-haspopup="dialog" href="assets/projetos/dashboard-maquinas-paradas.svg" target="_blank" rel="noopener" aria-label="Abrir painel de máquinas paradas ampliado">
+                <img src="assets/projetos/dashboard-maquinas-paradas.svg" alt="Painel demonstrativo de máquinas paradas com alertas e ordens de serviço" width="1600" height="840" loading="lazy">
+              </a>
+            </figure>
+            <div class="project-content">
+              <h3>Máquinas paradas</h3>
+              <p>Painel de Power BI para acompanhar máquinas indisponíveis, priorizar alertas e consultar ordens de serviço por cliente, região e supervisor.</p>
+              <div class="tag-row"><span class="tag">Power BI</span><span class="tag">Ordens de serviço</span><span class="tag">Alertas</span></div>
+            </div>
+          </article>
+          <article class="project-card project-case" id="projeto-gestao-ferias">
+            <figure>
+              <a class="project-shot" aria-haspopup="dialog" href="assets/projetos/dashboard-gestao-ferias.svg" target="_blank" rel="noopener" aria-label="Ampliar painel de gestão de férias">
+                <img src="assets/projetos/dashboard-gestao-ferias.svg" alt="Painel demonstrativo de férias com indicadores e tabela de colaboradores" width="1822" height="850" loading="lazy">
+              </a>
+            </figure>
+            <div class="project-content">
+              <h3>Gestão de férias e colaboradores</h3>
+              <p>Painel de RH para acompanhar agendamentos, prazos de concessão e saldos de férias por colaborador.</p>
+              <div class="tag-row"><span class="tag">Power BI</span><span class="tag">RH</span><span class="tag">Gestão de férias</span></div>
+            </div>
+          </article>
+          <article class="project-card project-case" id="projeto-preventiva-frotas">
+            <figure>
+              <a class="project-shot" aria-haspopup="dialog" href="assets/projetos/dashboard-manutencao-preventiva.svg" target="_blank" rel="noopener" aria-label="Ampliar painel de manutenção preventiva de frotas">
+                <img src="assets/projetos/dashboard-manutencao-preventiva.svg" alt="Painel demonstrativo de manutenção preventiva com status dos planos e vencimentos por horímetro e data" width="1600" height="890" loading="lazy">
+              </a>
+            </figure>
+            <div class="project-content">
+              <h3>Manutenção preventiva de frotas</h3>
+              <p>Painel para acompanhar planos, priorizar ciclos por horímetro ou data e consultar ordens de serviço por frota.</p>
+              <div class="tag-row"><span class="tag">Power BI</span><span class="tag">Horímetro</span><span class="tag">Preventivas</span></div>
+            </div>
+          </article>
+          <article class="project-card project-case" id="projeto-custos-ordens">
+            <figure>
+              <a class="project-shot" aria-haspopup="dialog" href="assets/projetos/dashboard-custos-ordens.svg" target="_blank" rel="noopener" aria-label="Ampliar painel de custos de ordens de serviço">
+                <img src="assets/projetos/dashboard-custos-ordens.svg" alt="Painel de custos de ordens de serviço com dados fictícios" width="1600" height="1000" loading="lazy">
+              </a>
+            </figure>
+            <div class="project-content">
+              <h3>Custos de ordens de serviço</h3>
+              <p>Painel para acompanhar despesas de manutenção por ordem, categoria, equipamento e cliente.</p>
+              <div class="tag-row"><span class="tag">Power BI</span><span class="tag">Custos</span><span class="tag">Ordens de serviço</span></div>
+            </div>
+          </article>
+          <article class="project-card project-case" id="projeto-produtividade">
+            <figure>
+              <a class="project-shot" aria-haspopup="dialog" href="assets/projetos/dashboard-produtividade-mao-de-obra.svg" target="_blank" rel="noopener" aria-label="Ampliar painel de produtividade de mão de obra">
+                <img src="assets/projetos/dashboard-produtividade-mao-de-obra.svg" alt="Painel demonstrativo de produtividade com matriz de horas e fechamento de atividades" width="1600" height="920" loading="lazy">
+              </a>
+            </figure>
+            <div class="project-content">
+              <h3>Produtividade de mão de obra</h3>
+              <p>Painel para comparar horas úteis e apontadas e acompanhar o fechamento de atividades por ordem de serviço.</p>
+              <div class="tag-row"><span class="tag">Power BI</span><span class="tag">Apontamentos</span><span class="tag">Produtividade</span></div>
+            </div>
+          </article>
+          <article class="project-card project-case" id="projeto-pecas-reposicao">
+            <figure>
+              <a class="project-shot" aria-haspopup="dialog" href="assets/projetos/dashboard-pecas-reposicao.svg" target="_blank" rel="noopener" aria-label="Ampliar painel de gestão de peças e reposição">
+                <img src="assets/projetos/dashboard-pecas-reposicao.svg" alt="Painel demonstrativo de estoque, reposição e ordens aguardando peças" width="1440" height="760" loading="lazy">
+              </a>
+            </figure>
+            <div class="project-content">
+              <h3>Gestão de peças e reposição</h3>
+              <p>Painel para priorizar reposições pelo impacto nas ordens de serviço e acompanhar o estoque de manutenção.</p>
+              <div class="tag-row"><span class="tag">Estoque</span><span class="tag">Reposição</span><span class="tag">Manutenção</span></div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <section id="como-trabalho">
       <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <span class="section-kicker">Como trabalho</span>
-            <h2>Do problema real a uma solução pronta para uso.</h2>
-          </div>
-          <p class="section-text">Um processo próximo, com alinhamento e validação em cada etapa importante.</p>
+        <div class="section-head timeline-heading reveal">
+          <span class="section-kicker">03 / Como trabalho</span>
+          <h2>Do problema <span class="reference-accent">à entrega.</span></h2>
         </div>
-
-        <div class="workflow-timeline">
-          <article class="timeline-step reveal">
-            <span class="timeline-index">1</span>
-            <h3>Entender</h3>
-            <p>Conheço o cenário, os objetivos e os problemas que precisam ser resolvidos.</p>
-          </article>
-          <article class="timeline-step reveal">
-            <span class="timeline-index">2</span>
-            <h3>Mapear</h3>
-            <p>Organizo processos, regras, indicadores, fontes de dados e prioridades.</p>
-          </article>
-          <article class="timeline-step reveal">
-            <span class="timeline-index">3</span>
-            <h3>Propor e validar</h3>
-            <p>Apresento o caminho da solução e valido a estrutura antes do desenvolvimento.</p>
-          </article>
-          <article class="timeline-step reveal">
-            <span class="timeline-index">4</span>
-            <h3>Desenvolver e testar</h3>
-            <p>Construo a ferramenta e confiro dados, cálculos, regras e funcionamento.</p>
-          </article>
-          <article class="timeline-step reveal">
-            <span class="timeline-index">5</span>
-            <h3>Entrega</h3>
-            <p>Disponibilizo a solução com orientação de uso e apoio nos ajustes necessários.</p>
-          </article>
+        <div class="work-timeline">
+          <div class="timeline-route-layer" aria-hidden="true">
+            <svg class="timeline-route" width="100%" height="100%">
+              <defs>
+                <linearGradient id="timeline-flow-color">
+                  <stop stop-color="#71aaff"/>
+                  <stop offset="1" stop-color="#7fffe6"/>
+                </linearGradient>
+              </defs>
+              <path class="timeline-route-base"/>
+              <path class="timeline-route-flow" pathLength="100"/>
+            </svg>
+          </div>
+          <ol class="timeline-steps" aria-label="Etapas do trabalho">
+            <li class="timeline-step">
+              <span class="timeline-marker" aria-hidden="true"><svg viewBox="0 0 72 50" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+                    <rect class="phase-surface" x="8" y="7" width="44" height="25" rx="5"/>
+                    <path class="phase-muted" d="M17 15h26m-26 5h18"/>
+                    <path class="phase-highlight" d="M37 23h25a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H49l-7 5v-5h-5a5 5 0 0 1-5-5v-8a5 5 0 0 1 5-5Z"/>
+                    <circle class="phase-dot" cx="42" cy="32" r="1.5"/><circle class="phase-dot" cx="49" cy="32" r="1.5"/><circle class="phase-dot" cx="56" cy="32" r="1.5"/>
+                  </svg></span>
+              <div class="timeline-copy">
+                <small>01 · Diagnóstico</small>
+                <h3>Entender</h3>
+                <p>Identificar o problema e o que precisa melhorar.</p>
+              </div>
+            </li>
+            <li class="timeline-step">
+              <span class="timeline-marker" aria-hidden="true"><svg viewBox="0 0 72 50" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+                    <path class="phase-muted" d="M36 17v8m0 0H16v8m20-8h20v8"/>
+                    <rect class="phase-highlight" x="25" y="6" width="22" height="12" rx="3"/>
+                    <rect class="phase-surface" x="7" y="33" width="18" height="11" rx="3"/><rect class="phase-surface" x="47" y="33" width="18" height="11" rx="3"/>
+                    <path d="M31 12h10m-29 27h8m32 0h8"/><circle class="phase-dot" cx="36" cy="25" r="2"/>
+                  </svg></span>
+              <div class="timeline-copy">
+                <small>02 · Fluxo</small>
+                <h3>Mapear</h3>
+                <p>Organizar o fluxo, as regras e os dados da operação.</p>
+              </div>
+            </li>
+            <li class="timeline-step">
+              <span class="timeline-marker" aria-hidden="true"><svg viewBox="0 0 72 50" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+                    <rect class="phase-surface" x="8" y="7" width="55" height="35" rx="5"/>
+                    <path class="phase-muted" d="M9 16h53m-46-4h1m4 0h1m-5 12h20m-20 6h16m-16 6h11"/>
+                    <circle class="phase-highlight" cx="52" cy="33" r="12"/>
+                    <path d="m47 33 3.5 3.5 6.5-7"/>
+                  </svg></span>
+              <div class="timeline-copy">
+                <small>03 · Protótipo</small>
+                <h3>Validar</h3>
+                <p>Apresentar as telas e ajustar a proposta antes de desenvolver.</p>
+              </div>
+            </li>
+            <li class="timeline-step">
+              <span class="timeline-marker" aria-hidden="true"><svg viewBox="0 0 72 50" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+                    <rect class="phase-surface" x="7" y="8" width="58" height="34" rx="5"/>
+                    <path class="phase-muted" d="M8 17h56m-48-4h1m4 0h1m26 15h9m-9 6h6"/>
+                    <path d="m23 23-6 5 6 5m12-10 6 5-6 5m-4-12-4 14"/>
+                    <path class="phase-highlight" d="M48 37h13v8H48z"/><path d="m51 41 2 2 4-4"/>
+                  </svg></span>
+              <div class="timeline-copy">
+                <small>04 · Implementação</small>
+                <h3>Desenvolver e testar</h3>
+                <p>Construir a solução e conferir as regras com exemplos de uso.</p>
+              </div>
+            </li>
+            <li class="timeline-step">
+              <span class="timeline-marker" aria-hidden="true"><svg viewBox="0 0 72 50" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+                    <path class="phase-surface" d="m12 17 18-9 18 9v19l-18 9-18-9Z"/>
+                    <path class="phase-muted" d="m12 17 18 9 18-9m-18 9v19m-9-32 18 9"/>
+                    <circle class="phase-highlight" cx="52" cy="30" r="12"/>
+                    <path d="m47 30 3.5 3.5 6.5-7"/>
+                  </svg></span>
+              <div class="timeline-copy">
+                <small>05 · Entrega</small>
+                <h3>Entregar</h3>
+                <p>Orientar a equipe e apoiar os ajustes iniciais.</p>
+              </div>
+            </li>
+          </ol>
         </div>
       </div>
     </section>
 
-    <section class="differential" id="competencias">
+    <section id="sobre">
       <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <span class="section-kicker">Competências e diferencial</span>
-            <h2>Tecnologia conectada à realidade de quem opera e decide.</h2>
-          </div>
-          <p class="section-text">Uno experiência prática, visão de gestão e desenvolvimento para criar ferramentas aplicáveis ao dia a dia.</p>
+        <div class="section-head about-heading reveal">
+          <span class="section-kicker">04 / Sobre mim</span>
+          <h2>Experiência prática de operação conectada com <span class="reference-accent">tecnologia, dados e automação.</span></h2>
         </div>
-        <div class="capabilities-grid">
-          <div class="reveal">
-            <h3 class="capabilities-title">Tecnologias e conhecimentos</h3>
-            <div class="skills-wrap" id="skillsWrap"></div>
-          </div>
-          <div class="process-list reveal">
-            <div class="process-item"><span class="process-number">1</span><p>Entendo a operação, os controles atuais e os pontos de retrabalho.</p></div>
-            <div class="process-item"><span class="process-number">2</span><p>Transformo a rotina em fluxos, indicadores e telas simples de usar.</p></div>
-            <div class="process-item"><span class="process-number">3</span><p>Entrego ferramentas úteis para acompanhar e melhorar a gestão.</p></div>
+        <div class="about-experience">
+          <aside class="experience-summary reveal" aria-label="Perfil profissional">
+            <div class="experience-identity">
+              <span class="experience-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 15h9l5 6" stroke="#709cce" stroke-dasharray="2 3"/>
+                  <path d="M9 19v9h9l5 5" stroke="#709cce" stroke-dasharray="2 3"/>
+                  <path d="m8 8 1-3h4l1 3 3 1 3-1 2 3-2 3v3l2 3-2 3-3-1-3 1-1 3H9l-1-3-3-1-3 1-2-3 2-3v-3l-2-3 2-3 3 1z" transform="translate(3 1) scale(.82)" stroke="#a6cbff" fill="#183253"/>
+                  <circle cx="12" cy="14" r="3" stroke="#a6cbff"/>
+                  <rect x="21" y="20" width="23" height="21" rx="5" stroke="#7ed9d9" fill="#142c43"/>
+                  <path d="M22 26h21m-17 10 4-4 4 2 5-5" stroke="#9cebd9"/>
+                  <path d="M37 29h2v2" stroke="#9cebd9"/>
+                  <circle cx="18" cy="28" r="1.5" fill="#7ed9d9" stroke="none"/>
+                </svg>
+              </span>
+              <div>
+                <h3>Edes Botene</h3>
+                <p>Desenvolvedor de soluções digitais</p>
+              </div>
+            </div>
+            <div class="experience-metric">
+              <strong>14+</strong>
+              <p>anos em manutenção e operação</p>
+            </div>
+          </aside>
+          <div class="experience-story reveal">
+            <p>Minha trajetória em manutenção de equipamentos me deu uma visão prática de custos, estoque, produtividade e das decisões que a equipe precisa tomar no dia a dia.</p>
+            <p>Essa experiência orienta o desenvolvimento dos sistemas, dos painéis e das automações: quais dados reunir, quais tarefas simplificar e como encaixar a ferramenta na rotina da equipe.</p>
+            <div class="tag-row" aria-label="Áreas de experiência">
+              <span class="tag">Manutenção</span>
+              <span class="tag">Gestão operacional</span>
+              <span class="tag">Custos e estoque</span>
+            </div>
           </div>
         </div>
       </div>
@@ -2020,10 +2124,9 @@
         <div class="contact-panel reveal">
           <div>
             <span class="section-kicker">Contato</span>
-            <h2>Vamos transformar seus controles em uma solução digital mais clara?</h2>
-            <p class="section-text">Se sua empresa precisa organizar processos, enxergar indicadores ou automatizar tarefas manuais, posso ajudar a desenhar e desenvolver uma solução prática.</p>
+            <h2>O que sua empresa<br><span class="reference-accent">precisa desenvolver?</span></h2>
             <div class="contact-actions">
-              <a class="btn btn-whatsapp" href="https://wa.me/5551998294585" target="_blank" rel="noopener">
+              <a class="btn btn-whatsapp" href="https://wa.me/5551998294585?text=Ol%C3%A1%2C%20Edes!%20Quero%20conversar%20sobre%20um%20sistema%20para%20minha%20empresa." target="_blank" rel="noopener">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path fill="currentColor" d="M20.52 3.48A11.91 11.91 0 0 0 12.04 0C5.46 0 .1 5.35.1 11.93c0 2.1.55 4.15 1.6 5.96L0 24l6.25-1.64a11.94 11.94 0 0 0 5.79 1.47h.01c6.58 0 11.94-5.35 11.95-11.93a11.85 11.85 0 0 0-3.48-8.42ZM12.05 21.8a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.71.97.99-3.62-.23-.37a9.87 9.87 0 0 1-1.52-5.26c0-5.47 4.45-9.92 9.92-9.92a9.85 9.85 0 0 1 7.02 2.91 9.85 9.85 0 0 1 2.9 7.02c0 5.47-4.45 9.86-9.96 9.86Zm5.44-7.42c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.48.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z" />
                 </svg>
@@ -2031,135 +2134,80 @@
               </a>
               <a class="btn btn-primary" href="https://www.linkedin.com/in/edes-botene-64679b1aa" target="_blank" rel="noopener">Falar no LinkedIn</a>
             </div>
+            <div class="contact-shortcuts" role="group" aria-label="Assuntos para conversar no WhatsApp">
+              <a href="https://wa.me/5551998294585?text=Ol%C3%A1%2C%20Edes!%20Quero%20conversar%20sobre%20um%20sistema%20para%20minha%20empresa." target="_blank" rel="noopener">Quero um sistema <span aria-hidden="true">↗</span></a>
+              <a href="https://wa.me/5551998294585?text=Ol%C3%A1%2C%20Edes!%20Quero%20reunir%20meus%20indicadores%20em%20um%20painel." target="_blank" rel="noopener">Quero um dashboard <span aria-hidden="true">↗</span></a>
+              <a href="https://wa.me/5551998294585?text=Ol%C3%A1%2C%20Edes!%20Tenho%20uma%20tarefa%20manual%20que%20gostaria%20de%20automatizar." target="_blank" rel="noopener">Quero automatizar um processo <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <a class="floating-whatsapp" href="https://wa.me/5551998294585" target="_blank" rel="noopener" aria-label="Chamar Edes Botene no WhatsApp">
+  <a class="floating-whatsapp" href="https://wa.me/5551998294585?text=Ol%C3%A1%2C%20Edes!%20Quero%20conversar%20sobre%20um%20sistema%20para%20minha%20empresa." target="_blank" rel="noopener" aria-label="Chamar Edes Botene no WhatsApp">
     <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path fill="currentColor" d="M20.52 3.48A11.91 11.91 0 0 0 12.04 0C5.46 0 .1 5.35.1 11.93c0 2.1.55 4.15 1.6 5.96L0 24l6.25-1.64a11.94 11.94 0 0 0 5.79 1.47h.01c6.58 0 11.94-5.35 11.95-11.93a11.85 11.85 0 0 0-3.48-8.42ZM12.05 21.8a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.71.97.99-3.62-.23-.37a9.87 9.87 0 0 1-1.52-5.26c0-5.47 4.45-9.92 9.92-9.92a9.85 9.85 0 0 1 7.02 2.91 9.85 9.85 0 0 1 2.9 7.02c0 5.47-4.45 9.86-9.96 9.86Zm5.44-7.42c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.48.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z" />
     </svg>
   </a>
 
-  <div class="lightbox" id="projectLightbox" aria-hidden="true" role="dialog" aria-label="Visualização ampliada do projeto">
-    <div class="lightbox-inner">
-      <div class="lightbox-top">
-        <strong id="lightboxTitle">Projeto</strong>
-        <button class="lightbox-close" type="button" aria-label="Fechar visualização">×</button>
-      </div>
-      <img id="lightboxImage" src="" alt="">
-    </div>
-  </div>
-
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> Edes Botene. Soluções digitais para gestão empresarial.</p>
+      <div class="footer-identity">
+        <span class="footer-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><use href="#portfolio-brand-cube" width="48" height="48"/></svg>
+        </span>
+        <div>
+          <a class="footer-name" href="#inicio">Edes Botene</a>
+          <p>Software sob medida para empresas.</p>
+        </div>
+      </div>
+      <nav aria-label="Rodapé">
+        <a href="#solucoes">Soluções</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#sobre">Sobre</a>
+        <a class="footer-top" href="#inicio">Voltar ao topo <span aria-hidden="true">↑</span></a>
+      </nav>
+      <p class="footer-legal">© <span id="year"></span> Edes Botene</p>
     </div>
   </footer>
 
   <script>
-    const projects = [
-      {
-        title: "Mini ERP Financeiro",
-        image: "assets/mini-erp-financeiro.png",
-        description: "Dashboard para acompanhamento financeiro e operacional, com visão de receitas, despesas, estoque, orçamentos, vendas e indicadores de desempenho.",
-        tags: ["Financeiro", "Operação", "KPIs"]
-      },
-      {
-        title: "Mini ERP - Gestão de Estoque",
-        image: "assets/mini-erp-estoque.png",
-        description: "Tela para controle de produtos, níveis de estoque, valores de custo e venda, status dos itens, reposição e exportação de dados.",
-        tags: ["Estoque", "Custos", "Exportação"]
-      },
-      {
-        title: "Mini ERP - Impressão de Orçamentos",
-        image: "assets/mini-erp-orcamentos.png",
-        description: "Tela para geração, impressão e salvamento de orçamentos em PDF, com dados do cliente, itens, condições comerciais e valor total.",
-        tags: ["Orçamentos", "PDF", "Comercial"]
-      },
-      {
-        title: "Mini ERP - CRM Comercial",
-        image: "assets/mini-erp-crm.png",
-        description: "Kanban comercial para acompanhamento de oportunidades, funil de vendas, etapas de negociação, responsáveis e valores por fase.",
-        tags: ["CRM", "Kanban", "Vendas"]
-      },
-      {
-        title: "ERP Industrial - Calculadora de Preço",
-        image: "assets/erp-industrial-calculadora-preco.png",
-        description: "Ferramenta para formação de preço final de produtos mecânicos, considerando matéria-prima, usinagem, componentes, impostos, custos, margem e lucro.",
-        tags: ["Preço", "Custos", "Margem"]
-      },
-      {
-        title: "App para Clínica Estética",
-        image: "assets/app-clinica-dashboard.png",
-        description: "Dashboard para gestão de clínica estética, com agenda, clientes, follow-ups, aniversariantes, financeiro, estoque e ações rápidas.",
-        tags: ["Clínica", "Agenda", "Financeiro"]
-      },
-      {
-        title: "Agenda Semanal - Clínica Estética",
-        image: "assets/app-clinica-agenda.png",
-        description: "Tela de agendamento semanal para organização de atendimentos, procedimentos, horários e clientes da clínica.",
-        tags: ["Agenda", "Clientes", "Atendimentos"]
-      },
-      {
-        title: "Portal de Indicadores Power BI",
-        image: "assets/portal-indicadores-powerbi.png",
-        description: "Portal centralizado para acesso a dashboards e indicadores operacionais, reunindo visões de frota, disponibilidade, custos, estoque, preventivas e apontamentos.",
-        tags: ["Power BI", "Portal", "Indicadores"]
-      },
-      {
-        title: "Power BI - Indicadores de Manutenção",
-        image: "assets/powerbi-manutencao-mtbf-mttr.png",
-        description: "Dashboard para análise de manutenção com MTBF, MTTR, disponibilidade, ordens, corretivas, preventivas, inspeções e desempenho por equipamento.",
-        tags: ["MTBF", "MTTR", "Disponibilidade"]
-      },
-      {
-        title: "Power BI - Máquinas Paradas em Tempo Real",
-        image: "assets/powerbi-maquinas-paradas.png",
-        description: "Painel operacional para monitoramento em tempo real de máquinas paradas, com ranking por cliente, supervisor, ordens de serviço, status e horas paradas.",
-        tags: ["Tempo real", "Paradas", "Operação"]
-      },
-      {
-        title: "Power BI - Manutenções Preventivas em Tempo Real",
-        image: "assets/powerbi-preventivas.png",
-        description: "Dashboard para acompanhamento de preventivas por horímetro, status em dia ou atrasado, ativos, vencimentos, horas a vencer e planos de manutenção.",
-        tags: ["Preventivas", "Horímetro", "Ativos"]
-      },
-      {
-        title: "Power BI - Apontamentos Técnicos em Tempo Real",
-        image: "assets/powerbi-apontamentos-tecnicos.png",
-        description: "Painel para controle de apontamentos técnicos de manutenção, com matriz diária de horas, aderência, técnicos filtrados e total de horas apontadas.",
-        tags: ["Apontamentos", "Técnicos", "Horas"]
+    const servicesStack = document.querySelector(".services-stack");
+    const servicesMotion = matchMedia("(prefers-reduced-motion: reduce)");
+    for (const list of servicesStack.querySelectorAll(".services-stack-list")) {
+      // Two copies cover the full row while one set scrolls out of view.
+      for (let copy = 0; copy < 2; copy++) {
+        const duplicate = list.cloneNode(true);
+        duplicate.setAttribute("aria-hidden", "true");
+        duplicate.removeAttribute("aria-label");
+        list.parentElement.append(duplicate);
       }
-    ];
+    }
+    function syncServicesMotion() {
+      const animate = !servicesMotion.matches;
+      servicesStack.classList.toggle("is-animated", animate);
+      if (animate) servicesStack.tabIndex = 0;
+      else servicesStack.removeAttribute("tabindex");
+    }
+    servicesMotion.addEventListener("change", syncServicesMotion);
+    syncServicesMotion();
 
-    const skills = [
-      "Power BI avançado",
-      "Excel avançado",
-      "SQL",
-      "Indicadores e KPIs",
-      "Análise de dados",
-      "Gestão financeira",
-      "Gestão operacional",
-      "Gestão de manutenção",
-      "Controle de estoque",
-      "Formação de preço",
-      "Desenvolvimento web",
-      "Next.js",
-      "TypeScript",
-      "Firebase",
-      "Tailwind CSS",
-      "GitHub",
-      "Automação de processos"
-    ];
+    const solutionsPanel = document.querySelector(".solutions-panel");
+    solutionsPanel.addEventListener("pointermove", event => {
+      const tile = event.target.closest(".service-tile");
+      if (!tile || event.pointerType !== "mouse") return;
+      const bounds = tile.getBoundingClientRect();
+      tile.style.setProperty("--service-x", `${event.clientX - bounds.left}px`);
+      tile.style.setProperty("--service-y", `${event.clientY - bounds.top}px`);
+    });
 
-    const projectGrid = document.querySelector("#projectsGrid");
-    const skillsWrap = document.querySelector("#skillsWrap");
     const navLinks = document.querySelector(".nav-links");
     const menuToggle = document.querySelector(".menu-toggle");
     const heroShowcase = document.querySelector(".hero-showcase");
+    new IntersectionObserver(([entry]) => {
+      document.body.classList.toggle("hero-visible", entry.isIntersecting);
+    }).observe(heroShowcase.closest(".hero"));
     const brandLink = document.querySelector(".site-header .brand");
     const dataMark = brandLink.querySelector(".data-mark");
     const brandReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -2191,63 +2239,6 @@
       clearTimeout(brandAnimationTimer);
       dataMark.classList.remove("is-activated");
     });
-    const mobileOrbitWidget = document.querySelector(".mobile-orbit-widget");
-    const lightbox = document.querySelector("#projectLightbox");
-    const lightboxImage = document.querySelector("#lightboxImage");
-    const lightboxTitle = document.querySelector("#lightboxTitle");
-    const lightboxClose = document.querySelector(".lightbox-close");
-
-    function createProjectCard(project) {
-      const card = document.createElement("article");
-      card.className = "project-card reveal";
-
-      const tags = project.tags.map((tag) => `<span class="tag">${tag}</span>`).join("");
-
-      card.innerHTML = `
-        <div class="project-media">
-          <img src="${project.image}" alt="Imagem do projeto ${project.title}" loading="lazy">
-          <div class="project-placeholder" aria-hidden="true">
-            <div class="placeholder-box">
-              <strong>${project.title}</strong>
-              <span>Coloque a imagem em ${project.image}</span>
-            </div>
-          </div>
-        </div>
-        <div class="project-content">
-          <h3>${project.title}</h3>
-          <p>${project.description}</p>
-          <div class="tag-row">${tags}</div>
-        </div>
-      `;
-
-      const image = card.querySelector("img");
-      const placeholder = card.querySelector(".project-placeholder");
-
-      image.addEventListener("error", () => {
-        image.remove();
-        placeholder.classList.add("is-visible");
-      });
-
-      image.addEventListener("click", () => {
-        lightboxImage.src = project.image;
-        lightboxImage.alt = `Imagem ampliada do projeto ${project.title}`;
-        lightboxTitle.textContent = project.title;
-        lightbox.classList.add("open");
-        lightbox.setAttribute("aria-hidden", "false");
-        document.body.classList.add("menu-open");
-      });
-
-      return card;
-    }
-
-    projects.forEach((project) => projectGrid.appendChild(createProjectCard(project)));
-    skills.forEach((skill) => {
-      const tag = document.createElement("span");
-      tag.className = "skill-tag";
-      tag.textContent = skill;
-      skillsWrap.appendChild(tag);
-    });
-
     document.querySelector("#year").textContent = new Date().getFullYear();
 
     menuToggle.addEventListener("click", () => {
@@ -2266,59 +2257,652 @@
       }
     });
 
-    if (mobileOrbitWidget) {
-      const mobileSolutions = [
-        { primary: "BI", secondary: "+ sistemas", label: "Dados claros" },
-        { primary: "WEB", secondary: "+ processos", label: "Rotinas organizadas" },
-        { primary: "AUTO", secondary: "+ eficiência", label: "Menos retrabalho" },
-        { primary: "KPIs", secondary: "+ gestão", label: "Decisões melhores" }
-      ];
-      const primary = mobileOrbitWidget.querySelector(".mobile-engine-center strong");
-      const secondary = mobileOrbitWidget.querySelector(".mobile-engine-center small");
-      const label = mobileOrbitWidget.querySelector(".mobile-widget-label");
-      const count = mobileOrbitWidget.querySelector(".mobile-widget-count");
-      let activeSolution = 0;
+    const timeline = document.querySelector(".work-timeline");
+    const timelineList = timeline.querySelector(".timeline-steps");
+    const timelineMarkers = [...timelineList.querySelectorAll(".timeline-marker")];
+    const timelineRoutes = timeline.querySelectorAll(".timeline-route path");
+    const verticalTimeline = matchMedia("(max-width: 900px)");
 
-      mobileOrbitWidget.addEventListener("click", () => {
-        activeSolution = (activeSolution + 1) % mobileSolutions.length;
-        const solution = mobileSolutions[activeSolution];
-        primary.textContent = solution.primary;
-        secondary.textContent = solution.secondary;
-        label.textContent = solution.label;
-        count.textContent = `${String(activeSolution + 1).padStart(2, "0")} / 04`;
-        mobileOrbitWidget.classList.remove("is-changing");
-        void mobileOrbitWidget.offsetWidth;
-        mobileOrbitWidget.classList.add("is-changing");
+    function positionTimeline() {
+      const panel = timeline.getBoundingClientRect();
+      const centers = timelineMarkers.map(marker => {
+        const box = marker.getBoundingClientRect();
+        return [box.left + box.width / 2 - panel.left - timeline.clientLeft,
+          box.top + box.height / 2 - panel.top - timeline.clientTop];
       });
+      const vertical = verticalTimeline.matches;
+      let route = `M ${centers[0].join(" ")}`;
+      for (let i = 1; i < centers.length; i++) {
+        const [x0,y0] = centers[i-1];
+        const [x1,y1] = centers[i];
+        const bend = i % 2 ? 22 : -22;
+        const segment = vertical
+          ? `C ${x0+bend} ${y0+(y1-y0)*.32}, ${x1+bend} ${y1-(y1-y0)*.32}, ${x1} ${y1}`
+          : `C ${x0+(x1-x0)*.46} ${y0}, ${x1-(x1-x0)*.46} ${y1}, ${x1} ${y1}`;
+        route += ` ${segment}`;
+      }
+      timelineRoutes.forEach(path => path.setAttribute("d", route));
     }
 
-    if (heroShowcase && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      heroShowcase.addEventListener("pointermove", (event) => {
-        const rect = heroShowcase.getBoundingClientRect();
-        const x = (event.clientX - rect.left) / rect.width - 0.5;
-        const y = (event.clientY - rect.top) / rect.height - 0.5;
-        heroShowcase.style.transform = `perspective(1100px) rotateX(${y * -6}deg) rotateY(${x * 7}deg)`;
-      });
+    positionTimeline();
+    new ResizeObserver(positionTimeline).observe(timelineList);
+    verticalTimeline.addEventListener("change", positionTimeline);
+    new IntersectionObserver(([entry]) => {
+      timeline.classList.toggle("is-playing", entry.isIntersecting);
+    }).observe(timeline);
 
-      heroShowcase.addEventListener("pointerleave", () => {
-        heroShowcase.style.transform = "";
-      });
+    const formPause = heroShowcase.querySelector(".form-pause");
+    const formStage = heroShowcase.querySelector(".form-stage");
+    const formCanvas = heroShowcase.querySelector(".form-canvas");
+    const formContext = formCanvas.getContext("2d");
+    const formMotion = matchMedia("(prefers-reduced-motion: reduce)");
+
+    let frame = 0, lastFrame = 0, elapsed = 0;
+    let visible = false, paused = false;
+    let pointerX = 0, pointerY = 0, easedX = 0, easedY = 0;
+    let pointerOnStage = false;
+    let width = 0, height = 0;
+
+    const agendaOutline = [];
+    function agendaLine(x1, y1, x2, y2, color, spacing = .037) {
+      const count = Math.max(1, Math.ceil(Math.hypot(x2 - x1, y2 - y1) / spacing));
+      for (let i = 0; i <= count; i++) {
+        const progress = i / count;
+        agendaOutline.push([x1 + (x2 - x1) * progress, y1 + (y2 - y1) * progress, color]);
+      }
     }
 
-    function closeLightbox() {
-      lightbox.classList.remove("open");
-      lightbox.setAttribute("aria-hidden", "true");
-      lightboxImage.src = "";
-      document.body.classList.remove("menu-open");
+    function agendaRectangle(left, top, right, bottom, radius, color) {
+      agendaLine(left + radius, top, right - radius, top, color);
+      agendaLine(right, top - radius, right, bottom + radius, color);
+      agendaLine(right - radius, bottom, left + radius, bottom, color);
+      agendaLine(left, bottom + radius, left, top - radius, color);
+      const corners = [[right-radius,top-radius,0],[left+radius,top-radius,1],
+        [left+radius,bottom+radius,2],[right-radius,bottom+radius,3]];
+      for (const [x, y, quadrant] of corners) {
+        for (let i = 1; i < 10; i++) {
+          const angle = (quadrant + i / 10) * Math.PI / 2;
+          agendaOutline.push([x + radius * Math.cos(angle), y + radius * Math.sin(angle), color]);
+        }
+      }
     }
 
-    lightboxClose.addEventListener("click", closeLightbox);
-    lightbox.addEventListener("click", (event) => {
-      if (event.target === lightbox) closeLightbox();
+    agendaRectangle(-.77, 1.30, .77, -1.30, .19, "#c9e2ff");
+    agendaRectangle(-.71, 1.24, .71, -1.24, .16, "#6498e2");
+    agendaLine(-.16, 1.12, .16, 1.12, "#a9cbf8", .026);
+    agendaLine(-.19, -1.14, .19, -1.14, "#a9cbf8", .026);
+
+    // The back rim and side walls follow the same rounded silhouette as the screen.
+    const agendaSide = [];
+    const phoneCorners = [[.58,1.11,0],[-.58,1.11,1],[-.58,-1.11,2],[.58,-1.11,3]];
+    for (const [cx, cy, quadrant] of phoneCorners) {
+      for (let i = 0; i <= 9; i++) {
+        const angle = (quadrant + i / 9) * Math.PI / 2;
+        const nx = Math.cos(angle), ny = Math.sin(angle);
+        agendaSide.push([cx + .19 * nx, cy + .19 * ny, nx, ny]);
+      }
+    }
+    for (const sign of [-1, 1]) {
+      for (let i = 1; i < 55; i++) {
+        agendaSide.push([sign * .77, -1.11 + 2.22 * i / 55, sign, 0]);
+      }
+      for (let i = 1; i < 29; i++) {
+        agendaSide.push([-.58 + 1.16 * i / 29, sign * 1.30, 0, sign]);
+      }
+    }
+
+    const phoneRim = agendaSide.map(([x, y]) => [x, y, 0])
+      .sort(([ax, ay], [bx, by]) => Math.atan2(ay, ax) - Math.atan2(by, bx));
+    const phoneLights = lightTrack([...phoneRim, phoneRim[0]]);
+
+    function workflowPath(vertices, color, points) {
+      for (let segment = 1; segment < vertices.length; segment++) {
+        const [x, y, z] = vertices[segment - 1];
+        const [nextX, nextY, nextZ] = vertices[segment];
+        const count = Math.max(1, Math.ceil(Math.hypot(nextX - x, nextY - y, nextZ - z) / .043));
+        for (let i = 0; i <= count; i++) {
+          const t = i / count;
+          points.push([x + (nextX - x) * t, y + (nextY - y) * t, z + (nextZ - z) * t, color]);
+        }
+      }
+    }
+
+    // Sample each face in 3D so its dotted grid follows the existing perspective.
+    function surfaceMesh([a, b, c, d], columns, rows, color, points) {
+      for (let row = 1; row < rows; row++) {
+        const v = row / rows;
+        for (let column = 1; column < columns; column++) {
+          const u = column / columns;
+          const point = a.map((value, axis) => {
+            const top = value + (b[axis] - value) * u;
+            const bottom = d[axis] + (c[axis] - d[axis]) * u;
+            return top + (bottom - top) * v;
+          });
+          points.push([...point, color]);
+        }
+      }
+    }
+
+    function lightTrack(vertices) {
+      const points = [];
+      workflowPath(vertices, null, points);
+      return points;
+    }
+
+    const laptop = [], lead = [], quote = [], inventory = [], database = [], dashboard = [], automation = [];
+    const phone = agendaOutline.map(([x,y,color]) => [x,y,0,color]);
+    surfaceMesh([[-.56,1.08,-.22],[.56,1.08,-.22],[.56,-1.08,-.22],[-.56,-1.08,-.22]],
+      9, 17, "rgba(115, 168, 239, .26)", phone);
+    for (const [x,y] of phoneRim) phone.push([x,y,-.22,"#628abd"], [x,y,-.11,"#42648f"]);
+    workflowPath([[-.41,0,.02],[-.15,-.28,.02],[.42,.34,.02]], "#b8ffe9", phone);
+
+    // Add front and back rims and connect their corners to show thickness.
+    function solidRim(outline, back, front, points) {
+      for (const [depth,color] of [[back,"#628bc2"],[front,"#c9e2ff"]]) {
+        workflowPath(outline.map(([x,y]) => [x,y,depth]),color,points);
+      }
+      for (const [x,y] of outline.slice(0,-1)) {
+        workflowPath([[x,y,back],[x,y,front]],"#7da5d6",points);
+      }
+      return lightTrack(outline.map(([x,y]) => [x,y,front]));
+    }
+
+    const laptopScreen = [[-2.30,.74],[-.38,.74],[-.38,-.46],[-2.30,-.46],[-2.30,.74]];
+    surfaceMesh(laptopScreen.slice(0,4).map(([x,y])=>[x,y,-.13]),15,9,
+      "rgba(106, 155, 218, .28)",laptop);
+    const laptopLights = solidRim(laptopScreen,-.13,0,laptop);
+    workflowPath([[-2.22,.66,.014],[-.46,.66,.014],[-.46,-.38,.014],[-2.22,-.38,.014],[-2.22,.66,.014]],"#608dc6",laptop);
+    workflowPath([[-1.39,.70,.018],[-1.29,.70,.018]],"#c9e2ff",laptop);
+    for (const [left,right] of [[-2.14,-1.86],[-.82,-.54]]) {
+      workflowPath([[left,-.45,-.08],[right,-.45,-.08],[right,-.45,.11]],"#b8d9ff",laptop);
+    }
+    const laptopBase = [[-2.30,-.46,0],[-.38,-.46,0],[-.23,-.60,.92],[-2.45,-.60,.92],[-2.30,-.46,0]];
+    const underside = laptopBase.map(([x,y,z])=>[x,y-.09,z]);
+    surfaceMesh(underside.slice(0,4),14,6,"rgba(120, 166, 225, .24)",laptop);
+    workflowPath(laptopBase,"#b5d7ff",laptop);
+    workflowPath(underside,"#597fad",laptop);
+    for (let i=0;i<4;i++) workflowPath([laptopBase[i],underside[i]],"#779dcc",laptop);
+    function deckPath(outline,color) {
+      workflowPath(outline.map(([x,z])=>[x,-.46-z*.15,z]),color,laptop);
+    }
+    for (const z of [.14,.29,.44]) {
+      for (let column=0;column<9;column++) {
+        const x=-2.14+column*.18;
+        deckPath([[x,z],[x+.12,z],[x+.12,z+.075],[x,z+.075],[x,z]],"#7c9fca");
+      }
+    }
+    deckPath([[-1.68,.65],[-1,.65],[-1,.84],[-1.68,.84],[-1.68,.65]],"#a8c9f6");
+    deckPath([[-1.56,.57],[-1.12,.57]],"#96b8e4");
+    for (const y of [.27,.08,-.11,-.30]) workflowPath([[-2.12,y,.015],[-.56,y,.015]],"#527aa9",laptop);
+    for (const x of [-2.12,-1.808,-1.496,-1.184,-.872,-.56]) workflowPath([[x,.27,.015],[x,-.30,.015]],"#527aa9",laptop);
+
+    const leadRim = [[-1.98,.44],[-.99,.44],[-.99,-.24],[-1.98,-.24],[-1.98,.44]];
+    surfaceMesh(leadRim.slice(0,4).map(([x,y])=>[x,y,-.17]),11,8,"rgba(120, 170, 238, .33)",lead);
+    const leadLights = solidRim(leadRim,-.17,.09,lead);
+    const avatar = Array.from({length:25},(_,i)=>{
+      const angle=i/24*Math.PI*2;
+      return [-1.72+Math.cos(angle)*.115,.11+Math.sin(angle)*.115,.10];
     });
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && lightbox.classList.contains("open")) closeLightbox();
-    });
+    workflowPath(avatar,"#a8cbfa",lead);
+    workflowPath([[-1.50,.18,.10],[-1.13,.18,.10]],"#96bbf1",lead);
+    workflowPath([[-1.50,.02,.10],[-1.23,.02,.10]],"#769bd4",lead);
+
+    const quoteRim = [[-.37,.58],[.16,.58],[.38,.36],[.38,-.37],[-.37,-.37],[-.37,.58]];
+    surfaceMesh([[-.37,.36,-.14],[.38,.36,-.14],[.38,-.37,-.14],[-.37,-.37,-.14]],
+      9,10,"rgba(120, 170, 238, .31)",quote);
+    const quoteLights = solidRim(quoteRim,-.14,.11,quote);
+    workflowPath([[.16,.58,.11],[.16,.36,.11],[.38,.36,.11]],"#b8d7ff",quote);
+    for (const y of [.20,.04,-.12]) workflowPath([[-.23,y,.12],[.21,y,.12]],"#89afe5",quote);
+
+    const boxRim = [[1.06,.34],[1.91,.34],[1.91,-.38],[1.06,-.38],[1.06,.34]];
+    const boxBack = boxRim.map(([x,y])=>[x,y,-.34]);
+    const boxFront = boxRim.map(([x,y])=>[x,y,.32]);
+    surfaceMesh(boxBack.slice(0,4),10,9,"rgba(110, 156, 217, .27)",inventory);
+    for(let i=0;i<4;i++) {
+      surfaceMesh([boxFront[i],boxFront[i+1],boxBack[i+1],boxBack[i]],
+        11,9,"rgba(120, 174, 245, .41)",inventory);
+    }
+    const boxLights = solidRim(boxRim,-.34,.32,inventory);
+    workflowPath([[1.48,.34,-.34],[1.48,.34,.32],[1.48,.13,.32]],"#b8ffe9",inventory);
+    workflowPath([[1.21,-.04,.33],[1.46,-.04,.33],[1.46,-.20,.33],[1.21,-.20,.33],[1.21,-.04,.33]],"#89afe5",inventory);
+
+    const databaseX = -1.67;
+    for(let i=0;i<16;i++) {
+      const angle=i*Math.PI/8;
+      const x=databaseX+Math.cos(angle)*.31, z=Math.sin(angle)*.23;
+      workflowPath([[x,.36,z],[x,-.33,z]],
+        z>0?"rgba(125, 175, 243, .43)":"rgba(108, 150, 211, .21)",database);
+    }
+    for(const y of [.36,.13,-.10,-.33]) {
+      const sweep=y===.36?Math.PI*2:Math.PI;
+      const rim=Array.from({length:37},(_,i)=>{
+        const angle=i/36*sweep;
+        return [databaseX+Math.cos(angle)*.31,y,Math.sin(angle)*.23];
+      });
+      workflowPath(rim,y===.36?"#c9e2ff":"#83aadc",database);
+    }
+    for (const side of [-1,1]) {
+      const x=databaseX+side*.31;
+      workflowPath([[x,.36,0],[x,-.33,0]],"#a0c2f2",database);
+    }
+
+    const dashboardRim = [[.20,.80],[1.95,.80],[1.95,-.56],[.20,-.56],[.20,.80]];
+    surfaceMesh(dashboardRim.slice(0,4).map(([x,y])=>[x,y,-.16]),19,14,
+      "rgba(110, 162, 230, .26)",dashboard);
+    const dashboardLights = solidRim(dashboardRim,-.16,.09,dashboard);
+    const chartBottom = -.38;
+    workflowPath([[.35,.62,.12],[.35,chartBottom,.12],[1.79,chartBottom,.12]],"#7497c5",dashboard);
+    for (const y of [-.13,.12,.37,.62]) {
+      workflowPath([[.35,y,.11],[1.79,y,.11]],"#405c82",dashboard);
+    }
+    const chartTrend = [[.37,-.17],[.59,-.04],[.82,-.12],[1.03,.24],
+      [1.23,.14],[1.45,.43],[1.60,.35],[1.78,.57]];
+    for (let index = 1; index < chartTrend.length; index++) {
+      const [left, start] = chartTrend[index - 1];
+      const [right, end] = chartTrend[index];
+      for (let x = left + .035; x < right; x += .075) {
+        const ceiling = start + (end - start) * (x - left) / (right - left);
+        for (let y = chartBottom + .07; y < ceiling - .04; y += .075) {
+          dashboard.push([x,y,.125,"rgba(112, 207, 207, .38)"]);
+        }
+      }
+    }
+    workflowPath(chartTrend.map(([x,y])=>[x,y,.14]),"#b8ffe9",dashboard);
+
+    const ruleX = -.62;
+    const rule = [[ruleX-.24,.07],[ruleX,.31],[ruleX+.24,.07],[ruleX,-.17],[ruleX-.24,.07]];
+    surfaceMesh(rule.slice(0,4).map(([x,y])=>[x,y,-.12]),7,7,"rgba(130, 179, 244, .37)",automation);
+    const ruleLights = solidRim(rule,-.12,.13,automation);
+
+    function drawTrackLights(ctx, project, points, scale, duration, phase) {
+      const time = formMotion.matches ? 0 : elapsed / duration;
+      const radius = Math.max(5, scale * .095);
+      const position = ((time + phase) % 1) * (points.length - 1);
+      const index = Math.floor(position);
+      const mix = position - index;
+      const [x,y,z] = points[index];
+      const [nextX,nextY,nextZ] = points[index+1];
+      const [px,py] = project(x+(nextX-x)*mix,y+(nextY-y)*mix,z+(nextZ-z)*mix);
+      const glow = ctx.createRadialGradient(px,py,0,px,py,radius);
+      glow.addColorStop(0,"#f0f8ff");
+      glow.addColorStop(.16,"#a5d5ff");
+      glow.addColorStop(.39,"rgba(91, 165, 255, .48)");
+      glow.addColorStop(1,"rgba(70, 128, 255, 0)");
+      ctx.fillStyle = glow;
+      ctx.fillRect(px-radius,py-radius,radius*2,radius*2);
+    }
+
+    const core = [];
+    for (let ring = -3; ring <= 3; ring++) {
+      const y = ring * .14;
+      const radius = Math.sqrt(.59 ** 2 - y ** 2);
+      for (let index = 0; index < 56; index++) {
+        const angle = index * Math.PI / 28;
+        const z = Math.sin(angle) * radius;
+        core.push([Math.cos(angle) * radius, y, z, z < 0 ? "#355881" : "#8fbbf5"]);
+      }
+    }
+    for (let meridian = 0; meridian < 10; meridian++) {
+      const angle = meridian * Math.PI / 5;
+      for (let index = 1; index < 18; index++) {
+        const latitude = (index / 18 - .5) * Math.PI;
+        const radius = .59 * Math.cos(latitude);
+        core.push([radius * Math.cos(angle), .59 * Math.sin(latitude), radius * Math.sin(angle),
+          "rgba(107, 164, 239, .35)"]);
+      }
+    }
+
+    const coreOffsets = new Float32Array(core.length * 2);
+
+    const sceneNodes = [
+      {points: laptop, lights: laptopLights, origin: [-1.34,0,0], at: [-1.64,.81,-.08], size: .59},
+      {points: phone, lights: phoneLights, origin: [0,0,0], at: [-1.58,-.55,.20], size: .29},
+      {points: lead, lights: leadLights, origin: [-1.485,.10,0], at: [1.62,.92,.05], size: .77},
+      {points: quote, lights: quoteLights, origin: [0,.10,0], at: [1.91,.03,-.12], size: .64},
+      {points: inventory, lights: boxLights, origin: [1.485,0,0], at: [1.70,-.86,.10], size: .69},
+      {points: database, origin: [databaseX,0,0], at: [-.88,-1.42,-.12], size: .94},
+      {points: dashboard, lights: dashboardLights, origin: [1.075,.12,0], at: [.66,-1.42,.17], size: .46},
+      {points: automation, lights: ruleLights, origin: [ruleX,.07,0], at: [.05,1.56,.05], size: .90},
+    ];
+    for (const node of sceneNodes) {
+      const [x,y,z] = node.at;
+      node.route = lightTrack([[0,0,0],[x*.59,y*.59,z*.59-.18],node.at]);
+      node.offsets = new Float32Array(node.points.length * 2);
+    }
+
+    const sceneSequence = [[1,true],[7,false],[7,true],[2,false],[2,true],[3,false],
+      [3,true],[4,false],[4,true],[5,false],[5,true],[6,false],[6,true],[0,false]];
+
+    function renderConnectedScene(ctx, delta) {
+      const still = formMotion.matches;
+      const time = still ? 0 : elapsed;
+      const yaw = -.30 + (still ? 0 : easedX * .35 + Math.sin(time / 2300) * .17);
+      const pitch = .15 + (still ? 0 : easedY * .24 + Math.sin(time / 2800) * .09);
+      const cosY = Math.cos(yaw), sinY = Math.sin(yaw);
+      const cosX = Math.cos(pitch), sinX = Math.sin(pitch);
+      const scale = Math.min(width * .20, height * .253);
+      const pointSize = Math.max(.62, scale * .008);
+      const cursorX = (pointerX + .5) * width;
+      const cursorY = (pointerY + .5) * height;
+      const repelRadius = Math.max(34, Math.min(62, scale * .52));
+      const offsetBlend = 1 - Math.exp(-delta / (pointerOnStage ? 85 : 145));
+
+      function project(x, y, z) {
+        const depth = z * cosY - x * sinY;
+        const zoom = 8 / (8 - depth * cosX - y * sinX);
+        return [width / 2 + (x * cosY + z * sinY) * scale * zoom,
+          height / 2 - (y * cosX - depth * sinX) * scale * zoom];
+      }
+
+      function dot(x, y, z, color, radius = pointSize) {
+        paintDot(...project(x,y,z),color,radius);
+      }
+
+      function paintDot(px, py, color, radius = pointSize) {
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.arc(px,py,radius,0,Math.PI*2);
+        ctx.fill();
+      }
+
+      function paintInteractiveDot(px, py, color, offsets, pointIndex) {
+        const offset = pointIndex * 2;
+        let targetX = 0, targetY = 0;
+        if (!still && pointerOnStage) {
+          const dx = px - cursorX, dy = py - cursorY;
+          const distance = Math.hypot(dx,dy);
+          if (distance > 0 && distance < repelRadius) {
+            const strength = (1 - distance / repelRadius) ** 2 * repelRadius * .58 / distance;
+            targetX = dx * strength;
+            targetY = dy * strength;
+          }
+        }
+        if (still) {
+          paintDot(px,py,color);
+          return;
+        }
+        offsets[offset] += (targetX - offsets[offset]) * offsetBlend;
+        offsets[offset + 1] += (targetY - offsets[offset + 1]) * offsetBlend;
+        const offsetX = offsets[offset], offsetY = offsets[offset + 1];
+        const x = px + offsetX, y = py + offsetY;
+        paintDot(x,y,color);
+        const highlight = Math.min(1, Math.hypot(offsetX,offsetY) / 6);
+        if (highlight > .025) {
+          ctx.globalAlpha = highlight;
+          paintDot(x,y,"#73ffd0");
+          ctx.globalAlpha = 1;
+        }
+      }
+
+      const step = (time / 680) % sceneSequence.length;
+      const [active, inward] = sceneSequence[Math.floor(step)];
+      const progress = step % 1;
+      sceneNodes.forEach((node,index) => {
+        const target = (inward ? 1 - progress : progress) * (node.route.length - 1);
+        node.route.forEach(([x,y,z], position) => {
+          const lit = !still && index === active && Math.abs(position - target) < 3;
+          dot(x,y,z,lit ? "#b8ffe9" : "#426591",lit ? pointSize * 1.65 : pointSize * .7);
+        });
+      });
+      core.forEach(([x,y,z,color], pointIndex) => {
+        paintInteractiveDot(...project(x,y,z),color,coreOffsets,pointIndex);
+      });
+      for (const [index,node] of sceneNodes.entries()) {
+        const [ox,oy,oz] = node.origin;
+        const [nx,ny,nz] = node.at;
+        const place = (x,y,z) => [nx+(x-ox)*node.size,ny+(y-oy)*node.size,nz+(z-oz)*node.size];
+        node.points.forEach(([x,y,z,color], pointIndex) => {
+          paintInteractiveDot(...project(...place(x,y,z)),color,node.offsets,pointIndex);
+        });
+        if (node.lights) {
+          drawTrackLights(ctx,(x,y,z) => project(...place(x,y,z)),node.lights,
+            scale * .70,3200 + index * 250,index * .11);
+        }
+      }
+    }
+
+    function drawFormSpace(ctx) {
+      const motion = formMotion.matches ? 0 : 1;
+      const cx = width / 2 + easedX * 5 * motion;
+      const cy = height / 2 + easedY * 4 * motion;
+      const radius = Math.min(width * .39, height * .43);
+
+      ctx.save();
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = "rgba(96, 149, 224, .20)";
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius, .10, Math.PI * 2 - .14);
+      ctx.stroke();
+
+      ctx.beginPath();
+      for (let index = 0; index < 60; index++) {
+        const angle = index * Math.PI / 30;
+        const inner = radius - (index % 5 === 0 ? 7 : 3);
+        const x = Math.cos(angle);
+        const y = Math.sin(angle);
+        ctx.moveTo(cx + x * inner, cy + y * inner);
+        ctx.lineTo(cx + x * radius, cy + y * radius);
+      }
+      ctx.stroke();
+
+      const drift = Math.sin(elapsed / 2700) * .05 * motion;
+      ctx.strokeStyle = "rgba(103, 156, 230, .16)";
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, width * .45, radius * .36, -.29 + drift, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.strokeStyle = "rgba(103, 156, 230, .10)";
+      ctx.setLineDash([2, 5]);
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, radius * .85, radius * .68, .27 - drift, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function renderForm(delta = 0) {
+      if (!formContext || !width || !height) return;
+      formContext.clearRect(0, 0, width, height);
+      drawFormSpace(formContext);
+      renderConnectedScene(formContext, delta);
+    }
+
+    function tickForm(now) {
+      const delta = lastFrame ? Math.min(now - lastFrame, 40) : 16;
+      lastFrame = now;
+      elapsed += delta;
+      const blend = 1 - Math.exp(-delta / 125);
+      easedX += (pointerX - easedX) * blend;
+      easedY += (pointerY - easedY) * blend;
+      renderForm(delta);
+      frame = requestAnimationFrame(tickForm);
+    }
+
+    function syncFormMotion() {
+      cancelAnimationFrame(frame);
+      frame = lastFrame = 0;
+      formPause.hidden = !formContext || formMotion.matches;
+      if (formContext && visible && !paused && !formMotion.matches && !document.hidden) {
+        frame = requestAnimationFrame(tickForm);
+      } else {
+        renderForm();
+      }
+    }
+
+    if (formContext) {
+      new ResizeObserver(() => {
+        width = formCanvas.clientWidth;
+        height = formCanvas.clientHeight;
+        const ratio = Math.min(window.devicePixelRatio || 1, 2);
+        formCanvas.width = Math.round(width * ratio);
+        formCanvas.height = Math.round(height * ratio);
+        formContext.setTransform(ratio, 0, 0, ratio, 0, 0);
+        renderForm();
+      }).observe(formStage);
+
+      new IntersectionObserver(([entry]) => {
+        visible = entry.isIntersecting;
+        syncFormMotion();
+      }).observe(formStage);
+
+      formStage.addEventListener("pointermove", event => {
+        if (event.pointerType !== "mouse") return;
+        const rect = formStage.getBoundingClientRect();
+        pointerOnStage = true;
+        pointerX = (event.clientX - rect.left) / rect.width - .5;
+        pointerY = (event.clientY - rect.top) / rect.height - .5;
+      });
+      formStage.addEventListener("pointerleave", () => {
+        pointerOnStage = false;
+        pointerX = pointerY = 0;
+      });
+      formPause.addEventListener("click", () => {
+        paused = !paused;
+        formPause.textContent = paused ? "▶" : "Ⅱ";
+        formPause.setAttribute("aria-label", paused ? "Retomar animação" : "Pausar animação");
+        syncFormMotion();
+      });
+      formMotion.addEventListener("change", syncFormMotion);
+      document.addEventListener("visibilitychange", syncFormMotion);
+    }
+
+    function enableTextParticles(heroTitle, soft = false) {
+      const titleCanvas = document.createElement("canvas");
+      const titleContext = titleCanvas.getContext("2d");
+      const glyphContext = document.createElement("canvas").getContext("2d", {willReadFrequently: true});
+      if (!titleContext || !glyphContext) return;
+      const titlePadding = soft ? 22 : 45;
+      const dotSize = soft ? 1.35 : 2;
+      const titleBursts = new Map();
+      const glyphSamples = new Map();
+      let titleLetters, titleFrame = 0;
+      titleCanvas.className = "hero-title-particles";
+      titleCanvas.hidden = true;
+      titleCanvas.setAttribute("aria-hidden", "true");
+      titleCanvas.style.inset = `-${titlePadding}px auto auto -${titlePadding}px`;
+
+      function prepareTitleLetters() {
+        if (heroTitle.matches("h1, h2")) heroTitle.setAttribute("aria-label", heroTitle.textContent.replace(/\s+/g," ").trim());
+        titleLetters = [];
+        for (const parent of [heroTitle, ...heroTitle.querySelectorAll(".gradient-text, .reference-accent")]) {
+          for (const node of [...parent.childNodes]) {
+            if (node.nodeType !== Node.TEXT_NODE) continue;
+            const fragment = document.createDocumentFragment();
+            for (const char of node.textContent) {
+              if (/\s/u.test(char)) {
+                fragment.append(char);
+                continue;
+              }
+              const letter = document.createElement("span");
+              letter.textContent = char;
+              titleLetters.push(letter);
+              fragment.append(letter);
+            }
+            node.replaceWith(fragment);
+          }
+        }
+        heroTitle.append(titleCanvas);
+      }
+
+      function sampleTitleGlyph(char, font, width, height) {
+        const key = `${font}|${char}|${width}|${height}`;
+        if (glyphSamples.has(key)) return glyphSamples.get(key);
+        const pad = 5;
+        const canvas = glyphContext.canvas;
+        canvas.width = width + pad * 2;
+        canvas.height = height + pad * 2;
+        glyphContext.font = font;
+        glyphContext.textAlign = "center";
+        const metrics = glyphContext.measureText(char);
+        const baseline = height / 2 + (metrics.fontBoundingBoxAscent - metrics.fontBoundingBoxDescent) / 2;
+        glyphContext.fillText(char, pad + width / 2, pad + baseline);
+        const {data} = glyphContext.getImageData(0,0,canvas.width,canvas.height);
+        const points = [];
+        const spacing = soft ? 2 : height > 64 ? 4 : 3;
+        for (let y = 1; y < canvas.height; y += spacing) {
+          for (let x = 1; x < canvas.width; x += spacing) {
+            if (data[(y * canvas.width + x) * 4 + 3] > 105) points.push([x-pad,y-pad]);
+          }
+        }
+        glyphSamples.set(key, points);
+        return points;
+      }
+
+      function resetTitleBursts() {
+        cancelAnimationFrame(titleFrame);
+        titleFrame = 0;
+        for (const letter of titleBursts.keys()) letter.classList.remove("hero-title-dispersed");
+        titleBursts.clear();
+        titleCanvas.hidden = true;
+        titleContext.clearRect(0,0,titleCanvas.width,titleCanvas.height);
+      }
+
+      function animateTitle(now) {
+        titleContext.clearRect(0,0,titleCanvas.width,titleCanvas.height);
+        titleContext.fillStyle = "#73ffd0";
+        for (const [letter, burst] of titleBursts) {
+          const age = (now - burst.start) / (soft ? 630 : 810);
+          if (age >= 1) {
+            letter.classList.remove("hero-title-dispersed");
+            titleBursts.delete(letter);
+            continue;
+          }
+          const travel = Math.sin(Math.PI * Math.max(0,age)) ** 1.25;
+          titleContext.globalAlpha = Math.min(1, (1-age) * 3.4);
+          for (const [x,y,dx,dy] of burst.points) {
+            titleContext.fillRect(x + dx * travel,y + dy * travel,dotSize,dotSize);
+          }
+        }
+        titleContext.globalAlpha = 1;
+        titleCanvas.hidden = !titleBursts.size;
+        titleFrame = titleBursts.size ? requestAnimationFrame(animateTitle) : 0;
+      }
+
+      heroTitle.addEventListener("pointermove", event => {
+        if (event.pointerType !== "mouse" || formMotion.matches) return;
+        if (!titleLetters) prepareTitleLetters();
+        const bounds = heroTitle.getBoundingClientRect();
+        if (!titleBursts.size) {
+          titleCanvas.width = Math.ceil(bounds.width) + titlePadding * 2;
+          titleCanvas.height = Math.ceil(bounds.height) + titlePadding * 2;
+        }
+        const style = getComputedStyle(heroTitle);
+        const font = `${style.fontStyle} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+        const uppercase = style.textTransform === "uppercase";
+        const cursorX = event.clientX, cursorY = event.clientY;
+        const start = performance.now();
+        for (const letter of titleLetters) {
+          if (titleBursts.has(letter)) continue;
+          const box = letter.getBoundingClientRect();
+          const xGap = Math.max(box.left-cursorX, cursorX-box.right, 0);
+          const yGap = Math.max(box.top-cursorY, cursorY-box.bottom, 0);
+          if (Math.hypot(xGap,yGap) > (soft ? 5 : 14)) continue;
+          const samples = sampleTitleGlyph(uppercase ? letter.textContent.toUpperCase() : letter.textContent,font,Math.ceil(box.width),Math.ceil(box.height));
+          if (!samples.length) continue;
+          const points = samples.map(([x,y], index) => {
+            const dx = box.left + x - cursorX;
+            const dy = box.top + y - cursorY;
+            const length = Math.max(7,Math.hypot(dx,dy));
+            const distance = soft ? 6 + index % 5 : 19 + index % 13;
+            const scatter = soft ? 2 : 8;
+            return [box.left-bounds.left+x+titlePadding, box.top-bounds.top+y+titlePadding,
+              dx/length*distance + Math.sin(index*2.4)*scatter, dy/length*distance + Math.cos(index*2.4)*scatter];
+          });
+          titleBursts.set(letter,{start,points});
+          letter.classList.add("hero-title-dispersed");
+        }
+        if (!titleFrame && titleBursts.size) {
+          titleCanvas.hidden = false;
+          titleFrame = requestAnimationFrame(animateTitle);
+        }
+      });
+      window.addEventListener("resize",resetTitleBursts);
+      formMotion.addEventListener("change",resetTitleBursts);
+    }
+
+    for (const heading of document.querySelectorAll(".hero h1, main section h2")) enableTextParticles(heading);
+    for (const text of document.querySelectorAll(".hero .hero-copy, .hero-eyebrow-text, .form-caption, .section-head .section-kicker, #contato .section-kicker, #contato .section-text")) {
+      enableTextParticles(text, true);
+    }
 
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -2344,6 +2928,147 @@
     }, { rootMargin: "-38% 0px -58% 0px" });
 
     sections.forEach((section) => activeObserver.observe(section));
+    function initNetworkBackground() {
+      const canvas = document.querySelector(".network-background");
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+
+      const motion = matchMedia("(prefers-reduced-motion: reduce)");
+      let nodes = [], width = 0, height = 0, frame = 0, last = 0;
+      let pointer = null;
+
+      function draw(now = 0) {
+        const delta = last && now ? Math.min((now - last) / 16.67, 2) : 0;
+        last = now;
+        ctx.clearRect(0, 0, width, height);
+        for (const node of nodes) {
+          node.x += node.vx * delta;
+          node.y += node.vy * delta;
+          if (node.x < 0 || node.x > width) {
+            node.x = Math.max(0, Math.min(width, node.x));
+            node.vx *= -1;
+          }
+          if (node.y < 0 || node.y > height) {
+            node.y = Math.max(0, Math.min(height, node.y));
+            node.vy *= -1;
+          }
+          node.px = node.x;
+          node.py = node.y;
+          if (pointer) {
+            const dx = node.x - pointer.x, dy = node.y - pointer.y;
+            const distance = Math.hypot(dx, dy);
+            if (distance > 0 && distance < 38) {
+              node.px = pointer.x + dx * 38 / distance;
+              node.py = pointer.y + dy * 38 / distance;
+            }
+          }
+        }
+
+        const reach = width < 600 ? 66 : 112;
+        const reachSquared = reach * reach;
+        ctx.lineWidth = .65;
+        for (let i = 0; i < nodes.length; i++) {
+          const a = nodes[i];
+          for (let j = i + 1; j < nodes.length; j++) {
+            const b = nodes[j];
+            const dx = b.px - a.px, dy = b.py - a.py;
+            const distanceSquared = dx * dx + dy * dy;
+            if (!distanceSquared || distanceSquared > reachSquared) continue;
+            if (pointer) {
+              const along = Math.max(0, Math.min(1, ((pointer.x - a.px) * dx + (pointer.y - a.py) * dy) / distanceSquared));
+              if (Math.hypot(a.px + along * dx - pointer.x, a.py + along * dy - pointer.y) < 35) continue;
+            }
+            ctx.strokeStyle = "#91b9fb";
+            ctx.globalAlpha = .24 * (1 - Math.sqrt(distanceSquared) / reach);
+            ctx.beginPath();
+            ctx.moveTo(a.px, a.py);
+            ctx.lineTo(b.px, b.py);
+            ctx.stroke();
+          }
+        }
+
+        ctx.fillStyle = "#b6d4ff";
+        ctx.globalAlpha = .48;
+        for (const node of nodes) {
+          ctx.beginPath();
+          ctx.arc(node.px, node.py, node.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+      }
+
+      function tick(now) {
+        draw(now);
+        frame = requestAnimationFrame(tick);
+      }
+
+      function sync() {
+        cancelAnimationFrame(frame);
+        last = 0;
+        if (!motion.matches && !document.hidden) frame = requestAnimationFrame(tick);
+        else draw();
+      }
+
+      function resize() {
+        width = canvas.clientWidth;
+        height = canvas.clientHeight;
+        const ratio = Math.min(devicePixelRatio || 1, 1.5);
+        canvas.width = Math.round(width * ratio);
+        canvas.height = Math.round(height * ratio);
+        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+        const count = Math.min(170, Math.max(30, Math.round(width * height / 7200)));
+        nodes = Array.from({length: count}, () => ({
+          x: Math.random() * width, y: Math.random() * height,
+          vx: (Math.random() - .5) * .7, vy: (Math.random() - .5) * .7,
+          size: .65 + Math.random() * 1.1,
+        }));
+        draw();
+      }
+
+      window.addEventListener("resize", resize);
+      window.addEventListener("pointermove", event => {
+        if (event.pointerType === "mouse" && !motion.matches) pointer = {x: event.clientX, y: event.clientY};
+      }, {passive: true});
+      document.documentElement.addEventListener("pointerleave", () => { pointer = null; });
+      motion.addEventListener("change", () => { pointer = null; sync(); });
+      document.addEventListener("visibilitychange", sync);
+      resize();
+      sync();
+    }
+
+    initNetworkBackground();
+  </script>
+  <dialog class="erp-viewer" aria-labelledby="erp-viewer-title">
+    <header class="erp-viewer-header">
+      <h2 id="erp-viewer-title">Tela do ERP</h2>
+      <form method="dialog"><button class="erp-viewer-close" aria-label="Fechar visualização" autofocus>×</button></form>
+    </header>
+    <img alt="">
+  </dialog>
+  <script>
+    (() => {
+      const gallery = document.querySelector("#projectsGrid");
+      const viewer = document.querySelector(".erp-viewer");
+      const image = viewer.querySelector("img");
+      const title = viewer.querySelector("h2");
+
+      gallery.addEventListener("click", event => {
+        const trigger = event.target.closest(".erp-card button, .project-shot");
+        if (!trigger) return;
+        if (trigger.matches("a") && (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey)) return;
+        event.preventDefault();
+        const thumbnail = trigger.querySelector("img");
+        const label = trigger.matches("a") ? trigger.closest(".project-card").querySelector("h3") : trigger.querySelector("span");
+        title.textContent = label.textContent;
+        image.src = trigger.matches("a") ? trigger.href : thumbnail.src;
+        image.alt = thumbnail.alt || "Captura da tela " + title.textContent;
+        viewer.showModal();
+      });
+
+      viewer.addEventListener("click", event => {
+        if (event.target === viewer) viewer.close();
+      });
+    })();
   </script>
 </body>
 </html>
